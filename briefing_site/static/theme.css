@@ -8,6 +8,8 @@
   --muted2: rgba(233, 238, 243, 0.56);
   --link: #8fd3ff;
   --accent: #ff3b7c;
+  --accent2: #b255ff;
+  --accent3: #ff4fd8;
   --border: rgba(233, 238, 243, 0.12);
 
   --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
@@ -24,6 +26,8 @@
   --muted2: rgba(17, 24, 39, 0.56);
   --link: #0b66c3;
   --accent: #ff3b7c;
+  --accent2: #7c3aed;
+  --accent3: #db2777;
   --border: rgba(17, 24, 39, 0.12);
 }
 
@@ -38,7 +42,15 @@ html, body {
 }
 
 a { color: var(--link); text-decoration: none; }
-a:hover { text-decoration: underline; }
+a:hover {
+  text-decoration: none;
+  color: color-mix(in srgb, var(--link) 55%, var(--accent3));
+}
+
+::selection {
+  background: color-mix(in srgb, var(--accent3) 55%, transparent);
+  color: var(--text);
+}
 
 .header {
   position: sticky;
@@ -93,7 +105,22 @@ a:hover { text-decoration: underline; }
   cursor: pointer;
 }
 
-.btn:hover { border-color: color-mix(in srgb, var(--border) 60%, var(--text)); }
+.btn:hover {
+  border-color: color-mix(in srgb, var(--border) 35%, var(--accent2));
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 18%, transparent);
+}
+
+/* Primary accent button style */
+.btn.accent {
+  border: 0;
+  background: linear-gradient(135deg, var(--accent3) 0%, var(--accent2) 55%, var(--accent) 100%);
+  color: white;
+}
+
+.btn.accent:hover {
+  filter: brightness(1.05);
+  box-shadow: 0 10px 30px rgba(255, 59, 124, 0.18), 0 10px 30px rgba(178, 85, 255, 0.16);
+}
 
 .main {
   max-width: var(--maxw);
