@@ -1,0 +1,350 @@
+Morning briefing — Mon Feb 9, 2026 (ET)
+
+Hacker News — Top 5
+- Thoughts on Generating C (wingolog.org)
+  Score: 44 | Comments: 1
+  Link: https://wingolog.org/archives/2026/02/09/six-thoughts-on-generating-c
+  HN: https://news.ycombinator.com/item?id=46945235
+  Top comments (Firebase fallback):
+    - rirze: Love how he put a paragraph for someone asking, "why not generate Rust?". Beautiful.
+      https://news.ycombinator.com/item?id=46945932
+  Article summary:
+    The author (a compiler engineer) shares practical patterns for compilers that emit C as a target language. The main theme: use C in a way that keeps semantics explicit and lets the C compiler erase abstraction costs (e.g., `static inline` + `always_inline` helpers for accessors and conversions).
+
+    Key tips include avoiding implicit integer conversions (turn on `-Wconversion` and funnel casts through typed helpers), wrapping raw pointers/integers in single-field structs to encode intent and prevent category mistakes, and not being afraid of `memcpy` for unaligned loads/stores. For tricky ABIs/tail calls and many-arg functions, the suggestion is to do some manual register allocation (e.g., spill “extra” args/returns into globals) rather than betting on the compiler.
+
+    The post closes with why generating C is a sweet spot (mature codegen + linking + inlining) and what you give up (stack control, precise stack scanning, zero-cost exception side tables, source-level debugging). It also addresses “why not Rust?”: lifetimes are largely a frontend problem, and Rust’s tail-call/toolchain story can be a wash for generated code.
+
+- UEFI Bindings for JavaScript (codeberg.org)
+  Score: 38 | Comments: 18
+  Link: https://codeberg.org/smnx/promethee
+  HN: https://news.ycombinator.com/item?id=46945348
+  Top comments (Firebase fallback):
+    - faxmeyourcode: Love this. An example of complete and total dominion over the machine. Great quote here too lol> Prometheus stole fire from the gods and gave it to man. For this he was chained to a rock and tortured for eternity.
+      https://news.ycombinator.com/item?id=46945942
+    - catapart: Can someone break this down for me? Looks like it's using... C? to load a js interpreter which bootstraps an API around all UEFI features? Do I have that right?And, if so, does that mean that once the API has been bootstrapped, one could actually wr…
+      https://news.ycombinator.com/item?id=46945901
+    - my_throwaway23: I presume you'll add the network stack next, so that I can use my favourite, most useful packages? import isOdd from "https://unpkg.com/is-odd";
+      https://news.ycombinator.com/item?id=46945896
+  Article summary:
+    Promethee is a tiny UEFI environment that lets you write boot-time logic in JavaScript. On boot, it loads `script.js` from the boot volume and executes it—your JS becomes the bootloader.
+
+    It exposes UEFI services (e.g., GOP graphics) as JS bindings, so anything you can do via UEFI protocols can, in principle, be scripted. The repo includes a quick-start to build and run in QEMU and shows small examples like drawing to the framebuffer.
+
+    The practical takeaway: it’s a playful “dominance over the machine” project—useful for experimentation, demos, and learning UEFI/boot internals via a friendlier language than C, with the obvious caveat that you’re still constrained by UEFI’s world (drivers/protocols you have available at boot).
+
+- Can Ozempic Cure Addiction? (www.newyorker.com)
+  Score: 24 | Comments: 32
+  Link: https://www.newyorker.com/magazine/2026/02/16/can-ozempic-cure-addiction
+  HN: https://news.ycombinator.com/item?id=46945448
+  Top comments (Firebase fallback):
+    - eknkc: I've been on Mounjaro for 4 months now. You normally start with an initial lower dose and increase the dose after a month. I lost 5 kg (~11 lbs) on the initial dose in the first month, and when I increased the dose, I also stopped smoking.I've been…
+      https://news.ycombinator.com/item?id=46945870
+    - cj: I was a daily drinker for many years. A "1 or 2 cocktails in the evening" type of person. (And of course, 1 cocktail often meant 2 shots, so 2 cocktails = 4 shots a night.. looking back... yikes)I started a GLP-1 in February of 2025. Lost a bunch of…
+      https://news.ycombinator.com/item?id=46945734
+    - dynm: I'm surprised that this article doesn't appear to mention the RCT on semaglutide and alcohol use disorder by Hendershot et al. that was published in JAMA Psychiatry in early 2025 (though it's possible I missed it) https://doi.org/10.1001/jamapsychia…
+      https://news.ycombinator.com/item?id=46945845
+  Article summary:
+    A New Yorker feature on growing evidence that GLP‑1 drugs (e.g., semaglutide/Ozempic) may reduce cravings beyond food—potentially affecting alcohol, nicotine, opioids, and other addictions. It opens with a case study of a long-time heavy drinker in a blinded semaglutide trial who describes “alcohol noise” disappearing, enabling broader life changes.
+
+    Researchers frame addiction partly as reward-circuit salience and craving signatures in the brain; GLP‑1 receptors are present in key reward regions, and prolonged receptor activation from these meds may dampen cue-reactivity. Observational studies and early trials suggest meaningful reductions in harmful use or overdose risk, motivating broader clinical testing.
+
+    The article also stresses tradeoffs: some participants experience profound appetite suppression, nausea, and rapid weight loss, which can be distressing or medically risky. The optimistic view is that GLP‑1s could offer a private, at-home medication option for addiction, potentially pointing to more universal mechanisms across substance and behavioral addictions.
+
+- Show HN: Algorithmically Finding the Longest Line of Sight on Earth (https://alltheviews.world)
+  Score: 188 | Comments: 70
+  Link: https://alltheviews.world
+  HN: https://news.ycombinator.com/item?id=46943568
+  HN post text:
+    We're Tom and Ryan and we teamed up to build an algorithm with Rust and SIMD to exhaustively search for the longest line of sight on the planet. We can confirm that a previously speculated view between Pik Dankova in Kyrgyzstan and the Hindu Kush in China is indeed the longest, at 530km.We go into all the details at https://alltheviews.worldAnd there's an interactive map with over 1 billion longest lines, covering the whole world at https://map.alltheviews.world Just click on any point and it'll load its longest line of sight.Some of you may remember Tom's post[1] from a few months ago about how to efficiently pack visibility tiles for computing the entire planet. Well now it's done. The compute run itself took 100s of AMD Turin cores, 100s of GBs of RAM, a few TBs of disk and 2 days of constant runtime on multiple machines.If you are interested in the technical details, Ryan and I have written extensively about the algorithm and pipeline that got us here:* Tom's blog post: https://tombh.co.uk/longest-line-of-sight* Ryan's technical breakdown: https://ryan.berge.rs/posts/total-viewshed-algorithmThis was a labor of love and we hope it inspires you both technically and naturally, to get you out seeing some of these vast views for yourselves!1. https://news.ycombinator.com/item?id=45485227
+  Top comments (Firebase fallback):
+    - mrb: Hi Tom it's Marc, I'm glad to see you finished your sightline project ! Any clue why you report the longest sightline as "530.8 km" when it seems to be actually 538.1 km? That's what my code calculated (https://news.ycombinator.com/item?id=45512970)…
+      https://news.ycombinator.com/item?id=46945308
+    - rob74: Cool project! Unfortunately our planet has this pesky (but very useful!) thing called atmosphere, which makes all these extra-long lines of sight only theoretical, I guess? Ok, the longest line of sight is mostly over the Taklamakan desert, so proba…
+      https://news.ycombinator.com/item?id=46944129
+    - brucehoult: I tried the summit of Mt Ruapehu here in NZ and got 358.8 km to Mt Owen. Not bad as I was expecting Tapuae-o-Uenuku which is a little shorter at 342 km.One advantage in NZ is that on a nice day you actually have a good chance of seeing it.Oh ... cli…
+      https://news.ycombinator.com/item?id=46944255
+  Article summary:
+    Two builders report an exhaustive, planet-scale computation of the longest line of sight on Earth. Using a custom Rust + SIMD pipeline and precomputed visibility tiles, they claim to confirm the oft-speculated record view: roughly 530 km from the Hindu Kush to Pik Dankova (Kyrgyzstan/China region).
+
+    They publish both a narrative explanation and an interactive map with billions of “longest lines” you can click through. The compute run is described as substantial (hundreds of cores, hundreds of GB RAM, TBs of disk) over multiple machines for ~2 days.
+
+    Beyond the headline number, the interesting part is the method/pipeline for doing global viewshed-style queries at massive scale, and the productized result: a browsable atlas of extreme sightlines rather than a one-off calculation.
+
+- Show HN: Browse Internet Infrastructure (https://www.wirewiki.com)
+  Score: 72 | Comments: 15
+  Link: https://www.wirewiki.com
+  HN: https://news.ycombinator.com/item?id=46944555
+  HN post text:
+    I'm launching Wirewiki.com today!Wirewiki makes the internet’s hidden infrastructure browsable.I quit my job 5 years ago to scale Nslookup.io. But after reaching 600k monthly users, I hit a ceiling. I couldn't naturally expand beyond DNS because of the domain name.So I went back to the drawing board: how would I make it today? Not as a collection of tools, but as a browsable graph.I've spent hundreds of hours and commits building that. It's not even at 10% of what I want it to be, but more than enough to be useful, and (in my biased opinion) much better than what's out there.Wirewiki launches with DNS lookup, propagation, zone transfer and SPF checking. It also scans the entire IPv4 space for DNS servers and indexes them.
+I'm working on adding more data and tools.I feel like I've developed tunnel vision, so if you see anything that feels off, let me know!I'll keep Wirewiki open and free. Once it has a substantial amount of users, I'll open it up to sponsorship / brand integration from hosting providers, registrars and CDNs, as users will likely be in the market for those. But my goal is to keep Wirewiki free from display ads. I'm confident that's viable.
+  Top comments (Firebase fallback):
+    - maltalex: Nice website, but I feel like calling it "wire wiki" is quite ambitious. Currently, it's a (beautiful) DNS lookup tool, but that's about it. I expected something like RIPE Stat [0], or something like the undersea cable map [1] (based on the "wire" i…
+      https://news.ycombinator.com/item?id=46945589
+    - thestackfox: Nicely done. I poke at DNS a bit over at StackFox (https://stackfox.co/site/wirewiki.com), and anyone who’s spent time looking at DNS knows how much work goes into this.A couple thoughts:1) Nameserver “redundancy” that isn’t. All the ns1/ns2 setups…
+      https://news.ycombinator.com/item?id=46945701
+    - AndyMcConachie: Great site. If you don't mind I have feature requests, but feel free to ignore them because OSS is OSS and you shouldn't feel obligated.1) Include a link to dnsviz.net to check on the DNSSEC status of domains. They've already done all the work and i…
+      https://news.ycombinator.com/item?id=46945205
+  Article summary:
+    Wirewiki is a new “browse the internet’s infrastructure” site: instead of isolated lookup tools, it aims to make DNS/IP-related data feel like a navigable graph. The launch includes DNS lookup + propagation checking + zone-transfer checks + SPF tooling, plus an index of discovered DNS servers from scanning the IPv4 space.
+
+    The creator’s backstory: they previously built Nslookup.io (hit product/brand constraints) and rebuilt from scratch with a broader concept and UX. The stated ambition is to keep it free and expand coverage and tools over time.
+
+    Near-term value: a nicely-packaged entry point for exploring domain/DNS relationships quickly; long-term value depends on how much richer the graph becomes (e.g., ASN/provider mapping, hosting/CDN ties, change history, security posture), which commenters also nudge toward.
+
+Reddit — top topics (RSS)
+- r/Biohackers:
+  - Notice on Epstein Related Posts
+    Link: https://www.reddit.com/r/Biohackers/comments/1qtwb40/notice_on_epstein_related_posts/
+    Author: /u/aldus-auden-odess
+    Post text:
+      Hey all! For the sake of staying on topic, we are temporarily pausing new posts discussing health influencers such as Peter Attia and Bryan Johnson being in the Epstein files pending significant updates.
+      There are a number of posts members have already made that you can engage with.
+      We’re glad the community is discussing this important topic.
+      We just feel we don’t need more posts all saying the same thing.
+      If people feel otherwise though, let me know below!
+      submitted by /u/aldus-auden-odess 
+ [link] [comments]
+    Top comments (from RSS):
+      - /u/aldus-auden-odess: Dr. Attia has responded: https://www.reddit.com/r/Biohackers/s/C6UhMxzc4N
+        https://www.reddit.com/r/Biohackers/comments/1qtwb40/notice_on_epstein_related_posts/o36bdxe/
+      - /u/GarbanzoBenne: Alright, back to trashing Huberman we go. FWIW I agree with pause.
+        https://www.reddit.com/r/Biohackers/comments/1qtwb40/notice_on_epstein_related_posts/o35yduh/
+      - /u/mortalitylost: How else are we going to talk about the benefits of ingesting baby blood without it getting political
+        https://www.reddit.com/r/Biohackers/comments/1qtwb40/notice_on_epstein_related_posts/o390d70/
+  - January Community Update (PLEASE READ)
+    Link: https://www.reddit.com/r/Biohackers/comments/1qffedh/january_community_update_please_read/
+    Author: /u/aldus-auden-odess
+    Post text:
+      Hey r/Biohackers community,
+      Happy New Year! Hope everyone's 2026 is off to a strong start. As we kick off the year, I wanted to share some exciting updates and new initiatives for the community.
+      Over the past month we broke 700k members!
+      Thank you to everyone who's contributed to making this community what it is.
+      New Look for 2026 To celebrate the new year and crossing 700k members, we've given r/Biohackers a visual refresh! Thanks for everyone who gave us feedback.
+      You'll notice updated graphics, colors, and branding elements throughout the sub. We wanted something that feels modern and feels like a good reflection of our community.
+      Updated Visual Design
+      Our First Official AMA: Kayla Barnes - January 22nd I'm excited to announce we're hosting our first official AMA with Kayla Barnes, an expert in female biohacking and longevity! This is happening on January 22nd.
+      Kayla's… (truncated)
+    Top comments (from RSS):
+      - /u/AutoModerator: Welcome to r/Biohackers! A few quick reminders: - Be Respectful: We're here to learn and support each other. Friendly disagreement is welcome, but keep it civil. - Review Our Rules: Please make sure your posts/comments follow our guidelines. - You G…
+        https://www.reddit.com/r/Biohackers/comments/1qffedh/january_community_update_please_read/o044u8j/
+      - : [deleted]
+        https://www.reddit.com/r/Biohackers/comments/1qffedh/january_community_update_please_read/o1mhdlm/
+      - /u/AutoModerator: Apologies /u/ProblemStrong7884, your submission has been automatically removed because your account is too new. Accounts are required to be older than 15 days to combat persistent spammers and trolls in our community. I am a bot, and this action was…
+        https://www.reddit.com/r/Biohackers/comments/1qffedh/january_community_update_please_read/o1mhdo8/
+  - My 1 Year 3 Month Journey With Reta
+    Link: https://www.reddit.com/r/Biohackers/comments/1r034g4/my_1_year_3_month_journey_with_reta/
+    Author: /u/Full-Jump-6260
+    Post text:
+      I started this journey about 1 year and 3 months ago. I began with tirz, then later switched to reta after doing my own research. Today, I can finally say I reached my goal — and I’m honestly really proud of myself.
+      submitted by /u/Full-Jump-6260 
+ [link] [comments]
+    Top comments (from RSS):
+      - /u/AutoModerator: Welcome to r/Biohackers! A few quick reminders: - Be Respectful: We're here to learn and support each other. Friendly disagreement is welcome, but keep it civil. - Review Our Rules: Please make sure your posts/comments follow our guidelines. - You G…
+        https://www.reddit.com/r/Biohackers/comments/1r034g4/my_1_year_3_month_journey_with_reta/o4f9f30/
+      - /u/lulu22ro: can you give some height, weight numbers? just to have an idea what's possible
+        https://www.reddit.com/r/Biohackers/comments/1r034g4/my_1_year_3_month_journey_with_reta/o4feehw/
+      - /u/SweetLittleKytty: Did you see any effects on your period?!
+        https://www.reddit.com/r/Biohackers/comments/1r034g4/my_1_year_3_month_journey_with_reta/o4feh4k/
+
+- r/blueprint_:
+  - Bryan's Updated 2026 Protocol
+    Link: https://www.reddit.com/r/blueprint_/comments/1qm3dk0/bryans_updated_2026_protocol/
+    Author: /u/aldus-auden-odess
+    Post text:
+      “Hi friends,
+      We might be the first generation that doesn't die. To that end, my team and I have spent the last few years building the world's first Don't Die protocol.
+      Some of you don't care about Don't Die, you just want to be hot. That's cool too. It's really the same thing.
+      To make this Don't Die thing understandable, I've made it into a game because humans love games. You'll learn how to flex your biomarkers with friends. You'll be able to share the science with friends on why poor sleep is a terrible idea.
+      Personally, I have kind of taken this whole thing to the extreme. There's the world's fastest person, and the richest, but never before has there been the "Healthiest Person in the World."
+      I've tried to become that person. I am certainly the most biologically measured person ever.
+      Online, people refer to me as "immortal unc." That's what we care about. We are family an… (truncated)
+    Top comments (from RSS):
+      - /u/LabubuAteMySon: After years of depression and actively reducing my chances of a long life, 2026 will be my first year of Don't Die. These resources are so helpful for that. Thank you!
+        https://www.reddit.com/r/blueprint_/comments/1qm3dk0/bryans_updated_2026_protocol/o1iy7pd/
+      - /u/aldus-auden-odess: Believe you in! Also, love the username. 🥰
+        https://www.reddit.com/r/blueprint_/comments/1qm3dk0/bryans_updated_2026_protocol/o1iydm2/
+      - /u/JackGordonManley: Thanks for the update Way less generous with references and information driving decisions than historical. Pity no data provided on interventions and clause (red light therapy as an example)
+        https://www.reddit.com/r/blueprint_/comments/1qm3dk0/bryans_updated_2026_protocol/o1j468v/
+  - Blueprint just raised $60M to bring Bryan's longevity protocol to everyone
+    Link: https://www.reddit.com/r/blueprint_/comments/1oim0kr/blueprint_just_raised_60m_to_bring_bryans/
+    Author: /u/aldus-auden-odess
+    Post text:
+      Hey All!
+      Big news dropped today that I wanted to share with you all: Blueprint just closed a $60 million funding round.
+      TLDR: Bryan Johnson's longevity protocol is about to become accessible to the general public through a comprehensive platform. This could be a pretty significant moment for the biohacking/longevity space.
+      They're building out a full-service platform that includes:
+      Blood testing and biomarker tracking Personalized health protocols Food delivery, GLP-1 access, prescription services At-home testing, toxin screening Skin/hair care products Supplements and nutrition Advanced longevity therapies An AI health companion to tie it all together Basically trying to make Bryan's entire protocol - measurements, therapies, protocols - replicable for everyone at different budget and commitment levels with more personalization.
+      The team:
+      Gyre Renwick (ex-President of Modern… (truncated)
+    Top comments (from RSS):
+      - /u/BurtingOff: I really hope they make an effort to get prices down. Getting their manufacturing in order would be the best way to help as many people as possible, if that’s what Bryan’s goal really is at the end of the day. An Rx platform in combination with test…
+        https://www.reddit.com/r/blueprint_/comments/1oim0kr/blueprint_just_raised_60m_to_bring_bryans/nlwi399/
+      - /u/jimbomillions: Or he’s just trying to build a billion dollar empire I’m just not sure yet
+        https://www.reddit.com/r/blueprint_/comments/1oim0kr/blueprint_just_raised_60m_to_bring_bryans/nmkx5dz/
+      - /u/sassyfrood: I am interested to see where it goes, but it all feels a bit gross to me. The “investor list” includes a bunch of money-hungry people, so it’s hard for me to view this as an altruistic endeavour. I assume it is just another hopeful money grab for mo…
+        https://www.reddit.com/r/blueprint_/comments/1oim0kr/blueprint_just_raised_60m_to_bring_bryans/nlx0fwm/
+  - Under-desk pedal exercisers (mini bikes): worth it?
+    Link: https://www.reddit.com/r/blueprint_/comments/1qzc7nq/underdesk_pedal_exercisers_mini_bikes_worth_it/
+    Author: /u/dan_the_first
+    Post text:
+      Hi everyone,
+      I’m considering getting one of those under-desk pedal exercisers (the small “mini bike” pedals you put under a desk) so I can do light cycling while working.
+      I’m mainly interested in the longevity/health angle: increasing daily movement, improving cardiometabolic health, and reducing sedentary time, without needing to carve out another dedicated workout session.
+      For those who have used one long-term:
+      • Did you actually stick with it, or did it end up collecting dust? • Any noticeable benefits (energy, resting HR, glucose control, triglycerides, endurance, etc.)? • How much do you realistically use it (minutes/day, resistance level)? • Is it better to aim for steady low effort (Zone 1/2-ish) or just gentle movement? • Any issues like knee/hip discomfort, noise, desk ergonomics, or distraction? • Any specific models/features you recommend (stability, resistance, displa… (truncated)
+    Top comments (from RSS):
+      - /u/Apprehensive-Net2927: I work from home and I decided to get a standing desk and walking pad. I truly feel like it’s been a game changer. I use it occasionally while working but a lot while gaming. You just forget you’re walking after a while. When I use an actual treadmi…
+        https://www.reddit.com/r/blueprint_/comments/1qzc7nq/underdesk_pedal_exercisers_mini_bikes_worth_it/o4didyb/
+      - /u/megablockman: 2 cents from experience using a lot of these things: Treadmills work better because it doesn't require any thought to keep moving. You're forced to move and eventually forget that you're walking. Easy to enter flow state and walk for hours. With the…
+        https://www.reddit.com/r/blueprint_/comments/1qzc7nq/underdesk_pedal_exercisers_mini_bikes_worth_it/o4a03it/
+      - /u/dan_the_first: Many thanks for your answer! My issue with the trend mill is space, and price plays a role a little as well, the good ones are not cheap.
+        https://www.reddit.com/r/blueprint_/comments/1qzc7nq/underdesk_pedal_exercisers_mini_bikes_worth_it/o4amw75/
+
+- r/productivity:
+  - New rule: AI generated posts and comments are not allowed
+    Link: https://www.reddit.com/r/productivity/comments/1l74rhl/new_rule_ai_generated_posts_and_comments_are_not/
+    Author: /u/mcagent
+    Post text:
+      Hello!
+      We have a new rule: If we can tell that your post or comment was generated by AI, it will be removed and you may be banned.
+      We want to keep /r/productivity free of AI slop.
+      Please report any AI that you see
+      Thank you!
+      submitted by /u/mcagent 
+ [link] [comments]
+    Top comments (from RSS):
+      - /u/mcagent: Note: we are also looking for new mods to help enforce this rule, send me a DM if you have a bit a mod experience and/or are active in this sub and can help
+        https://www.reddit.com/r/productivity/comments/1l74rhl/new_rule_ai_generated_posts_and_comments_are_not/mwtz06k/
+      - /u/NotATem: Thank you. I was genuinely considering leaving the sub because it was so hard to find anything of substance.
+        https://www.reddit.com/r/productivity/comments/1l74rhl/new_rule_ai_generated_posts_and_comments_are_not/mwtu5gj/
+      - : How I Turned The Productivity Subreddit To AI Slop — Hint: It Was Easier Than You Thought* *it’s a shitty covert app add
+        https://www.reddit.com/r/productivity/comments/1l74rhl/new_rule_ai_generated_posts_and_comments_are_not/mwuy2j9/
+  - REMINDER: Advertising of any kind is NOT allowed on /r/productivity! This includes soliciting, beta-testing requests, surveys, product validation, etc.
+    Link: https://www.reddit.com/r/productivity/comments/1q7t6ip/reminder_advertising_of_any_kind_is_not_allowed/
+    Author: /u/mcagent
+    Post text:
+      This is not the place to advertise.
+      Please report any ads that you see. Thank you!
+      submitted by /u/mcagent 
+ [link] [comments]
+    Top comments (from RSS):
+      - /u/CompanyCalls: I think this subreddit has been invaded by 'barephone' advertisers, there's a bunch of lookalike posts that all end in the recommendation to download this app, also the recommendation is never asked for. They're dressed up to look like common proble…
+        https://www.reddit.com/r/productivity/comments/1q7t6ip/reminder_advertising_of_any_kind_is_not_allowed/nzjbysp/
+      - /u/CompanyCalls: They've gone through and deleted all posts and accounts. I thought this would happen when I called them out on it, so I took a few screenshots. Here are what the posts look like. https://i.postimg.cc/d1x7TgHC/image.png https://i.postimg.cc/cJ6t4shV/…
+        https://www.reddit.com/r/productivity/comments/1q7t6ip/reminder_advertising_of_any_kind_is_not_allowed/nzjea48/
+      - /u/mcagent: It never ends. We will be on the lookout
+        https://www.reddit.com/r/productivity/comments/1q7t6ip/reminder_advertising_of_any_kind_is_not_allowed/nzjq43q/
+  - I became more productive and surprisingly it backfired! Anyone with similar experience here, how did you deal with it?
+    Link: https://www.reddit.com/r/productivity/comments/1r02o1e/i_became_more_productive_and_surprisingly_it/
+    Author: /u/Bitter_Plate
+    Post text:
+      Background:
+      I was browsing reddit, twitter excessively for very long hours and not doing much once I was back from work. I planned on cutting it off as its was feeding so much negativity to my head and add something else to fill that time.
+      I wrap work around 7 PM and have dinner by 8 PM. I have about 7-8 hours after this for myself as I usually sleep late around 3-4 AM. My goal is to get to a point where I sleep by 12-1 at max, a topic for another day!
+      I intended to use that time to upskill/work on side projects. My concern was that even with this 7-8 hours, I will be able to study for 2-3 hours at max as cognitive fatigue is real after work and few hours of study. I had no idea how was gonna fill the remaining ~4 hours
+      How it turned out?
+ One week into this and the effects are massive. Surprisingly, negative too!!
+      I’ve been able to redcuce doom scrolling over the past week (R… (truncated)
+    Top comments (from RSS):
+      - /u/JaHaYaGa: 1 more phase you're missing, rest and recovery what you're feeling may be burnout, so don't forget to rest and recover too
+        https://www.reddit.com/r/productivity/comments/1r02o1e/i_became_more_productive_and_surprisingly_it/o4f7oto/
+      - /u/AiotexOfficial: I feel the same way, and I especially identify with what you said about feeling lonely. Since it’s your first week, it might just be your mind being less occupied, but personally, months of increasing my productivity have led me to grow distant from…
+        https://www.reddit.com/r/productivity/comments/1r02o1e/i_became_more_productive_and_surprisingly_it/o4f7z2r/
+      - /u/Jazzlike_Key_8556: Super relatable. Call a friend, see a partner, have dinner with family, or even just sit in a café where others are around. Being around people naturally pulls you into their pace and gets you out of your own head without needing mental effort.
+        https://www.reddit.com/r/productivity/comments/1r02o1e/i_became_more_productive_and_surprisingly_it/o4f885h/
+
+- r/whoop:
+  - [DISCUSSION] That “damn… WHOOP was right” moment
+    Link: https://www.reddit.com/r/whoop/comments/1qwyri4/discussion_that_damn_whoop_was_right_moment/
+    Author: /u/whoop_official
+    Post text:
+      Let’s talk about the moment you realized: “yeah…my WHOOP was right.”
+      Not the polished ones. The real ones.
+      The red recovery you ignored… and regretted
+      The sleep score you gaslit yourself about
+      The lifestyle choice you thought was harmless (it was not)
+      Drop your story below. Maybe the WHOOP admins will share theirs 👀
+      submitted by /u/whoop_official 
+ [link] [comments]
+    Top comments (from RSS):
+      - /u/twogoogles: The one everyone probably figured out, alcohol. I knew obviously after having a good night with alcohol that I was not getting the best sleep and that the next day would be rough. What I think I was more surprised about was how long it took my body…
+        https://www.reddit.com/r/whoop/comments/1qwyri4/discussion_that_damn_whoop_was_right_moment/o3sne8o/
+      - /u/whoop_official: Absolutely! One thing that really stood out to us was hearing our SVP of Research, Algorithms, and Data, Emily Capodilupo, say that alcohol was a sedative, not a sleep aid, on an episode of our podcast, meaning you're actually not releasing the horm…
+        https://www.reddit.com/r/whoop/comments/1qwyri4/discussion_that_damn_whoop_was_right_moment/o3sognp/
+      - /u/Marsh2700: i would love to see some research into how a minimal amount of alcohol can affect your sleep. like would 1mL of ethanol significantly disrupt your sleep? 5mL? i know a single drink drastically reduces my HRV (down 10-15ms alone) but would even less…
+        https://www.reddit.com/r/whoop/comments/1qwyri4/discussion_that_damn_whoop_was_right_moment/o3ssm74/
+  - [CHALLENGE] WEEK 3 JANUARY JUMPSTART CHECK-IN: Still Showing Up?
+    Link: https://www.reddit.com/r/whoop/comments/1qh9sym/challenge_week_3_january_jumpstart_checkin_still/
+    Author: /u/whoop_official
+    Post text:
+      Three weeks in. This is where habits stop feeling shiny and start feeling real.
+      By now, your plan isn’t exciting; it’s inconvenient. This is the point where most people loosen standards, start negotiating with themselves, or quietly stop checking in.
+      So let’s be honest.
+      Did you do what you said you would? If not, did you adjust — or just drift? What held up under pressure? What broke when life got busy? No excuses needed. Just accountability.
+      Maybe your data surprised you. Maybe you missed a few days and got back on track anyway. That still counts.
+      Drop your Week 3 update below and share what helped you stay consistent this week. Use this space to trade ideas, normalize the messy parts, and encourage someone else who’s showing up alongside you.
+      Every check-in = an entry to win a free WHOOP band. And your comment might be exactly what someone else needs to make it to the final… (truncated)
+    Top comments (from RSS):
+      - /u/andreio15: Managed to get a streak of 5 green recoveries 🤩 Sleep consistency and avoiding late meals counted a lot I think.
+        https://www.reddit.com/r/whoop/comments/1qh9sym/challenge_week_3_january_jumpstart_checkin_still/o0ifigy/
+      - /u/whoop_official: Congrats, winner! Be sure to check your DMs to claim your prize!
+        https://www.reddit.com/r/whoop/comments/1qh9sym/challenge_week_3_january_jumpstart_checkin_still/o0v3tld/
+      - /u/andreio15: Wow! Thanks a lot! Can’t wait to gift it to my wife! She’ll definitely love it 🥰
+        https://www.reddit.com/r/whoop/comments/1qh9sym/challenge_week_3_january_jumpstart_checkin_still/o0vtgbt/
+  - Not a title I was attempting to achieve!
+    Link: https://www.reddit.com/r/whoop/comments/1r054u7/not_a_title_i_was_attempting_to_achieve/
+    Author: /u/AsleepImagination962
+    Post text:
+      I really need to figure out what’s going on with my sleep. I’ve changed my wind down. Method started adding supplements like magnesium and L-theanine.
+      Logging my electrolyte and hydration levels.
+      But for some reason, I’ll go to bed wake up a couple of hours later and I’m wide awake for the next two or three hours then I’ll come back to bed and sleep.
+      Or, my body is dog ass tired and as soon as my head hits the pillow, my mind is like nope, I’m not tired at all. Let’s start thinking of any and every random ass thing!
+      submitted by /u/AsleepImagination962 
+ [link] [comments]
+    Top comments (from RSS):
+      - /u/DodiGharib: You’re probably on top it cuz you mentioned other things but what’s your caffeine intake? Also try to distract ur brain with those boring history for sleep type YouTube videos Physical activity also helps
+        https://www.reddit.com/r/whoop/comments/1r054u7/not_a_title_i_was_attempting_to_achieve/o4fqn0y/
+      - /u/Soft_Armadillo3256: I will just list some things that helped me. No eating 2 hours before bed time. No caffeine after 3pm. Try and work out in the morning or middle of the day, if you can't work out early try and have a wind down routine where you are in zone 1 cardio…
+        https://www.reddit.com/r/whoop/comments/1r054u7/not_a_title_i_was_attempting_to_achieve/o4fwlcw/
+      - /u/Soft_Armadillo3256: Also, sleeping in a cold room, wearing ear plugs and a sleep mask. You want it super dark and maybe quiet if you are a light sleeper.
+        https://www.reddit.com/r/whoop/comments/1r054u7/not_a_title_i_was_attempting_to_achieve/o4fwvwx/
+
+- r/slatestarcodex:
+  - Monthly Discussion Thread
+    Link: https://www.reddit.com/r/slatestarcodex/comments/1qtftuw/monthly_discussion_thread/
+    Author: /u/AutoModerator
+    Post text:
+      This thread is intended to fill a function similar to that of the Open Threads on SSC proper: a collection of discussion topics, links, and questions too small to merit their own threads. While it is intended for a wide range of conversation, please follow the community guidelines. In particular, avoid culture war–adjacent topics.
+      submitted by /u/AutoModerator 
+ [link] [comments]
+    Top comments (from RSS):
+      - /u/lostinvivo_: If morality is meant to guide how we ought to act, should it prioritize the consequences of our actions for overall well-being, or the inviolability of certain moral principles, even when strictly following those principles leads to worse outcomes?
+        https://www.reddit.com/r/slatestarcodex/comments/1qtftuw/monthly_discussion_thread/o3p8yh1/
+      - /u/darwin2500: You're basically asking about deontology vs. consequentialism, consequentialism has generally been considered 'correct' in rat-adjacent spaces for a long time.
+        https://www.reddit.com/r/slatestarcodex/comments/1qtftuw/monthly_discussion_thread/o44slmm/
+      - /u/callmejay: It's all made up so don't get too attached to either option. No philosophy or principles can ultimately save you from having to make a judgment call.
+        https://www.reddit.com/r/slatestarcodex/comments/1qtftuw/monthly_discussion_thread/o3u9wf1/
+  - Links For February 2026
+    Link: https://www.reddit.com/r/slatestarcodex/comments/1qwro4e/links_for_february_2026/
+    Author: /u/dsteffee
+    Post text:
+      submitted by /u/dsteffee 
+ [link] [comments]
+    Top comments (from RSS):
+      - /u/kzhou7: Regarding #10, I showed it to a very literary Chinese friend a while ago, and they weren't particularly impressed. It seems much more famous on the English language internet than in China itself. Part of that is because word order is very flexible,…
+        https://www.reddit.com/r/slatestarcodex/comments/1qwro4e/links_for_february_2026/o3rivpi/
+      - /u/charcoalhibiscus: I second this comment. Chinese poems with the features of English poems sound kinda cringe, and it takes a really good translation to capture the poetic nature of a very good Chinese poem in English. (And unfortunately, many of the “official” transl…
+        https://www.reddit.com/r/slatestarcodex/comments/1qwro4e/links_for_february_2026/o3uqx6g/
+      - /u/--MCMC--: what are the best examples of renowned Chinese poems that have a mediocre popular translation and a fantastic less popular translation that capture their true poetic nature? edit: asking chatGPT, 6 minutes of thinking later... would you say these ar…
+        https://www.reddit.com/r/slatestarcodex/comments/1qwro4e/links_for_february_2026/o3wxc83/
+  - Open Thread 420
+    Link: https://www.reddit.com/r/slatestarcodex/comments/1r03ord/open_thread_420/
+    Author: /u/dwaxe
+    Post text:
+      submitted by /u/dwaxe 
+ [link] [comments]
+    Comments: unavailable
+
+X threads (best-effort, no-login)
+X threads: unavailable (no-login discovery/fetch blocked)

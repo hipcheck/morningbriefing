@@ -1,0 +1,6 @@
+# Local scratch
+/tmp/
+briefing_site/dist/
+
+# OpenClaw media/state (should not be in repo)
+*.log
