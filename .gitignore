@@ -2,5 +2,8 @@
 /tmp/
 briefing_site/dist/
 
+# Secrets
+/secrets/
+
 # OpenClaw media/state (should not be in repo)
 *.log
