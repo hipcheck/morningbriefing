@@ -29,6 +29,7 @@ TEMPL_DIR = ROOT / "templates"
 STATIC_DIR = ROOT / "static"
 
 LINK_RE = re.compile(r"\[([^\]]+)\]\(([^\)]+)\)")
+URL_RE = re.compile(r'(https?://[^\s<>"\)]+)')
 
 
 def read_text(p: Path) -> str:
@@ -61,14 +62,35 @@ def parse_front_matter(md: str) -> Tuple[Dict[str, str], str]:
 
 
 def md_inline(s: str) -> str:
-    s = html.escape(s, quote=False)
+    """Inline markdown + linkification.
 
-    def repl(m: re.Match) -> str:
+    Order matters:
+    1) Linkify explicit markdown links: [text](url)
+    2) Then linkify remaining bare URLs
+    """
+
+    def md_link_repl(m: re.Match) -> str:
         text = html.escape(m.group(1), quote=False)
-        url = html.escape(m.group(2), quote=True)
+        url_raw = m.group(2).strip()
+        url = html.escape(url_raw, quote=True)
         return f'<a href="{url}">{text}</a>'
 
-    return LINK_RE.sub(repl, s)
+    # Replace markdown links first (before escaping the rest)
+    parts: List[str] = []
+    last = 0
+    for m in LINK_RE.finditer(s):
+        parts.append(html.escape(s[last:m.start()], quote=False))
+        parts.append(md_link_repl(m))
+        last = m.end()
+    parts.append(html.escape(s[last:], quote=False))
+    escaped = "".join(parts)
+
+    # Linkify bare URLs in the escaped text
+    def url_repl(m: re.Match) -> str:
+        url = m.group(1)
+        return f'<a href="{url}">{url}</a>'
+
+    return URL_RE.sub(url_repl, escaped)
 
 
 def md_to_html(md: str) -> str:
