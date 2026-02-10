@@ -1,11 +1,14 @@
 {
-  "lastRunIso": "2026-02-10T02:18:00Z",
-  "seenUrls": [],
+  "lastRunIso": "2026-02-10T03:21:00Z",
+  "seenUrls": [
+    "https://job-boards.greenhouse.io/bennie/jobs/4655360005"
+  ],
   "excludedUrls": [
     "https://www.amazon.jobs/en/jobs/815577/senior-marketing-manager",
     "https://www.amazon.jobs/en/jobs/2042203/senior-marketing-manager-talent-brand",
     "https://www.amazon.jobs/en/jobs/2626593/senior-marketing-manager-go-to-market-us-sports-marketing",
     "https://www.amazon.jobs/en/jobs/2345668/sr-marketing-manager-marketing-technology-dsp-acquisition",
-    "https://www.amazon.jobs/en-gb/jobs/2334412/senior-marketing-manager-livestream"
+    "https://www.amazon.jobs/en-gb/jobs/2334412/senior-marketing-manager-livestream",
+    "https://job-boards.greenhouse.io/gusto/jobs/7205769"
   ]
 }
