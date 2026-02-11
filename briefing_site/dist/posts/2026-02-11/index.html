@@ -236,272 +236,230 @@ hr {
   <main class="main">
     <div class="post-title">Morning briefing — Wednesday, Feb 11, 2026 (ET)</div>
 <div class="post-meta">Feb 11, 2026 • Roundup</div>
-<div class="prose"><h2>A) Hacker News — Top 5</h2>
+<div class="prose"><h2>Hacker News — Top 5</h2>
 <h3>1) Toyota Fluorite: “console-grade” Flutter game engine</h3>
 <ul>
-<li>**Link:** <a href="https://fluorite.game/">https://fluorite.game/</a></li>
 <li>**Domain:** fluorite.game</li>
+<li>**Link:** <a href="https://fluorite.game/">https://fluorite.game/</a></li>
 </ul>
-<p>Fluorite is positioning itself as a “console‑grade” 3D game engine that’s tightly integrated with Flutter. The pitch is that you write your gameplay code directly in Dart and build UI using Flutter’s normal widget approach, instead of bolting UI on as a separate layer.</p>
-<p>Under the hood, the engine centers on a high‑performance Entity‑Component‑System (ECS) core implemented in C++ for data‑oriented performance, while exposing higher‑level APIs to Dart for day‑to‑day development. It also highlights support for multiple simultaneous 3D scene views via a `FluoriteView` widget and state sharing between entities and UI “the Flutter way,” aiming to keep iteration loops short.</p>
-<p>A couple of the more concrete “workflow” features called out: (1) model-defined touch trigger zones so artists can mark clickable regions in Blender that map to tagged events, and (2) hot reload for scenes, leveraging Flutter/Dart to see changes within a couple frames. Rendering is built on Google’s Filament renderer with modern graphics APIs (e.g., Vulkan), plus physically‑based lighting, post‑processing, and custom shaders.</p>
-<h3>2) GLM‑5: From Vibe Coding to Agentic Engineering</h3>
+<p>Fluorite is positioned as a “console‑grade” 3D game engine that’s tightly integrated with Flutter—meaning you can write game logic in **Dart** while still building UI with Flutter widgets. The pitch is that you keep the Flutter developer workflow (including familiar tooling) while gaining a high‑performance 3D runtime.</p>
+<p>Under the hood, Fluorite describes a **data‑oriented ECS (Entity‑Component‑System)** core implemented in **C++** for performance and embedded/lower‑end hardware friendliness. Rendering is powered by **Google’s Filament** and modern graphics APIs (e.g., Vulkan). It also highlights workflow features like **hot reload for scenes**, and a neat creator‑friendly feature where artists can define **touch/click trigger zones in Blender** that map to in‑game events.</p>
+<h3>2) GLM-5: From Vibe Coding to Agentic Engineering</h3>
 <ul>
-<li>**Link:** <a href="https://z.ai/blog/glm-5">https://z.ai/blog/glm-5</a></li>
 <li>**Domain:** z.ai</li>
+<li>**Link:** <a href="https://z.ai/blog/glm-5">https://z.ai/blog/glm-5</a></li>
 </ul>
-<p>**Note:** I couldn’t fetch the original z.ai blog post content directly (the page returned no extractable content from this environment), so this summary is based on secondary sources and available public references.</p>
-<p>Z.ai announced GLM‑5 as a major new model release and framed it as a step from casual “vibe coding” toward “agentic engineering”—i.e., using models as longer‑horizon, tool‑using agents for complex software/system tasks. The name “agentic engineering” is also showing up elsewhere as a label for the craft of building reliable agent workflows rather than just prompting.</p>
-<p>A prominent write‑up notes that GLM‑5 is a very large MIT‑licensed model, with artifacts on Hugging Face reported at ~1.51TB, roughly double the size of GLM‑4.7’s distribution. Early anecdotal tests (e.g., structured generation prompts) suggest the release is part model capability and part ecosystem messaging: positioning the model for multi‑step task execution and tool‑mediated development flows.</p>
+<p>**Fetch note:** I wasn’t able to retrieve the z.ai blog post content from this environment (the page returned no extractable content), so the summary below is based on accessible secondary sources.</p>
+<p>Z.ai appears to be framing **GLM‑5** as a major step up in scale and capability, and (notably) is trying to popularize the term **“agentic engineering”** as the professional framing for software engineers building with LLMs/agents. That naming matters because it signals where the vendor thinks the value is: less “prompting” and more **long‑horizon system building** with autonomous components.</p>
+<p>A widely-linked write‑up notes this is a **very large MIT‑licensed model** (on the order of ~754B parameters) with a correspondingly massive distribution footprint on Hugging Face. The piece also ties the “agentic engineering” label to recent public uses of that term by Andrej Karpathy and Addy Osmani.</p>
 <h3>3) NetNewsWire Turns 23</h3>
 <ul>
-<li>**Link:** <a href="https://netnewswire.blog/2026/02/11/netnewswire-turns.html">https://netnewswire.blog/2026/02/11/netnewswire-turns.html</a></li>
 <li>**Domain:** netnewswire.blog</li>
+<li>**Link:** <a href="https://netnewswire.blog/2026/02/11/netnewswire-turns.html">https://netnewswire.blog/2026/02/11/netnewswire-turns.html</a></li>
 </ul>
-<p>NetNewsWire’s maintainers mark the 23rd anniversary of the app’s 1.0 release, using the “birthday” moment to give a status update on current work and near‑term plans. They’ve recently shipped NetNewsWire 7.0 for Mac and iOS and are now focused on 7.0.1.</p>
-<p>The immediate emphasis is post‑release cleanup: fixing regressions and making quick tweaks that inevitably surface after a major release. They point to a public milestone/to‑do list that tracks the 7.0.1 work in progress.</p>
-<p>Looking forward, the roadmap themes are: 7.1 will focus on syncing fixes and improvements; 7.2 is not yet decided (possibly UX polish or a mixed “potpourri”); and anything beyond that depends on what emerges from the 7.1/7.2 cycle and whatever Apple adds to the to‑do list at WWDC. The overall message is “forward‑looking momentum,” not nostalgia.</p>
+<p>NetNewsWire hit its 23rd birthday and the team used the milestone as a short “where we are / where we’re going” update. They’ve just shipped **NetNewsWire 7.0 for Mac and iOS** and are now working on **7.0.1** to address regressions and quick-turn tweaks that tend to surface after major releases.</p>
+<p>The roadmap notes **7.1** will focus on **syncing fixes and improvements**, while **7.2** doesn’t have a single focus yet (could be polish/UX or a mixed “potpourri”). They also emphasize that milestones are fluid and will change—especially with WWDC potentially adding new constraints/opportunities.</p>
 <h3>4) Claude Code Is Being Dumbed Down</h3>
 <ul>
-<li>**Link:** <a href="https://symmetrybreak.ing/blog/claude-code-is-being-dumbed-down/">https://symmetrybreak.ing/blog/claude-code-is-being-dumbed-down/</a></li>
 <li>**Domain:** symmetrybreak.ing</li>
+<li>**Link:** <a href="https://symmetrybreak.ing/blog/claude-code-is-being-dumbed-down/">https://symmetrybreak.ing/blog/claude-code-is-being-dumbed-down/</a></li>
 </ul>
-<p>This post argues that a recent Claude Code change removed crucial transparency from the default terminal output: instead of showing *which* files were read and *which* patterns were searched, the tool allegedly now emits generic lines like “Read 3 files” and “Searched for 1 pattern.” The author’s core complaint isn’t about verbosity—it’s about losing actionable, audit‑friendly traces.</p>
-<p>A second thread in the critique targets the proposed workaround: “use verbose mode.” The author frames this as an overcorrection: verbose mode can dump too much (thinking traces, transcripts, full file contents), and the user need is narrower—just the file paths and search patterns inline.</p>
-<p>The post describes a frustrating product loop: users ask for a simple toggle or revert; the response focuses on reshaping verbose mode instead. The author’s implicit standard is that coding agents should preserve a compact, legible record of what they touched—especially when the tool can spawn multiple sub‑agents and act across a codebase.</p>
+<p>The author argues that a recent Claude Code release replaced previously detailed action logs (e.g., which files were read, what patterns were searched) with vague summaries like “Read 3 files” and “Searched for 1 pattern,” removing information that helped users audit what the tool is doing. The complaint is that this reduces the product’s usefulness precisely when developers most need transparency.</p>
+<p>The piece also criticizes the suggested workaround (“use verbose mode”) as the wrong tool: users want **specific missing context** (file paths + search patterns) rather than a firehose of additional noise (thinking traces, subagent transcripts, etc.). The author’s core claim is that a simple configuration toggle would address the issue with less disruption.</p>
 <h3>5) Microwave Oven Failure: spontaneously turned on by its LED display (2024)</h3>
 <ul>
-<li>**Link:** <a href="https://blog.stuffedcow.net/2024/06/microwave-failure-spontaneously-turns-on/">https://blog.stuffedcow.net/2024/06/microwave-failure-spontaneously-turns-on/</a></li>
 <li>**Domain:** blog.stuffedcow.net</li>
+<li>**Link:** <a href="https://blog.stuffedcow.net/2024/06/microwave-failure-spontaneously-turns-on/">https://blog.stuffedcow.net/2024/06/microwave-failure-spontaneously-turns-on/</a></li>
 </ul>
-<p>A meticulous teardown story: a microwave began randomly turning on its lamp, fan, and turntable (without cooking), progressively worsening until it was “mostly stuck on.” The obvious suspect—failing door switches—tested fine, pushing the author to dig into the control board and signal logic.</p>
-<p>The surprising root cause: an aging LED display. In this design, the same microcontroller GPIO pin is multiplexed to both drive an LED segment and sense a door switch state. As the display aged, reverse‑biased leakage through the LED segment was enough to raise the sensed voltage during the “LEDs off” sampling window, tricking the controller into thinking the door was open.</p>
-<p>The repair is elegantly minimal: add a diode to block the reverse leakage current path so the door‑sense line can reliably fall low when the switch is closed. The piece is a useful reminder of how cost‑optimized pin‑sharing and multiplexing can create bizarre, emergent failure modes years later—especially when components drift with age.</p>
-<h2>B) Reddit — Top topics (summarized)</h2>
-<p>&gt; Note: Reddit HTML/JSON endpoints are often blocked; these summaries are derived from each subreddit’s RSS/Atom feed content. If an entry doesn’t include enough text in RSS, I say so explicitly.</p>
-<h3>r/Biohackers (top 3)</h3>
-<p>1) **My list of fasting benefits - Updated and ranked by strength of evidence**</p>
+<p>A microwave that seems to “turn on by itself” is a classic story that makes people think “door switch failure” (and worry about safety). This teardown traces a real failure mode where the oven’s lamp/fan/turntable would randomly run, while the magnetron remained off—still alarming, but not the worst-case scenario.</p>
+<p>The root cause is delightfully cursed: an aging **LED display**. The control board shares a microcontroller GPIO pin between **driving a display segment** and **sensing the door switch**. As the LEDs age, reverse leakage becomes high enough to change the sensed voltage on that shared pin, tricking the microcontroller into thinking the door is open even when it’s closed. The author documents the circuit, scope traces, and a practical fix (adding a diode to block leakage), plus a later full display replacement when other segments began interfering with keypad scanning too.</p>
+<hr />
+<h2>Reddit — Top topics (summarized from RSS)</h2>
+<h3>r/Biohackers</h3>
 <ul>
-<li>Link: <a href="https://www.reddit.com/r/Biohackers/comments/1r25y4n/my_list_of_fasting_benefits_updated_and_ranked_by/">https://www.reddit.com/r/Biohackers/comments/1r25y4n/my_list_of_fasting_benefits_updated_and_ranked_by/</a></li>
+<li>**Notice on Epstein Related Posts** — <a href="https://www.reddit.com/r/Biohackers/comments/1qtwb40/notice_on_epstein_related_posts/">https://www.reddit.com/r/Biohackers/comments/1qtwb40/notice_on_epstein_related_posts/</a></li>
 <li>Summary:</li>
-<li>Argues fasting isn’t “casual”: even 2–3 days takes real effort and practice.</li>
-<li>Presents an updated list of purported fasting benefits.</li>
-<li>Claims the list is evidence‑weighted (mechanistic plausibility, observational data, RCTs, directness).</li>
-<li>Notes some benefits move categories with evidence—e.g., autophagy treated as early‑stage due to weak human data.</li>
-<li>Uses a color system to distinguish intermittent vs short‑term (≤72h) vs extended (3+ days) fasting.</li>
+<li>For the sake of staying on topic, we are temporarily pausing new posts discussing health influencers such as Peter Attia and Bryan Johnson being in the Epstein files pending significant updates.</li>
+<li>There are a number of posts members have already made that you can engage with.</li>
+<li>We’re glad the community is discussing this important topic.</li>
+<li>We just feel we don’t need more posts all saying the same thing.</li>
+<li>If people feel otherwise though, let me know below!</li>
+<li>submitted by /u/aldus-auden-odess</li>
 <li>Why it matters:</li>
-<li>Useful template for separating “mechanistically plausible” from “clinically demonstrated.”</li>
-<li>Encourages thinking in *protocol dose* (type/duration) rather than fasting as one monolith.</li>
+<li>Quick pulse check of what this community is focusing on right now.</li>
 </ul>
-<p>2) **Relationship quality as a longevity variable (not romance or recovery)**</p>
 <ul>
-<li>Link: <a href="https://www.reddit.com/r/Biohackers/comments/1r25qq9/relationship_quality_as_a_longevity_variable_not/">https://www.reddit.com/r/Biohackers/comments/1r25qq9/relationship_quality_as_a_longevity_variable_not/</a></li>
+<li>**January Community Update (PLEASE READ)** — <a href="https://www.reddit.com/r/Biohackers/comments/1qffedh/january_community_update_please_read/">https://www.reddit.com/r/Biohackers/comments/1qffedh/january_community_update_please_read/</a></li>
 <li>Summary:</li>
-<li>Points to longitudinal research linking relationship quality (not merely relationship status) with better health outcomes.</li>
-<li>Suggests plausible mechanisms: lower chronic stress load, better recovery behaviors (sleep/consistency).</li>
-<li>Notes the inverse: conflict/loneliness may keep stress systems “on.”</li>
-<li>Asks the community whether relationships/environment would rank in their top lifestyle factors beyond diet/exercise.</li>
+<li>Hope everyone's 2026 is off to a strong start.</li>
+<li>As we kick off the year, I wanted to share some exciting updates and new initiatives for the community.</li>
+<li>Over the past month we broke 700k members!</li>
+<li>Thank you to everyone who's contributed to making this community what it is.</li>
+<li>To celebrate the new year and crossing 700k members, we've given r/Biohackers a visual refresh!</li>
+<li>Thanks for everyone who gave us feedback.</li>
 <li>Why it matters:</li>
-<li>A nudge to treat “social environment” as a health input you can design, not just a soft variable.</li>
-<li>Connects longevity framing with concrete, behavior‑mediating pathways (sleep and consistency).</li>
+<li>Quick pulse check of what this community is focusing on right now.</li>
 </ul>
-<p>3) **Can creatine affect sleep?**</p>
 <ul>
-<li>Link: <a href="https://www.reddit.com/r/Biohackers/comments/1r1z6oz/can_creatine_affect_sleep/">https://www.reddit.com/r/Biohackers/comments/1r1z6oz/can_creatine_affect_sleep/</a></li>
+<li>**My list of fasting benefits - Updated and ranked by strength of evidence** — <a href="https://www.reddit.com/r/Biohackers/comments/1r25y4n/my_list_of_fasting_benefits_updated_and_ranked_by/">https://www.reddit.com/r/Biohackers/comments/1r25y4n/my_list_of_fasting_benefits_updated_and_ranked_by/</a></li>
 <li>Summary:</li>
-<li>Describes improved sleep onset after starting evening workouts.</li>
-<li>After adding electrolytes + creatine during gym time (evening), reports early morning waking (4–5am) with high energy.</li>
-<li>Wonders whether creatine or electrolytes could have a delayed effect ~10 hours later.</li>
-<li>Asks about timing: morning creatine + afternoon gym vs “pre/post workout only” folk advice.</li>
-<li>Seeks others’ experiences with creatine and sleep disruption.</li>
+<li>Recently I saw a post about extended fasting.</li>
+<li>As a big proponent of fasting, I’d like to add a couple of points.</li>
+<li>First, fasting requires effort, it's not a casual thing.</li>
+<li>Even a short-term fast of 2-3 days takes a solid effort to make it happen.</li>
+<li>Though with practice, it becomes quite doable.</li>
+<li>For some people, it’s an unachievable goal, but for others it’s a weekly routine.</li>
 <li>Why it matters:</li>
-<li>Highlights individual variability and the importance of *timing* experiments (training + supplements).</li>
-<li>Good candidate for a simple A/B protocol: creatine timing shift, electrolyte brand change, or single-variable removal.</li>
+<li>Turn anecdotes into a better experiment template: define the change, measure outcomes, watch confounders (sleep, caffeine, electrolytes).</li>
 </ul>
-<h3>r/blueprint_ (top 3)</h3>
-<p>1) **Bryan's Updated 2026 Protocol**</p>
+<h3>r/blueprint_</h3>
 <ul>
-<li>Link: <a href="https://www.reddit.com/r/blueprint_/comments/1qm3dk0/bryans_updated_2026_protocol/">https://www.reddit.com/r/blueprint_/comments/1qm3dk0/bryans_updated_2026_protocol/</a></li>
+<li>**Bryan's Updated 2026 Protocol** — <a href="https://www.reddit.com/r/blueprint_/comments/1qm3dk0/bryans_updated_2026_protocol/">https://www.reddit.com/r/blueprint_/comments/1qm3dk0/bryans_updated_2026_protocol/</a></li>
 <li>Summary:</li>
-<li>Shares a motivational framing (“Don’t Die”) and positions adherence as learnable.</li>
-<li>Mentions turning the protocol into a “game” to make it more understandable/social.</li>
-<li>Emphasizes measurement intensity and prioritizing health as a top life objective.</li>
-<li>Links to the full protocol page.</li>
-<li>Reads like a canonical/updated reference post for newcomers.</li>
+<li>We might be the first generation that doesn't die.</li>
+<li>To that end, my team and I have spent the last few years building the world's first Don't Die protocol.</li>
+<li>Some of you don't care about Don't Die, you just want to be hot.</li>
+<li>To make this Don't Die thing understandable, I've made it into a game because humans love games.</li>
+<li>You'll learn how to flex your biomarkers with friends.</li>
+<li>You'll be able to share the science with friends on why poor sleep is a terrible idea.</li>
 <li>Why it matters:</li>
-<li>Establishes the community’s baseline “source of truth” for what’s current vs outdated.</li>
-<li>Signals a push toward productized adherence tools (gamification + sharing biomarkers).</li>
+<li>Quick pulse check of what this community is focusing on right now.</li>
 </ul>
-<p>2) **Blueprint just raised $60M to bring Bryan's longevity protocol to everyone**</p>
 <ul>
-<li>Link: <a href="https://www.reddit.com/r/blueprint_/comments/1oim0kr/blueprint_just_raised_60m_to_bring_bryans/">https://www.reddit.com/r/blueprint_/comments/1oim0kr/blueprint_just_raised_60m_to_bring_bryans/</a></li>
+<li>**Blueprint just raised $60M to bring Bryan's longevity protocol to everyone** — <a href="https://www.reddit.com/r/blueprint_/comments/1oim0kr/blueprint_just_raised_60m_to_bring_bryans/">https://www.reddit.com/r/blueprint_/comments/1oim0kr/blueprint_just_raised_60m_to_bring_bryans/</a></li>
 <li>Summary:</li>
-<li>Claims Blueprint closed a $60M funding round.</li>
-<li>Envisions a comprehensive platform: biomarker tracking, testing, personalized protocols, services (incl. prescription access), and an “AI health companion.”</li>
-<li>Names a new CEO and lists a broad investor set.</li>
-<li>Mentions hiring across exec/product/engineering and medical leadership.</li>
-<li>Frames this as a potential “mainstreaming” moment for structured longevity programs.</li>
+<li>Big news dropped today that I wanted to share with you all: Blueprint just closed a $60 million funding round.</li>
+<li>TLDR: Bryan Johnson's longevity protocol is about to become accessible to the general public through a comprehensive platform.</li>
+<li>This could be a pretty significant moment for the biohacking/longevity space.</li>
+<li>They're building out a full-service platform that includes:</li>
+<li>Blood testing and biomarker tracking</li>
+<li>Food delivery, GLP-1 access, prescription services</li>
 <li>Why it matters:</li>
-<li>If true, implies a shift from influencer/protocol to scaled consumer health platform.</li>
-<li>Raises predictable questions about clinical rigor, compliance, privacy, and how personalization is validated.</li>
+<li>A cue to separate substantive argument from online incentive structures (rage, tribal alignment, engagement).</li>
 </ul>
-<p>3) **Does longevity mix have noticeable effects?**</p>
 <ul>
-<li>Link: <a href="https://www.reddit.com/r/blueprint_/comments/1r20qsh/does_longevity_mix_have_noticeable_effects/">https://www.reddit.com/r/blueprint_/comments/1r20qsh/does_longevity_mix_have_noticeable_effects/</a></li>
+<li>**Does longevity mix have noticeable effects?** — <a href="https://www.reddit.com/r/blueprint_/comments/1r20qsh/does_longevity_mix_have_noticeable_effects/">https://www.reddit.com/r/blueprint_/comments/1r20qsh/does_longevity_mix_have_noticeable_effects/</a></li>
 <li>Summary:</li>
-<li>User reports taking the mix daily, then pausing for several days.</li>
-<li>No clear short‑term subjective difference noticed.</li>
-<li>Asks whether benefits are expected only long‑term.</li>
-<li>Implicitly asks how to evaluate supplement efficacy beyond vibes.</li>
-<li>Invites others’ n=1 reports.</li>
+<li>I’m just about to finish my second bag of it and honestly I have no idea if it’s working.</li>
+<li>I’ve taken it every day until about 2 weeks ago and then took like 4 days off and felt no noticeable difference though I wasn’t paying close attention.</li>
+<li>Or, is it solely supposed to help in the “long” term?</li>
+<li>submitted by /u/Ambassador_Short</li>
 <li>Why it matters:</li>
-<li>Good reminder: for many supplements, “feel it” is a poor measurement—needs biomarkers or performance proxies.</li>
-<li>Encourages building an evaluation loop (sleep/HRV, labs, cognition tests, training performance) before spending.</li>
+<li>Quick pulse check of what this community is focusing on right now.</li>
 </ul>
-<h3>r/productivity (top 3)</h3>
-<p>1) **Week 3 is where I always quit. So I started keeping receipts. Here's what changed**</p>
+<h3>r/productivity</h3>
 <ul>
-<li>Link: <a href="https://www.reddit.com/r/productivity/comments/1r1w24m/week_3_is_where_i_always_quit_so_i_started/">https://www.reddit.com/r/productivity/comments/1r1w24m/week_3_is_where_i_always_quit_so_i_started/</a></li>
+<li>**New rule: AI generated posts and comments are not allowed** — <a href="https://www.reddit.com/r/productivity/comments/1l74rhl/new_rule_ai_generated_posts_and_comments_are_not/">https://www.reddit.com/r/productivity/comments/1l74rhl/new_rule_ai_generated_posts_and_comments_are_not/</a></li>
 <li>Summary:</li>
-<li>Describes the “week 3 collapse” pattern in habit building.</li>
-<li>Proposes a “Win Log”: write 1–3 things you actually did each day.</li>
-<li>Frames it as evidence against negative self‑talk and progress amnesia.</li>
-<li>Claims it reframes “bad days” into partial wins and reduces quitting.</li>
-<li>Ends with a practical rule: log at least one win daily.</li>
+<li>We have a new rule: If we can tell that your post or comment was generated by AI, it will be removed and you may be banned.</li>
+<li>We want to keep /r/productivity free of AI slop.</li>
+<li>Please report any AI that you see</li>
 <li>Why it matters:</li>
-<li>A lightweight mechanism to counter negativity bias without needing complex trackers.</li>
-<li>Works well with behavior change: objective evidence beats motivation spikes.</li>
+<li>A cue to separate substantive argument from online incentive structures (rage, tribal alignment, engagement).</li>
 </ul>
-<p>2) **Some small habits I adopted that quietly improved my daily life**</p>
 <ul>
-<li>Link: <a href="https://www.reddit.com/r/productivity/comments/1r1uu6t/some_small_habits_i_adopted_that_quietly_improved/">https://www.reddit.com/r/productivity/comments/1r1uu6t/some_small_habits_i_adopted_that_quietly_improved/</a></li>
+<li>**REMINDER: Advertising of any kind is NOT allowed on /r/productivity! This includes soliciting, beta-testing requests, surveys, product validation, etc.** — <a href="https://www.reddit.com/r/productivity/comments/1q7t6ip/reminder_advertising_of_any_kind_is_not_allowed/">https://www.reddit.com/r/productivity/comments/1q7t6ip/reminder_advertising_of_any_kind_is_not_allowed/</a></li>
 <li>Summary:</li>
-<li>“Boring” habit stack: delay reactions, keep phone out of reach, start with smallest task.</li>
-<li>Emphasizes momentum &gt; motivation.</li>
-<li>Suggests reducing over‑explaining and using simple refusals.</li>
-<li>Includes daily outdoor time as a mental reset.</li>
-<li>Notes that tired scrolling wasn’t relaxing; choosing sleep instead.</li>
+<li>This is not the place to advertise.</li>
+<li>Please report any ads that you see.</li>
 <li>Why it matters:</li>
-<li>Reinforces that attention and environment design often beat new apps.</li>
-<li>These are low‑friction defaults that compound when done daily.</li>
+<li>Quick pulse check of what this community is focusing on right now.</li>
 </ul>
-<p>3) **why do people always assume the worst tone in short work emails?**</p>
 <ul>
-<li>Link: <a href="https://www.reddit.com/r/productivity/comments/1r1synv/why_do_people_always_assume_the_worst_tone_in/">https://www.reddit.com/r/productivity/comments/1r1synv/why_do_people_always_assume_the_worst_tone_in/</a></li>
+<li>**Week 3 is where I always quit. So I started keeping receipts. Here's what changed** — <a href="https://www.reddit.com/r/productivity/comments/1r1w24m/week_3_is_where_i_always_quit_so_i_started/">https://www.reddit.com/r/productivity/comments/1r1w24m/week_3_is_where_i_always_quit_so_i_started/</a></li>
 <li>Summary:</li>
-<li>Observes that brief replies (“ok”, “noted”) can be read as cold or passive‑aggressive.</li>
-<li>Wonders if it’s missing context, remote work, or over‑interpretation.</li>
-<li>Implicitly asks for better norms for terse communication.</li>
-<li>Highlights projection in text‑only channels.</li>
-<li>Invites discussion on how to reduce misread tone.</li>
+<li>I've tried everything to stay consistent with self-improvement.</li>
+<li>Habit trackers, accountability partners, motivational quotes on my wall even.</li>
+<li>Nothing lasted more than 3 weeks.</li>
+<li>I honestly started feeling incapable / not meant for it.</li>
+<li>The problem wasn't discipline.</li>
+<li>It was that I kept forgetting I was actually making progress.</li>
 <li>Why it matters:</li>
-<li>Misread tone is hidden productivity tax: churn, rework, and social friction.</li>
-<li>Useful prompt to standardize “neutral acknowledgements” inside teams.</li>
+<li>Quick pulse check of what this community is focusing on right now.</li>
 </ul>
-<h3>r/whoop (top 3)</h3>
-<p>1) **WHOOP add Timers/Alarms!**</p>
+<h3>r/whoop</h3>
 <ul>
-<li>Link: <a href="https://www.reddit.com/r/whoop/comments/1r27oun/whoop_add_timersalarms/">https://www.reddit.com/r/whoop/comments/1r27oun/whoop_add_timersalarms/</a></li>
+<li>**[DISCUSSION] That “damn… WHOOP was right” moment** — <a href="https://www.reddit.com/r/whoop/comments/1qwyri4/discussion_that_damn_whoop_was_right_moment/">https://www.reddit.com/r/whoop/comments/1qwyri4/discussion_that_damn_whoop_was_right_moment/</a></li>
 <li>Summary:</li>
-<li>Requests multiple vibration timers/alarms (beyond wake alarm).</li>
-<li>Frames use cases: naps and “don’t forget” reminders.</li>
-<li>Emphasizes vibration as a high‑signal, low‑distraction nudge.</li>
-<li>Suggests a feature expansion rather than third‑party workarounds.</li>
-<li>Simple UX request with obvious utility.</li>
+<li>Let’s talk about the moment you realized: “yeah…my WHOOP was right.”</li>
+<li>The red recovery you ignored… and regretted</li>
+<li>The sleep score you gaslit yourself about</li>
+<li>The lifestyle choice you thought was harmless (it was not)</li>
+<li>Maybe the WHOOP admins will share theirs 👀</li>
+<li>submitted by /u/whoop_official</li>
 <li>Why it matters:</li>
-<li>Wearables are uniquely positioned for “silent reminders” that don’t require screens.</li>
-<li>Could directly support adherence behaviors (hydration breaks, cooldown, bedtime routines).</li>
+<li>Good reminder that tracker UX and algorithm changes can alter what you think is “progress” (and how you train/recover).</li>
 </ul>
-<p>2) **Death/Near Death Data??**</p>
 <ul>
-<li>Link: <a href="https://www.reddit.com/r/whoop/comments/1r26lz3/deathnear_death_data/">https://www.reddit.com/r/whoop/comments/1r26lz3/deathnear_death_data/</a></li>
+<li>**[CHALLENGE] WEEK 3 JANUARY JUMPSTART CHECK-IN: Still Showing Up?** — <a href="https://www.reddit.com/r/whoop/comments/1qh9sym/challenge_week_3_january_jumpstart_checkin_still/">https://www.reddit.com/r/whoop/comments/1qh9sym/challenge_week_3_january_jumpstart_checkin_still/</a></li>
 <li>Summary:</li>
-<li>Asks whether anyone has WHOOP data from serious events (accident, heart attack).</li>
-<li>Wonders what data looks like near death / at time of death.</li>
-<li>Acknowledges the question is morbid but is motivated by curiosity.</li>
-<li>Implies interest in physiological signatures and detection.</li>
-<li>Opens discussion on limits of consumer wearables in extreme events.</li>
+<li>This is where habits stop feeling shiny and start feeling real.</li>
+<li>By now, your plan isn’t exciting; it’s inconvenient.</li>
+<li>This is the point where most people loosen standards, start negotiating with themselves, or quietly stop checking in.</li>
+<li>Did you do what you said you would?</li>
+<li>If not, did you adjust — or just drift?</li>
+<li>What broke when life got busy?</li>
 <li>Why it matters:</li>
-<li>Highlights a boundary condition for wearables: what they can and can’t meaningfully detect.</li>
-<li>Useful for thinking about alerting, false positives, and ethics of health inference.</li>
+<li>Quick pulse check of what this community is focusing on right now.</li>
 </ul>
-<p>3) **Did they fix weightlifting strains finally?!?**</p>
 <ul>
-<li>Link: <a href="https://www.reddit.com/r/whoop/comments/1r2b6gr/did_they_fix_weightlifting_strains_finally/">https://www.reddit.com/r/whoop/comments/1r2b6gr/did_they_fix_weightlifting_strains_finally/</a></li>
+<li>**WHOOP add Timers/Alarms!** — <a href="https://www.reddit.com/r/whoop/comments/1r27oun/whoop_add_timersalarms/">https://www.reddit.com/r/whoop/comments/1r27oun/whoop_add_timersalarms/</a></li>
 <li>Summary:</li>
-<li>Reports sudden doubling of processed strain scores for similar workouts.</li>
-<li>Notes live strain looked normal, but post‑processing increased totals.</li>
-<li>Wonders if an algorithm update changed strength training scoring.</li>
-<li>Expresses optimism (“finally?!”) that strength effort might be better captured.</li>
-<li>Seeks confirmation from other users.</li>
+<li>You know the useful vibration that occurs when you set a wake up alarm?</li>
+<li>Can we please add that you can do that multiple times a day?</li>
+<li>Perfect for if you are taking a nap or waiting on something which is easy to forget</li>
+<li>submitted by /u/RelevantDelivery4780</li>
 <li>Why it matters:</li>
-<li>Scoring changes can break longitudinal comparability unless clearly communicated.</li>
-<li>If improved, could better align strain with perceived exertion for lifting cohorts.</li>
+<li>Good reminder that tracker UX and algorithm changes can alter what you think is “progress” (and how you train/recover).</li>
 </ul>
-<h3>r/slatestarcodex (top 3)</h3>
-<p>1) **Monthly Discussion Thread**</p>
+<h3>r/slatestarcodex</h3>
 <ul>
-<li>Link: <a href="https://www.reddit.com/r/slatestarcodex/comments/1qtftuw/monthly_discussion_thread/">https://www.reddit.com/r/slatestarcodex/comments/1qtftuw/monthly_discussion_thread/</a></li>
+<li>**Monthly Discussion Thread** — <a href="https://www.reddit.com/r/slatestarcodex/comments/1qtftuw/monthly_discussion_thread/">https://www.reddit.com/r/slatestarcodex/comments/1qtftuw/monthly_discussion_thread/</a></li>
 <li>Summary:</li>
-<li>Open thread for smaller topics/links/questions.</li>
-<li>Explicitly asks participants to avoid culture‑war‑adjacent topics.</li>
-<li>Functions as a “commons” for lighter-weight discourse.</li>
-<li>Helps keep the front page focused on higher‑effort posts.</li>
-<li>Often a good place to surface eclectic reads.</li>
+<li>This thread is intended to fill a function similar to that of the Open Threads on SSC proper: a collection of discussion topics, links, and questions too small to merit their own threads.</li>
+<li>While it is intended for a wide range of conversation, please follow the community guidelines.</li>
+<li>In particular, avoid culture war–adjacent topics.</li>
 <li>Why it matters:</li>
-<li>Community hygiene: gives a release valve for low‑stakes questions.</li>
-<li>The “avoid culture war” norm is a deliberate attempt to preserve signal.</li>
+<li>Quick pulse check of what this community is focusing on right now.</li>
 </ul>
-<p>2) **Political Backflow From Europe**</p>
 <ul>
-<li>Link: <a href="https://www.reddit.com/r/slatestarcodex/comments/1r1ux6c/political_backflow_from_europe/">https://www.reddit.com/r/slatestarcodex/comments/1r1ux6c/political_backflow_from_europe/</a></li>
-<li>Summary:</li>
-<li>Link post to an Astral Codex Ten piece.</li>
-<li>RSS contains insufficient excerpt beyond the outbound link.</li>
-<li>Summary unavailable (insufficient content in RSS).</li>
+<li>**Political Backflow From Europe** — <a href="https://www.reddit.com/r/slatestarcodex/comments/1r1ux6c/political_backflow_from_europe/">https://www.reddit.com/r/slatestarcodex/comments/1r1ux6c/political_backflow_from_europe/</a></li>
+<li>Summary unavailable (insufficient content in RSS)</li>
 <li>Why it matters:</li>
-<li>Likely discussion driver given ACX readership overlap.</li>
-<li>Worth skimming for cross‑Atlantic politics framing (if you read the full post).</li>
+<li>Quick pulse check of what this community is focusing on right now.</li>
 </ul>
-<p>3) **Toddlers expect ingroup loyalty to override personal preferences when outgroups are present (2026)**</p>
 <ul>
-<li>Link: <a href="https://www.reddit.com/r/slatestarcodex/comments/1r1xx2k/toddlers_expect_ingroup_loyalty_to_override/">https://www.reddit.com/r/slatestarcodex/comments/1r1xx2k/toddlers_expect_ingroup_loyalty_to_override/</a></li>
-<li>Summary:</li>
-<li>Link post to a PNAS paper PDF.</li>
-<li>RSS contains insufficient excerpt beyond the outbound link.</li>
-<li>Summary unavailable (insufficient content in RSS).</li>
+<li>**Toddlers expect ingroup loyalty to override personal preferences when outgroups are present (2026)** — <a href="https://www.reddit.com/r/slatestarcodex/comments/1r1xx2k/toddlers_expect_ingroup_loyalty_to_override/">https://www.reddit.com/r/slatestarcodex/comments/1r1xx2k/toddlers_expect_ingroup_loyalty_to_override/</a></li>
+<li>Summary unavailable (insufficient content in RSS)</li>
 <li>Why it matters:</li>
-<li>If the paper holds up, it’s a concrete datapoint about early‑emerging social cognition.</li>
-<li>Relevant to debates about nature/nurture in group psychology.</li>
+<li>Quick pulse check of what this community is focusing on right now.</li>
 </ul>
-<h2>C) Anti-bubble picks (outside the usual sources)</h2>
-<h3>1) Medieval town–gown violence: the St Scholastica Day riot (1355)</h3>
+<hr />
+<h2>Anti-bubble picks (outside the usual sources)</h2>
+<h3>1) Wikipedia (Today’s featured article): St Scholastica Day riot (Oxford, 1355)</h3>
 <ul>
-<li>**Link:** <a href="https://en.wikipedia.org/wiki/St_Scholastica_Day_riot">https://en.wikipedia.org/wiki/St_Scholastica_Day_riot</a></li>
-<li>**Source:** Wikipedia (Today’s featured article)</li>
+<li>Link: <a href="https://en.wikipedia.org/wiki/St_Scholastica_Day_riot">https://en.wikipedia.org/wiki/St_Scholastica_Day_riot</a></li>
 <li>Summary:</li>
-<li>Sparked by a dispute over wine quality between Oxford students and a tavernkeeper.</li>
-<li>Escalated rapidly into multi‑day violence with armed gangs joining from the countryside.</li>
-<li>Resulted in dozens of deaths (townspeople and university members) and a harsh royal response.</li>
-<li>Long tail: political power shifted toward the university; later symbolic reconciliation occurred centuries later.</li>
+<li>A dispute over the quality of wine escalated into a three‑day riot between Oxford townspeople and university members.</li>
+<li>Dozens were killed (sources vary), and the Crown ultimately sided with the university.</li>
+<li>The settlement increased university powers at the town’s expense—an early example of how institutions can lock in privileges after conflict.</li>
+<li>A 600th‑anniversary reconciliation gesture in 1955 symbolically reversed roles (honorary degree / freeman status).</li>
 </ul>
-<h3>2) On this day: first science fiction on television (1938)</h3>
+<h3>2) Aeon (essay): “Compost modernity!” — solarpunk as a city-of-the-future vision</h3>
 <ul>
-<li>**Link:** <a href="https://en.wikipedia.org/wiki/Wikipedia:Selected_anniversaries/February_11">https://en.wikipedia.org/wiki/Wikipedia:Selected_anniversaries/February_11</a></li>
-<li>**Source:** Wikipedia (On this day)</li>
+<li>Link: <a href="https://aeon.co/essays/in-solarpunk-cities-of-the-future-tech-follows-natures-lead">https://aeon.co/essays/in-solarpunk-cities-of-the-future-tech-follows-natures-lead</a></li>
 <li>Summary:</li>
-<li>Notes the BBC’s 1938 adaptation of a section of Karel Čapek’s *R.U.R.* as the first TV science fiction broadcast.</li>
-<li>A neat historical anchor for how quickly new media forms adopt speculative storytelling.</li>
-<li>Reminds that “sci‑fi as a lens on tech anxiety” is as old as broadcast media.</li>
+<li>A tour of “solarpunk” as a design philosophy: technology that follows ecological constraints rather than overriding them.</li>
+<li>Emphasizes aesthetics + governance: inclusive, communal, and materially grounded futures (not just shiny gadgets).</li>
+<li>Useful as a counterweight to “more tech = better” narratives—forces you to ask what a *good* future feels like day‑to‑day.</li>
 </ul>
-<h3>3) Solarpunk as a design stance: “Compost modernity!”</h3>
+<h3>3) Quanta Magazine: Physicists make electrons flow like water</h3>
 <ul>
-<li>**Link:** <a href="https://aeon.co/essays/in-solarpunk-cities-of-the-future-tech-follows-natures-lead">https://aeon.co/essays/in-solarpunk-cities-of-the-future-tech-follows-natures-lead</a></li>
-<li>**Source:** Aeon</li>
+<li>Link: <a href="https://www.quantamagazine.org/physicists-make-electrons-flow-like-water-20260211/">https://www.quantamagazine.org/physicists-make-electrons-flow-like-water-20260211/</a></li>
 <li>Summary:</li>
-<li>Presents solarpunk as an optimistic counter‑aesthetic: technology integrated with ecology and civic inclusion.</li>
-<li>Argues for “nature‑led” tech—designing systems that follow biological constraints instead of fighting them.</li>
-<li>Useful if you want climate/urban futures that aren’t just dystopia vs techno‑utopia.</li>
+<li>In ordinary conductors, electricity doesn’t behave like a coherent fluid—even though we talk about “current flow.”</li>
+<li>Experimental setups can induce regimes where electrons collectively act more like a liquid, opening different ways to reason about transport.</li>
+<li>This “electron hydrodynamics” line of work can illuminate strongly interacting quantum systems, and may create new measurement/engineering primitives.</li>
 </ul>
 <h3>YouTube</h3>
 <p>YouTube: not configured yet — add 3–5 channel IDs to enable daily anti-bubble videos.</p></div>
