@@ -4,5 +4,8 @@
 # Secrets
 /secrets/
 
+# Agent memory
+/memory/
+
 # OpenClaw media/state (should not be in repo)
 *.log
