@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Morning briefing — Mon, Feb 9, 2026 (ET)</title>
+  <meta name="description" content="Morning briefing" />
+  <style>
+  /* Max Read–inspired theme (approximation). No external assets. */
+
+:root {
+  --bg: #071d2b;
+  --bg2: #061725;
+  --text: #e9eef3;
+  --muted: rgba(233, 238, 243, 0.72);
+  --muted2: rgba(233, 238, 243, 0.56);
+  --link: #ff4fd8;
+  --accent: #ff3b7c;
+  --accent2: #b255ff;
+  --accent3: #ff4fd8;
+  --border: rgba(233, 238, 243, 0.12);
+
+  --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+
+  --maxw: 860px;
+}
+
+:root[data-theme="light"] {
+  --bg: #f6f7f9;
+  --bg2: #ffffff;
+  --text: #111827;
+  --muted: rgba(17, 24, 39, 0.72);
+  --muted2: rgba(17, 24, 39, 0.56);
+  --link: #7c3aed;
+  --accent: #ff3b7c;
+  --accent2: #7c3aed;
+  --accent3: #db2777;
+  --border: rgba(17, 24, 39, 0.12);
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
+  color: var(--text);
+  font-family: var(--sans);
+}
+
+a { color: var(--link); text-decoration: none; }
+a:hover {
+  text-decoration: none;
+  color: color-mix(in srgb, var(--link) 55%, var(--accent3));
+}
+
+::selection {
+  background: color-mix(in srgb, var(--accent3) 55%, transparent);
+  color: var(--text);
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  backdrop-filter: blur(10px);
+  background: color-mix(in srgb, var(--bg) 75%, transparent);
+  border-bottom: 1px solid var(--border);
+  z-index: 10;
+}
+
+.header-inner {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 14px 18px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.brand .logo {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: radial-gradient(circle at 30% 30%, #62d1ff 0%, #23a1ff 45%, #0b3a7a 100%);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.35);
+}
+
+.brand a { color: var(--text); }
+
+.controls {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.btn {
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text);
+  padding: 8px 10px;
+  border-radius: 10px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  border-color: color-mix(in srgb, var(--border) 35%, var(--accent2));
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 18%, transparent);
+}
+
+/* Primary accent button style */
+.btn.accent {
+  border: 0;
+  background: linear-gradient(135deg, var(--accent3) 0%, var(--accent2) 55%, var(--accent) 100%);
+  color: white;
+}
+
+.btn.accent:hover {
+  filter: brightness(1.05);
+  box-shadow: 0 10px 30px rgba(255, 59, 124, 0.18), 0 10px 30px rgba(178, 85, 255, 0.16);
+}
+
+.main {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 30px 18px 70px;
+}
+
+.post-title {
+  font-family: var(--mono);
+  font-weight: 800;
+  font-size: clamp(38px, 5.2vw, 64px);
+  line-height: 0.98;
+  letter-spacing: -0.02em;
+  margin: 18px 0 10px;
+}
+
+.post-meta {
+  font-family: var(--mono);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 12px;
+  color: var(--muted2);
+  margin-bottom: 24px;
+}
+
+.prose {
+  font-family: var(--mono);
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--text);
+}
+
+.prose p { margin: 0 0 16px; }
+.prose h2, .prose h3 {
+  font-family: var(--mono);
+  margin: 28px 0 10px;
+  line-height: 1.2;
+}
+
+.prose h2 { font-size: 22px; }
+.prose h3 { font-size: 19px; color: var(--muted); }
+
+.prose ul { padding-left: 22px; margin: 0 0 16px; }
+.prose li { margin: 8px 0; }
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--border);
+  margin: 28px 0;
+}
+
+.footer {
+  margin-top: 44px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+  color: var(--muted2);
+  font-family: var(--mono);
+  font-size: 12px;
+}
+
+.index-list {
+  display: grid;
+  gap: 14px;
+}
+
+.index-item {
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 14px 16px;
+  background: color-mix(in srgb, var(--bg2) 72%, transparent);
+}
+
+.index-item .t {
+  font-family: var(--mono);
+  font-size: 18px;
+  font-weight: 800;
+  margin: 0 0 6px;
+}
+
+.index-item .m {
+  font-family: var(--mono);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted2);
+}
+
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div><a href="../../index.html">Read Max-ish Briefing</a></div>
+      </div>
+      <div class="controls">
+        <a class="btn" href="../../archive.html">Archive</a>
+        <a class="btn" href="../../rss.xml">RSS</a>
+        <button class="btn accent" id="theme-toggle" type="button">Dark/Light</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="main">
+    <div class="post-title">Morning briefing — Mon, Feb 9, 2026 (ET)</div>
+<div class="post-meta">Feb 09, 2026 • Roundup</div>
+<div class="prose"><h2>Hacker News — Top 5</h2>
+<h3>Thoughts on Generating C (wingolog.org)</h3>
+<ul>
+<li>Link: <a href="https://wingolog.org/archives/2026/02/09/six-thoughts-on-generating-c">https://wingolog.org/archives/2026/02/09/six-thoughts-on-generating-c</a></li>
+<li>HN: <a href="https://news.ycombinator.com/item?id=46945235">https://news.ycombinator.com/item?id=46945235</a></li>
+</ul>
+<p>Top comment excerpt:</p>
+<ul>
+<li>rirze: Love how he put a paragraph for someone asking, "why not generate Rust?".</li>
+</ul>
+<p>Summary: The author (a compiler engineer) shares practical patterns for compilers that emit C as a target language. Main theme: keep semantics explicit and let the C compiler erase abstraction costs (e.g., `static inline` + `always_inline` helpers).</p>
+<p>Key tips: avoid implicit integer conversions (`-Wconversion`), wrap raw pointers/integers in single-field structs, and use `memcpy` for unaligned loads/stores. For tail calls / weird ABIs, do some manual register allocation instead of relying on the C compiler.</p>
+<h3>UEFI Bindings for JavaScript (codeberg.org)</h3>
+<ul>
+<li>Link: <a href="https://codeberg.org/smnx/promethee">https://codeberg.org/smnx/promethee</a></li>
+<li>HN: <a href="https://news.ycombinator.com/item?id=46945348">https://news.ycombinator.com/item?id=46945348</a></li>
+</ul>
+<p>Summary: Promethee is a tiny UEFI environment that lets you write boot-time logic in JavaScript. On boot, it loads `script.js` from the boot volume and executes it — your JS becomes the bootloader.</p>
+<h3>Can Ozempic Cure Addiction? (newyorker.com)</h3>
+<ul>
+<li>Link: <a href="https://www.newyorker.com/magazine/2026/02/16/can-ozempic-cure-addiction">https://www.newyorker.com/magazine/2026/02/16/can-ozempic-cure-addiction</a></li>
+<li>HN: <a href="https://news.ycombinator.com/item?id=46945448">https://news.ycombinator.com/item?id=46945448</a></li>
+</ul>
+<p>Summary: A New Yorker feature on growing evidence that GLP‑1 drugs (e.g., semaglutide/Ozempic) may reduce cravings beyond food — potentially affecting alcohol, nicotine, opioids, and other addictions.</p>
+<h3>Algorithmically Finding the Longest Line of Sight on Earth (alltheviews.world)</h3>
+<ul>
+<li>Link: <a href="https://alltheviews.world">https://alltheviews.world</a></li>
+<li>HN: <a href="https://news.ycombinator.com/item?id=46943568">https://news.ycombinator.com/item?id=46943568</a></li>
+</ul>
+<p>Summary: Two builders report an exhaustive, planet-scale computation of the longest line of sight on Earth, confirming a roughly 530 km view (Hindu Kush ↔ Pik Dankova). Includes an interactive map with billions of LOS lines.</p>
+<h3>Browse Internet Infrastructure (wirewiki.com)</h3>
+<ul>
+<li>Link: <a href="https://www.wirewiki.com">https://www.wirewiki.com</a></li>
+<li>HN: <a href="https://news.ycombinator.com/item?id=46944555">https://news.ycombinator.com/item?id=46944555</a></li>
+</ul>
+<p>Summary: Wirewiki aims to make DNS/IP infrastructure feel like a navigable graph (DNS lookup + propagation + zone transfer + SPF tooling), plus an index of DNS servers from scanning IPv4.</p>
+<hr />
+<h2>Reddit — top topics (RSS)</h2>
+<ul>
+<li>r/Biohackers: Epstein-related moderation notice; Community update; 1y3m journey with Reta</li>
+<li>r/blueprint_: 2026 protocol update; $60M raise; under-desk pedal exercisers</li>
+<li>r/productivity: AI-generated content rule; no advertising reminder; productivity backfired post</li>
+<li>r/whoop: “WHOOP was right” stories; jumpstart check-in; sleep struggles</li>
+<li>r/slatestarcodex: monthly thread; links for Feb; open thread</li>
+</ul>
+<hr />
+<h2>X threads (best-effort, no-login)</h2>
+<p>X threads: unavailable (no-login discovery/fetch blocked)</p></div>
+
+    <div class="footer">
+      Generated automatically. For offline use: use your browser’s “Save page” / Reading List.
+    </div>
+  </main>
+
+  <script>
+  (function(){
+  var key = 'briefing_theme';
+  function setTheme(t){
+    document.documentElement.setAttribute('data-theme', t);
+    try { localStorage.setItem(key, t); } catch(e) {}
+  }
+  function getPreferred(){
+    try {
+      var v = localStorage.getItem(key);
+      if (v === 'dark' || v === 'light') return v;
+    } catch(e) {}
+    return 'dark';
+  }
+
+  document.addEventListener('DOMContentLoaded', function(){
+    setTheme(getPreferred());
+    var btn = document.getElementById('theme-toggle');
+    if (!btn) return;
+    btn.addEventListener('click', function(){
+      var cur = document.documentElement.getAttribute('data-theme') || 'dark';
+      setTheme(cur === 'dark' ? 'light' : 'dark');
+    });
+  });
+})();
+
+  </script>
+</body>
+</html>

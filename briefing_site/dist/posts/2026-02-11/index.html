@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Morning briefing — Wed, Feb 11, 2026 (ET)</title>
+  <meta name="description" content="Morning briefing" />
+  <style>
+  /* Max Read–inspired theme (approximation). No external assets. */
+
+:root {
+  --bg: #071d2b;
+  --bg2: #061725;
+  --text: #e9eef3;
+  --muted: rgba(233, 238, 243, 0.72);
+  --muted2: rgba(233, 238, 243, 0.56);
+  --link: #ff4fd8;
+  --accent: #ff3b7c;
+  --accent2: #b255ff;
+  --accent3: #ff4fd8;
+  --border: rgba(233, 238, 243, 0.12);
+
+  --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+
+  --maxw: 860px;
+}
+
+:root[data-theme="light"] {
+  --bg: #f6f7f9;
+  --bg2: #ffffff;
+  --text: #111827;
+  --muted: rgba(17, 24, 39, 0.72);
+  --muted2: rgba(17, 24, 39, 0.56);
+  --link: #7c3aed;
+  --accent: #ff3b7c;
+  --accent2: #7c3aed;
+  --accent3: #db2777;
+  --border: rgba(17, 24, 39, 0.12);
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
+  color: var(--text);
+  font-family: var(--sans);
+}
+
+a { color: var(--link); text-decoration: none; }
+a:hover {
+  text-decoration: none;
+  color: color-mix(in srgb, var(--link) 55%, var(--accent3));
+}
+
+::selection {
+  background: color-mix(in srgb, var(--accent3) 55%, transparent);
+  color: var(--text);
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  backdrop-filter: blur(10px);
+  background: color-mix(in srgb, var(--bg) 75%, transparent);
+  border-bottom: 1px solid var(--border);
+  z-index: 10;
+}
+
+.header-inner {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 14px 18px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.brand .logo {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: radial-gradient(circle at 30% 30%, #62d1ff 0%, #23a1ff 45%, #0b3a7a 100%);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.35);
+}
+
+.brand a { color: var(--text); }
+
+.controls {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.btn {
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text);
+  padding: 8px 10px;
+  border-radius: 10px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  border-color: color-mix(in srgb, var(--border) 35%, var(--accent2));
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 18%, transparent);
+}
+
+/* Primary accent button style */
+.btn.accent {
+  border: 0;
+  background: linear-gradient(135deg, var(--accent3) 0%, var(--accent2) 55%, var(--accent) 100%);
+  color: white;
+}
+
+.btn.accent:hover {
+  filter: brightness(1.05);
+  box-shadow: 0 10px 30px rgba(255, 59, 124, 0.18), 0 10px 30px rgba(178, 85, 255, 0.16);
+}
+
+.main {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 30px 18px 70px;
+}
+
+.post-title {
+  font-family: var(--mono);
+  font-weight: 800;
+  font-size: clamp(38px, 5.2vw, 64px);
+  line-height: 0.98;
+  letter-spacing: -0.02em;
+  margin: 18px 0 10px;
+}
+
+.post-meta {
+  font-family: var(--mono);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 12px;
+  color: var(--muted2);
+  margin-bottom: 24px;
+}
+
+.prose {
+  font-family: var(--mono);
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--text);
+}
+
+.prose p { margin: 0 0 16px; }
+.prose h2, .prose h3 {
+  font-family: var(--mono);
+  margin: 28px 0 10px;
+  line-height: 1.2;
+}
+
+.prose h2 { font-size: 22px; }
+.prose h3 { font-size: 19px; color: var(--muted); }
+
+.prose ul { padding-left: 22px; margin: 0 0 16px; }
+.prose li { margin: 8px 0; }
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--border);
+  margin: 28px 0;
+}
+
+.footer {
+  margin-top: 44px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+  color: var(--muted2);
+  font-family: var(--mono);
+  font-size: 12px;
+}
+
+.index-list {
+  display: grid;
+  gap: 14px;
+}
+
+.index-item {
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 14px 16px;
+  background: color-mix(in srgb, var(--bg2) 72%, transparent);
+}
+
+.index-item .t {
+  font-family: var(--mono);
+  font-size: 18px;
+  font-weight: 800;
+  margin: 0 0 6px;
+}
+
+.index-item .m {
+  font-family: var(--mono);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted2);
+}
+
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div><a href="../../index.html">Read Max-ish Briefing</a></div>
+      </div>
+      <div class="controls">
+        <a class="btn" href="../../archive.html">Archive</a>
+        <a class="btn" href="../../rss.xml">RSS</a>
+        <button class="btn accent" id="theme-toggle" type="button">Dark/Light</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="main">
+    <div class="post-title">Morning briefing — Wed, Feb 11, 2026 (ET)</div>
+<div class="post-meta">Feb 11, 2026 • Roundup</div>
+<div class="prose"><h2>Hacker News — Top 5</h2>
+<p>1) **Toyota Fluorite: “console-grade” Flutter game engine** (fluorite.game) Link: <a href="https://fluorite.game/">https://fluorite.game/</a></p>
+<p>Fluorite pitches itself as a 3D game engine that’s tightly integrated with Flutter: you write gameplay code in Dart and use Flutter widgets for UI. A core idea is a `FluoriteView` widget that can host one or more live 3D scene views inside a Flutter app, while sharing state between game entities and UI “the Flutter way.”</p>
+<p>Under the hood it uses a data-oriented ECS core implemented in C++ for performance, with high-level Dart-facing APIs for game logic. It also highlights console-grade rendering via Google’s Filament (modern APIs like Vulkan, PBR lighting, post-processing, and custom shaders), artist-defined touch/click trigger zones authored in Blender, and hot reload enabled by the Flutter/Dart workflow.</p>
+<p>2) **GLM-5: From Vibe Coding to Agentic Engineering** (z.ai) Link: <a href="https://z.ai/blog/glm-5">https://z.ai/blog/glm-5</a></p>
+<p>The announcement positions GLM-5 as a very large, MIT-licensed model aimed at “agentic engineering”—LLM-assisted work framed as longer-horizon, tool-using systems engineering rather than quick one-off prompting. A notable practical detail circulating in the discussion is the sheer scale: reports describe a ~754B-parameter release with very large hosted artifacts (multi-terabyte footprint).</p>
+<p>I couldn’t reliably fetch the primary z.ai blog content from this environment, so the above is based on secondary coverage and the visible context around the HN discussion. If you want, I can re-try with a browser-based fetch later and update the post with a more direct summary.</p>
+<p>3) **NetNewsWire Turns 23** (netnewswire.blog) Link: <a href="https://netnewswire.blog/2026/02/11/netnewswire-turns.html">https://netnewswire.blog/2026/02/11/netnewswire-turns.html</a></p>
+<p>NetNewsWire’s author marks the 23rd anniversary of NetNewsWire 1.0 for Mac, noting they’ve just shipped NetNewsWire 7.0 for Mac and iOS and are already working on 7.0.1. The immediate focus is the typical post-major-release cycle: fixing regressions and making quick tweaks, tracked in a public milestone.</p>
+<p>The roadmap sketch is pragmatic: 7.1 will focus on syncing fixes and improvements; 7.2 doesn’t have a defined focus yet (possibly UX polish or a “potpourri”); and anything beyond that depends on how the next releases go and what Apple’s platform changes bring at WWDC.</p>
+<p>4) **Claude Code Is Being Dumbed Down** (symmetrybreak.ing) Link: <a href="https://symmetrybreak.ing/blog/claude-code-is-being-dumbed-down/">https://symmetrybreak.ing/blog/claude-code-is-being-dumbed-down/</a></p>
+<p>This is a critique of a Claude Code change (described as shipping in v2.1.20) that allegedly reduces transparency by replacing detailed “what the tool did” output (file paths read, search patterns used) with vague counters like “Read 3 files” and “Searched for 1 pattern.” The author argues that these details are essential for trust and for quickly validating whether an agent is doing the right thing.</p>
+<p>A major complaint is that the suggested workaround—turning on verbose mode—doesn’t match the need: users want lightweight, specific details (paths/patterns), not a firehose of traces and transcripts. The post frames the situation as a classic UX mismatch: removing useful signal in the name of reducing “noise,” then offering an overcorrecting debug mode instead of a simple toggle.</p>
+<p>5) **Single bone in Spain offers first direct evidence of Hannibal's war elephants** (phys.org) Link: <a href="https://phys.org/news/2026-02-hannibal-famous-war-elephants-bone.html">https://phys.org/news/2026-02-hannibal-famous-war-elephants-bone.html</a></p>
+<p>Archaeologists at a site in Córdoba, Spain (Colina de los Quemados) reported a small elephant bone—identified as a right third carpal bone—found in a destruction layer dated to the era of the Second Punic War. The context includes material consistent with conflict/warfare (for example, stone spheres interpreted as catapult ammunition, a bolt point, plus coins and ceramics suggesting a 3rd-century BC event), making the association with military activity plausible.</p>
+<p>The coverage stresses caution: it’s a single bone, preservation limited follow-up analyses, and some dating approaches were constrained by poor collagen preservation. Still, if the identification and context hold up, it could be among the rare pieces of direct archaeological evidence in Western Europe for war elephants tied to classical-era conflict in Iberia.</p>
+<h2>Reddit — Top topics</h2>
+<h3>r/Biohackers</h3>
+<ul>
+<li>Notice on Epstein Related Posts — <a href="https://www.reddit.com/r/Biohackers/comments/1qtwb40/notice_on_epstein_related_posts/">https://www.reddit.com/r/Biohackers/comments/1qtwb40/notice_on_epstein_related_posts/</a></li>
+<li>January Community Update (PLEASE READ) — <a href="https://www.reddit.com/r/Biohackers/comments/1qffedh/january_community_update_please_read/">https://www.reddit.com/r/Biohackers/comments/1qffedh/january_community_update_please_read/</a></li>
+<li>My list of fasting benefits - Updated and ranked by strength of evidence — <a href="https://www.reddit.com/r/Biohackers/comments/1r25y4n/my_list_of_fasting_benefits_updated_and_ranked_by/">https://www.reddit.com/r/Biohackers/comments/1r25y4n/my_list_of_fasting_benefits_updated_and_ranked_by/</a></li>
+</ul>
+<h3>r/blueprint_</h3>
+<ul>
+<li>Bryan's Updated 2026 Protocol — <a href="https://www.reddit.com/r/blueprint_/comments/1qm3dk0/bryans_updated_2026_protocol/">https://www.reddit.com/r/blueprint_/comments/1qm3dk0/bryans_updated_2026_protocol/</a></li>
+<li>Blueprint just raised $60M to bring Bryan's longevity protocol to everyone — <a href="https://www.reddit.com/r/blueprint_/comments/1oim0kr/blueprint_just_raised_60m_to_bring_bryans/">https://www.reddit.com/r/blueprint_/comments/1oim0kr/blueprint_just_raised_60m_to_bring_bryans/</a></li>
+<li>Does longevity mix have noticeable effects? — <a href="https://www.reddit.com/r/blueprint_/comments/1r20qsh/does_longevity_mix_have_noticeable_effects/">https://www.reddit.com/r/blueprint_/comments/1r20qsh/does_longevity_mix_have_noticeable_effects/</a></li>
+</ul>
+<h3>r/productivity</h3>
+<ul>
+<li>New rule: AI generated posts and comments are not allowed — <a href="https://www.reddit.com/r/productivity/comments/1l74rhl/new_rule_ai_generated_posts_and_comments_are_not/">https://www.reddit.com/r/productivity/comments/1l74rhl/new_rule_ai_generated_posts_and_comments_are_not/</a></li>
+<li>REMINDER: Advertising of any kind is NOT allowed on /r/productivity! This includes soliciting, beta-testing requests, surveys, product validation, etc. — <a href="https://www.reddit.com/r/productivity/comments/1q7t6ip/reminder_advertising_of_any_kind_is_not_allowed/">https://www.reddit.com/r/productivity/comments/1q7t6ip/reminder_advertising_of_any_kind_is_not_allowed/</a></li>
+<li>Week 3 is where I always quit. So I started keeping receipts. Here's what changed — <a href="https://www.reddit.com/r/productivity/comments/1r1w24m/week_3_is_where_i_always_quit_so_i_started/">https://www.reddit.com/r/productivity/comments/1r1w24m/week_3_is_where_i_always_quit_so_i_started/</a></li>
+</ul>
+<h3>r/whoop</h3>
+<ul>
+<li>[DISCUSSION] That “damn… WHOOP was right” moment — <a href="https://www.reddit.com/r/whoop/comments/1qwyri4/discussion_that_damn_whoop_was_right_moment/">https://www.reddit.com/r/whoop/comments/1qwyri4/discussion_that_damn_whoop_was_right_moment/</a></li>
+<li>[CHALLENGE] WEEK 3 JANUARY JUMPSTART CHECK-IN: Still Showing Up? — <a href="https://www.reddit.com/r/whoop/comments/1qh9sym/challenge_week_3_january_jumpstart_checkin_still/">https://www.reddit.com/r/whoop/comments/1qh9sym/challenge_week_3_january_jumpstart_checkin_still/</a></li>
+<li>I did it — <a href="https://www.reddit.com/r/whoop/comments/1r23xzu/i_did_it/">https://www.reddit.com/r/whoop/comments/1r23xzu/i_did_it/</a></li>
+</ul>
+<h3>r/slatestarcodex</h3>
+<ul>
+<li>Monthly Discussion Thread — <a href="https://www.reddit.com/r/slatestarcodex/comments/1qtftuw/monthly_discussion_thread/">https://www.reddit.com/r/slatestarcodex/comments/1qtftuw/monthly_discussion_thread/</a></li>
+<li>Political Backflow From Europe — <a href="https://www.reddit.com/r/slatestarcodex/comments/1r1ux6c/political_backflow_from_europe/">https://www.reddit.com/r/slatestarcodex/comments/1r1ux6c/political_backflow_from_europe/</a></li>
+<li>Toddlers expect ingroup loyalty to override personal preferences when outgroups are present (2026) — <a href="https://www.reddit.com/r/slatestarcodex/comments/1r1xx2k/toddlers_expect_ingroup_loyalty_to_override/">https://www.reddit.com/r/slatestarcodex/comments/1r1xx2k/toddlers_expect_ingroup_loyalty_to_override/</a></li>
+</ul></div>
+
+    <div class="footer">
+      Generated automatically. For offline use: use your browser’s “Save page” / Reading List.
+    </div>
+  </main>
+
+  <script>
+  (function(){
+  var key = 'briefing_theme';
+  function setTheme(t){
+    document.documentElement.setAttribute('data-theme', t);
+    try { localStorage.setItem(key, t); } catch(e) {}
+  }
+  function getPreferred(){
+    try {
+      var v = localStorage.getItem(key);
+      if (v === 'dark' || v === 'light') return v;
+    } catch(e) {}
+    return 'dark';
+  }
+
+  document.addEventListener('DOMContentLoaded', function(){
+    setTheme(getPreferred());
+    var btn = document.getElementById('theme-toggle');
+    if (!btn) return;
+    btn.addEventListener('click', function(){
+      var cur = document.documentElement.getAttribute('data-theme') || 'dark';
+      setTheme(cur === 'dark' ? 'light' : 'dark');
+    });
+  });
+})();
+
+  </script>
+</body>
+</html>
