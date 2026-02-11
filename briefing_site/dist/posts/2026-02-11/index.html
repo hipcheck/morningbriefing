@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Morning briefing — Wed, Feb 11, 2026 (ET)</title>
+  <title>Morning briefing — Wednesday, Feb 11, 2026 (ET)</title>
   <meta name="description" content="Morning briefing" />
   <style>
   /* Max Read–inspired theme (approximation). No external assets. */
@@ -234,54 +234,79 @@ hr {
   </header>
 
   <main class="main">
-    <div class="post-title">Morning briefing — Wed, Feb 11, 2026 (ET)</div>
+    <div class="post-title">Morning briefing — Wednesday, Feb 11, 2026 (ET)</div>
 <div class="post-meta">Feb 11, 2026 • Roundup</div>
 <div class="prose"><h2>Hacker News — Top 5</h2>
-<p>1) **Toyota Fluorite: “console-grade” Flutter game engine** (fluorite.game) Link: <a href="https://fluorite.game/">https://fluorite.game/</a></p>
-<p>Fluorite pitches itself as a 3D game engine that’s tightly integrated with Flutter: you write gameplay code in Dart and use Flutter widgets for UI. A core idea is a `FluoriteView` widget that can host one or more live 3D scene views inside a Flutter app, while sharing state between game entities and UI “the Flutter way.”</p>
-<p>Under the hood it uses a data-oriented ECS core implemented in C++ for performance, with high-level Dart-facing APIs for game logic. It also highlights console-grade rendering via Google’s Filament (modern APIs like Vulkan, PBR lighting, post-processing, and custom shaders), artist-defined touch/click trigger zones authored in Blender, and hot reload enabled by the Flutter/Dart workflow.</p>
-<p>2) **GLM-5: From Vibe Coding to Agentic Engineering** (z.ai) Link: <a href="https://z.ai/blog/glm-5">https://z.ai/blog/glm-5</a></p>
-<p>The announcement positions GLM-5 as a very large, MIT-licensed model aimed at “agentic engineering”—LLM-assisted work framed as longer-horizon, tool-using systems engineering rather than quick one-off prompting. A notable practical detail circulating in the discussion is the sheer scale: reports describe a ~754B-parameter release with very large hosted artifacts (multi-terabyte footprint).</p>
-<p>I couldn’t reliably fetch the primary z.ai blog content from this environment, so the above is based on secondary coverage and the visible context around the HN discussion. If you want, I can re-try with a browser-based fetch later and update the post with a more direct summary.</p>
-<p>3) **NetNewsWire Turns 23** (netnewswire.blog) Link: <a href="https://netnewswire.blog/2026/02/11/netnewswire-turns.html">https://netnewswire.blog/2026/02/11/netnewswire-turns.html</a></p>
-<p>NetNewsWire’s author marks the 23rd anniversary of NetNewsWire 1.0 for Mac, noting they’ve just shipped NetNewsWire 7.0 for Mac and iOS and are already working on 7.0.1. The immediate focus is the typical post-major-release cycle: fixing regressions and making quick tweaks, tracked in a public milestone.</p>
-<p>The roadmap sketch is pragmatic: 7.1 will focus on syncing fixes and improvements; 7.2 doesn’t have a defined focus yet (possibly UX polish or a “potpourri”); and anything beyond that depends on how the next releases go and what Apple’s platform changes bring at WWDC.</p>
-<p>4) **Claude Code Is Being Dumbed Down** (symmetrybreak.ing) Link: <a href="https://symmetrybreak.ing/blog/claude-code-is-being-dumbed-down/">https://symmetrybreak.ing/blog/claude-code-is-being-dumbed-down/</a></p>
-<p>This is a critique of a Claude Code change (described as shipping in v2.1.20) that allegedly reduces transparency by replacing detailed “what the tool did” output (file paths read, search patterns used) with vague counters like “Read 3 files” and “Searched for 1 pattern.” The author argues that these details are essential for trust and for quickly validating whether an agent is doing the right thing.</p>
-<p>A major complaint is that the suggested workaround—turning on verbose mode—doesn’t match the need: users want lightweight, specific details (paths/patterns), not a firehose of traces and transcripts. The post frames the situation as a classic UX mismatch: removing useful signal in the name of reducing “noise,” then offering an overcorrecting debug mode instead of a simple toggle.</p>
-<p>5) **Single bone in Spain offers first direct evidence of Hannibal's war elephants** (phys.org) Link: <a href="https://phys.org/news/2026-02-hannibal-famous-war-elephants-bone.html">https://phys.org/news/2026-02-hannibal-famous-war-elephants-bone.html</a></p>
-<p>Archaeologists at a site in Córdoba, Spain (Colina de los Quemados) reported a small elephant bone—identified as a right third carpal bone—found in a destruction layer dated to the era of the Second Punic War. The context includes material consistent with conflict/warfare (for example, stone spheres interpreted as catapult ammunition, a bolt point, plus coins and ceramics suggesting a 3rd-century BC event), making the association with military activity plausible.</p>
-<p>The coverage stresses caution: it’s a single bone, preservation limited follow-up analyses, and some dating approaches were constrained by poor collagen preservation. Still, if the identification and context hold up, it could be among the rare pieces of direct archaeological evidence in Western Europe for war elephants tied to classical-era conflict in Iberia.</p>
-<h2>Reddit — Top topics</h2>
+<h3>Toyota Fluorite: "console-grade" Flutter game engine</h3>
+<ul>
+<li>**Domain:** fluorite.game</li>
+<li>**Link:** <a href="https://fluorite.game/">https://fluorite.game/</a></li>
+</ul>
+<p>Fluorite positions itself as a 3D game engine that’s tightly integrated with Flutter, aiming to let developers build games and UI in the same Dart/Flutter workflow. The pitch is reduced complexity: write game logic in Dart, use Flutter widgets for UI, and embed one or more live 3D views via a FluoriteView widget so game entities and UI can share state in a familiar Flutter-style architecture.</p>
+<p>Under the hood, the core is an ECS (Entity-Component-System) implemented in C++ for performance, while higher-level game APIs are exposed to Dart. The site highlights artist-friendly interaction features—like defining touch/click trigger zones directly in Blender—and emphasizes rapid iteration via Hot Reload, leveraging the standard Flutter tooling for fast scene and code updates.</p>
+<p>Rendering is described as “console-grade,” using Google’s Filament renderer with modern graphics APIs (e.g., Vulkan) to support physically-based lighting, post-processing, and custom shaders. Overall, it reads like an attempt to make serious 3D/game development feel native inside the Flutter ecosystem rather than bolted on via a separate engine.</p>
+<h3>GLM-5: From Vibe Coding to Agentic Engineering</h3>
+<ul>
+<li>**Domain:** z.ai</li>
+<li>**Link:** <a href="https://z.ai/blog/glm-5">https://z.ai/blog/glm-5</a></li>
+</ul>
+<p>The original Z.ai blog post was not readable from this job environment (content extraction returned empty), so this summary is based on secondary context and public mentions. GLM-5 appears to be a major new release positioned around moving from informal “vibe coding” toward more structured, long-horizon ‘agentic engineering’—i.e., building systems where models plan, delegate, and execute multi-step tasks.</p>
+<p>Per Simon Willison’s note and linked resources, GLM-5 is described as an MIT-licensed model in the ~754B parameter range, with a very large distribution footprint (on the order of terabytes on Hugging Face). That suggests a “frontier-scale” model intended for serious research/engineering rather than a small local model.</p>
+<p>The interesting meta-point here is the branding shift: coining or popularizing ‘agentic engineering’ as a role/discipline for professional engineers working with LLMs. If the model itself becomes widely accessible, the bigger story may be the ecosystem: tooling, evals, and operational patterns that turn large models into reliable components in production systems.</p>
+<h3>Claude Code Is Being Dumbed Down</h3>
+<ul>
+<li>**Domain:** symmetrybreak.ing</li>
+<li>**Link:** <a href="https://symmetrybreak.ing/blog/claude-code-is-being-dumbed-down/">https://symmetrybreak.ing/blog/claude-code-is-being-dumbed-down/</a></li>
+</ul>
+<p>This post argues that a recent Claude Code release changed its default terminal output in a way that reduces transparency: instead of listing which files were read and which patterns were searched, it now emits a terse line like “Read N files” or “Searched for N patterns,” without details. The author’s complaint is straightforward: without file paths and search terms, those lines aren’t actionable and make it harder to understand or audit what the tool just did.</p>
+<p>According to the post, the vendor response has been to point users at “verbose mode,” which is described as an overcorrection: a flood of debug-like output, full sub-agent transcripts, and other noise—rather than a simple toggle to restore the missing inline details. The author frames this as product churn where the tool is simultaneously too opaque by default and too noisy when you opt into detail.</p>
+<p>The broader theme is about human trust and developer ergonomics. AI coding tools don’t just need to be capable; they need to be inspectable at the right level of granularity, so developers can quickly verify what happened and build confidence without wading through walls of logs.</p>
+<h3>NetNewsWire Turns 23</h3>
+<ul>
+<li>**Domain:** netnewswire.blog</li>
+<li>**Link:** <a href="https://netnewswire.blog/2026/02/11/netnewswire-turns.html">https://netnewswire.blog/2026/02/11/netnewswire-turns.html</a></li>
+</ul>
+<p>NetNewsWire’s maintainer marks the app’s 23rd anniversary, noting that NetNewsWire 1.0 shipped for Mac on February 11, 2003. The post reads as both a milestone and a status update: after releasing 7.0 for Mac and iOS, the team is moving quickly on 7.0.1 to address regressions and immediate polish items that surfaced after a big release.</p>
+<p>They link to the current 7.0.1 milestone as a public to-do list, and outline a near-term roadmap: 7.1 will focus on syncing fixes and improvements; 7.2 doesn’t yet have a defined focus (could be UX/polish or a mix), and 7.3 is intentionally left open, partly dependent on what Apple introduces at WWDC.</p>
+<p>The tone is optimistic and pragmatic: plenty of bugs and tech debt remain, but recent momentum has improved, and the “best versions are still to come.” For RSS users, it’s a reminder that a long-lived, well-maintained reader is still evolving—and doing so in public.</p>
+<h3>Amazon Ring's lost dog ad sparks backlash amid fears of mass surveillance</h3>
+<ul>
+<li>**Domain:** theverge.com</li>
+<li>**Link:** <a href="https://www.theverge.com/tech/876866/ring-search-party-super-bowl-ad-online-backlash">https://www.theverge.com/tech/876866/ring-search-party-super-bowl-ad-online-backlash</a></li>
+</ul>
+<p>The Verge reports on backlash to a Ring Super Bowl ad showcasing its ‘Search Party’ feature: using neighborhood Ring cameras and AI matching to help locate a missing dog. Critics argue the ad effectively normalizes and celebrates a surveillance network, and that pet-identification tooling—especially when paired with other capabilities—could create a slippery slope toward searching for people.</p>
+<p>The article links the concern to Ring’s broader ecosystem and partnerships, including connections to other surveillance technology providers. It quotes critics (including a US senator and privacy experts) warning that large-scale networked camera infrastructure tends to expand in scope over time, regardless of initial ‘cuddly’ use cases.</p>
+<p>Ring’s spokesperson responds that Search Party is designed to match images of dogs and is not capable of processing human biometrics, and distinguishes it from account-level facial recognition features. The reporting lands on a trust question: even if guardrails exist today, the existence of the network and the incentives around it may make future expansion hard to rule out.</p>
+<h2>Reddit — top topics</h2>
 <h3>r/Biohackers</h3>
 <ul>
-<li>Notice on Epstein Related Posts — <a href="https://www.reddit.com/r/Biohackers/comments/1qtwb40/notice_on_epstein_related_posts/">https://www.reddit.com/r/Biohackers/comments/1qtwb40/notice_on_epstein_related_posts/</a></li>
-<li>January Community Update (PLEASE READ) — <a href="https://www.reddit.com/r/Biohackers/comments/1qffedh/january_community_update_please_read/">https://www.reddit.com/r/Biohackers/comments/1qffedh/january_community_update_please_read/</a></li>
-<li>My list of fasting benefits - Updated and ranked by strength of evidence — <a href="https://www.reddit.com/r/Biohackers/comments/1r25y4n/my_list_of_fasting_benefits_updated_and_ranked_by/">https://www.reddit.com/r/Biohackers/comments/1r25y4n/my_list_of_fasting_benefits_updated_and_ranked_by/</a></li>
+<li><a href="<a href="https://www.reddit.com/r/Biohackers/comments/1qtwb40/notice_on_epstein_related_posts/">https://www.reddit.com/r/Biohackers/comments/1qtwb40/notice_on_epstein_related_posts/</a>">Notice on Epstein Related Posts</a></li>
+<li><a href="<a href="https://www.reddit.com/r/Biohackers/comments/1qffedh/january_community_update_please_read/">https://www.reddit.com/r/Biohackers/comments/1qffedh/january_community_update_please_read/</a>">January Community Update (PLEASE READ)</a></li>
+<li><a href="<a href="https://www.reddit.com/r/Biohackers/comments/1r25y4n/my_list_of_fasting_benefits_updated_and_ranked_by/">https://www.reddit.com/r/Biohackers/comments/1r25y4n/my_list_of_fasting_benefits_updated_and_ranked_by/</a>">My list of fasting benefits - Updated and ranked by strength of evidence</a></li>
 </ul>
 <h3>r/blueprint_</h3>
 <ul>
-<li>Bryan's Updated 2026 Protocol — <a href="https://www.reddit.com/r/blueprint_/comments/1qm3dk0/bryans_updated_2026_protocol/">https://www.reddit.com/r/blueprint_/comments/1qm3dk0/bryans_updated_2026_protocol/</a></li>
-<li>Blueprint just raised $60M to bring Bryan's longevity protocol to everyone — <a href="https://www.reddit.com/r/blueprint_/comments/1oim0kr/blueprint_just_raised_60m_to_bring_bryans/">https://www.reddit.com/r/blueprint_/comments/1oim0kr/blueprint_just_raised_60m_to_bring_bryans/</a></li>
-<li>Does longevity mix have noticeable effects? — <a href="https://www.reddit.com/r/blueprint_/comments/1r20qsh/does_longevity_mix_have_noticeable_effects/">https://www.reddit.com/r/blueprint_/comments/1r20qsh/does_longevity_mix_have_noticeable_effects/</a></li>
+<li><a href="<a href="https://www.reddit.com/r/blueprint_/comments/1qm3dk0/bryans_updated_2026_protocol/">https://www.reddit.com/r/blueprint_/comments/1qm3dk0/bryans_updated_2026_protocol/</a>">Bryan's Updated 2026 Protocol</a></li>
+<li><a href="<a href="https://www.reddit.com/r/blueprint_/comments/1oim0kr/blueprint_just_raised_60m_to_bring_bryans/">https://www.reddit.com/r/blueprint_/comments/1oim0kr/blueprint_just_raised_60m_to_bring_bryans/</a>">Blueprint just raised $60M to bring Bryan's longevity protocol to everyone</a></li>
+<li><a href="<a href="https://www.reddit.com/r/blueprint_/comments/1r20qsh/does_longevity_mix_have_noticeable_effects/">https://www.reddit.com/r/blueprint_/comments/1r20qsh/does_longevity_mix_have_noticeable_effects/</a>">Does longevity mix have noticeable effects?</a></li>
 </ul>
 <h3>r/productivity</h3>
 <ul>
-<li>New rule: AI generated posts and comments are not allowed — <a href="https://www.reddit.com/r/productivity/comments/1l74rhl/new_rule_ai_generated_posts_and_comments_are_not/">https://www.reddit.com/r/productivity/comments/1l74rhl/new_rule_ai_generated_posts_and_comments_are_not/</a></li>
-<li>REMINDER: Advertising of any kind is NOT allowed on /r/productivity! This includes soliciting, beta-testing requests, surveys, product validation, etc. — <a href="https://www.reddit.com/r/productivity/comments/1q7t6ip/reminder_advertising_of_any_kind_is_not_allowed/">https://www.reddit.com/r/productivity/comments/1q7t6ip/reminder_advertising_of_any_kind_is_not_allowed/</a></li>
-<li>Week 3 is where I always quit. So I started keeping receipts. Here's what changed — <a href="https://www.reddit.com/r/productivity/comments/1r1w24m/week_3_is_where_i_always_quit_so_i_started/">https://www.reddit.com/r/productivity/comments/1r1w24m/week_3_is_where_i_always_quit_so_i_started/</a></li>
+<li><a href="<a href="https://www.reddit.com/r/productivity/comments/1l74rhl/new_rule_ai_generated_posts_and_comments_are_not/">https://www.reddit.com/r/productivity/comments/1l74rhl/new_rule_ai_generated_posts_and_comments_are_not/</a>">New rule: AI generated posts and comments are not allowed</a></li>
+<li><a href="<a href="https://www.reddit.com/r/productivity/comments/1q7t6ip/reminder_advertising_of_any_kind_is_not_allowed/">https://www.reddit.com/r/productivity/comments/1q7t6ip/reminder_advertising_of_any_kind_is_not_allowed/</a>">REMINDER: Advertising of any kind is NOT allowed on /r/productivity! This includes soliciting, beta-testing requests, surveys, product validation, etc.</a></li>
+<li><a href="<a href="https://www.reddit.com/r/productivity/comments/1r1w24m/week_3_is_where_i_always_quit_so_i_started/">https://www.reddit.com/r/productivity/comments/1r1w24m/week_3_is_where_i_always_quit_so_i_started/</a>">Week 3 is where I always quit. So I started keeping receipts. Here's what changed</a></li>
 </ul>
 <h3>r/whoop</h3>
 <ul>
-<li>[DISCUSSION] That “damn… WHOOP was right” moment — <a href="https://www.reddit.com/r/whoop/comments/1qwyri4/discussion_that_damn_whoop_was_right_moment/">https://www.reddit.com/r/whoop/comments/1qwyri4/discussion_that_damn_whoop_was_right_moment/</a></li>
-<li>[CHALLENGE] WEEK 3 JANUARY JUMPSTART CHECK-IN: Still Showing Up? — <a href="https://www.reddit.com/r/whoop/comments/1qh9sym/challenge_week_3_january_jumpstart_checkin_still/">https://www.reddit.com/r/whoop/comments/1qh9sym/challenge_week_3_january_jumpstart_checkin_still/</a></li>
-<li>I did it — <a href="https://www.reddit.com/r/whoop/comments/1r23xzu/i_did_it/">https://www.reddit.com/r/whoop/comments/1r23xzu/i_did_it/</a></li>
+<li>[[DISCUSSION] That “damn… WHOOP was right” moment](<a href="https://www.reddit.com/r/whoop/comments/1qwyri4/discussion_that_damn_whoop_was_right_moment/">https://www.reddit.com/r/whoop/comments/1qwyri4/discussion_that_damn_whoop_was_right_moment/</a>)</li>
+<li>[[CHALLENGE] WEEK 3 JANUARY JUMPSTART CHECK-IN: Still Showing Up?](<a href="https://www.reddit.com/r/whoop/comments/1qh9sym/challenge_week_3_january_jumpstart_checkin_still/">https://www.reddit.com/r/whoop/comments/1qh9sym/challenge_week_3_january_jumpstart_checkin_still/</a>)</li>
+<li><a href="<a href="https://www.reddit.com/r/whoop/comments/1r23xzu/i_did_it/">https://www.reddit.com/r/whoop/comments/1r23xzu/i_did_it/</a>">I did it</a></li>
 </ul>
 <h3>r/slatestarcodex</h3>
 <ul>
-<li>Monthly Discussion Thread — <a href="https://www.reddit.com/r/slatestarcodex/comments/1qtftuw/monthly_discussion_thread/">https://www.reddit.com/r/slatestarcodex/comments/1qtftuw/monthly_discussion_thread/</a></li>
-<li>Political Backflow From Europe — <a href="https://www.reddit.com/r/slatestarcodex/comments/1r1ux6c/political_backflow_from_europe/">https://www.reddit.com/r/slatestarcodex/comments/1r1ux6c/political_backflow_from_europe/</a></li>
-<li>Toddlers expect ingroup loyalty to override personal preferences when outgroups are present (2026) — <a href="https://www.reddit.com/r/slatestarcodex/comments/1r1xx2k/toddlers_expect_ingroup_loyalty_to_override/">https://www.reddit.com/r/slatestarcodex/comments/1r1xx2k/toddlers_expect_ingroup_loyalty_to_override/</a></li>
+<li><a href="<a href="https://www.reddit.com/r/slatestarcodex/comments/1qtftuw/monthly_discussion_thread/">https://www.reddit.com/r/slatestarcodex/comments/1qtftuw/monthly_discussion_thread/</a>">Monthly Discussion Thread</a></li>
+<li><a href="<a href="https://www.reddit.com/r/slatestarcodex/comments/1r1ux6c/political_backflow_from_europe/">https://www.reddit.com/r/slatestarcodex/comments/1r1ux6c/political_backflow_from_europe/</a>">Political Backflow From Europe</a></li>
+<li><a href="<a href="https://www.reddit.com/r/slatestarcodex/comments/1r1xx2k/toddlers_expect_ingroup_loyalty_to_override/">https://www.reddit.com/r/slatestarcodex/comments/1r1xx2k/toddlers_expect_ingroup_loyalty_to_override/</a>">Toddlers expect ingroup loyalty to override personal preferences when outgroups are present (2026)</a></li>
 </ul></div>
 
     <div class="footer">
