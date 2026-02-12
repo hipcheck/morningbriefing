@@ -1,0 +1,510 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Morning briefing — Thursday, Feb 12, 2026 (ET)</title>
+  <meta name="description" content="Morning briefing" />
+  <style>
+  /* Max Read–inspired theme (approximation). No external assets. */
+
+:root {
+  --bg: #071d2b;
+  --bg2: #061725;
+  --text: #e9eef3;
+  --muted: rgba(233, 238, 243, 0.72);
+  --muted2: rgba(233, 238, 243, 0.56);
+  --link: #ff4fd8;
+  --accent: #ff3b7c;
+  --accent2: #b255ff;
+  --accent3: #ff4fd8;
+  --border: rgba(233, 238, 243, 0.12);
+
+  --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+
+  --maxw: 860px;
+}
+
+:root[data-theme="light"] {
+  --bg: #f6f7f9;
+  --bg2: #ffffff;
+  --text: #111827;
+  --muted: rgba(17, 24, 39, 0.72);
+  --muted2: rgba(17, 24, 39, 0.56);
+  --link: #7c3aed;
+  --accent: #ff3b7c;
+  --accent2: #7c3aed;
+  --accent3: #db2777;
+  --border: rgba(17, 24, 39, 0.12);
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
+  color: var(--text);
+  font-family: var(--sans);
+}
+
+a { color: var(--link); text-decoration: none; }
+a:hover {
+  text-decoration: none;
+  color: color-mix(in srgb, var(--link) 55%, var(--accent3));
+}
+
+::selection {
+  background: color-mix(in srgb, var(--accent3) 55%, transparent);
+  color: var(--text);
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  backdrop-filter: blur(10px);
+  background: color-mix(in srgb, var(--bg) 75%, transparent);
+  border-bottom: 1px solid var(--border);
+  z-index: 10;
+}
+
+.header-inner {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 14px 18px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.brand .logo {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: radial-gradient(circle at 30% 30%, #62d1ff 0%, #23a1ff 45%, #0b3a7a 100%);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.35);
+}
+
+.brand a { color: var(--text); }
+
+.controls {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.btn {
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text);
+  padding: 8px 10px;
+  border-radius: 10px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  border-color: color-mix(in srgb, var(--border) 35%, var(--accent2));
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 18%, transparent);
+}
+
+/* Primary accent button style */
+.btn.accent {
+  border: 0;
+  background: linear-gradient(135deg, var(--accent3) 0%, var(--accent2) 55%, var(--accent) 100%);
+  color: white;
+}
+
+.btn.accent:hover {
+  filter: brightness(1.05);
+  box-shadow: 0 10px 30px rgba(255, 59, 124, 0.18), 0 10px 30px rgba(178, 85, 255, 0.16);
+}
+
+.main {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 30px 18px 70px;
+}
+
+.post-title {
+  font-family: var(--mono);
+  font-weight: 800;
+  font-size: clamp(38px, 5.2vw, 64px);
+  line-height: 0.98;
+  letter-spacing: -0.02em;
+  margin: 18px 0 10px;
+}
+
+.post-meta {
+  font-family: var(--mono);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 12px;
+  color: var(--muted2);
+  margin-bottom: 24px;
+}
+
+.prose {
+  font-family: var(--mono);
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--text);
+}
+
+.prose p { margin: 0 0 16px; }
+.prose h2, .prose h3 {
+  font-family: var(--mono);
+  margin: 28px 0 10px;
+  line-height: 1.2;
+}
+
+.prose h2 { font-size: 22px; }
+.prose h3 { font-size: 19px; color: var(--muted); }
+
+.prose ul { padding-left: 22px; margin: 0 0 16px; }
+.prose li { margin: 8px 0; }
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--border);
+  margin: 28px 0;
+}
+
+.footer {
+  margin-top: 44px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+  color: var(--muted2);
+  font-family: var(--mono);
+  font-size: 12px;
+}
+
+.index-list {
+  display: grid;
+  gap: 14px;
+}
+
+.index-item {
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 14px 16px;
+  background: color-mix(in srgb, var(--bg2) 72%, transparent);
+}
+
+.index-item .t {
+  font-family: var(--mono);
+  font-size: 18px;
+  font-weight: 800;
+  margin: 0 0 6px;
+}
+
+.index-item .m {
+  font-family: var(--mono);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted2);
+}
+
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div><a href="../../index.html">Read Max-ish Briefing</a></div>
+      </div>
+      <div class="controls">
+        <a class="btn" href="../../archive.html">Archive</a>
+        <a class="btn" href="../../rss.xml">RSS</a>
+        <button class="btn accent" id="theme-toggle" type="button">Dark/Light</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="main">
+    <div class="post-title">Morning briefing — Thursday, Feb 12, 2026 (ET)</div>
+<div class="post-meta">Feb 12, 2026 • Roundup</div>
+<div class="prose"><h2>A) Hacker News — Top 5</h2>
+<h3>1) The “Crown of Nobles” Noble Gas Tube Display (theshamblog.com)</h3>
+<ul>
+<li>**Link:** <a href="https://theshamblog.com/the-crown-of-nobles-noble-gas-tube-display/">https://theshamblog.com/the-crown-of-nobles-noble-gas-tube-display/</a></li>
+<li>**Domain:** theshamblog.com</li>
+</ul>
+<p>A spacecraft ion-thruster engineer decides they want a desk toy that makes their propellant feel *real*, so they buy a set of sealed noble-gas tubes (He/Ne/Ar/Kr/Xe) and build a “crown” display that can ionize one tube at a time. The write-up is a practical mix of physics intuition (why xenon is used for ion propulsion, why noble gases are convenient) and the kind of hacky hardware decisions that make small projects happen.</p>
+<p>The core trick: the gas inside the tube doesn’t ionize just because you touch a HV wire to the glass. You need capacitive coupling through the glass, so the author repurposes a plasma-ball base as a high-voltage RF source and uses foil “hats” around each tube to act as an antenna/coupler. A rotary switch selects which tube to energize, and the whole thing is packaged as a 3D-printed stand.</p>
+<p>The fun part is the real-world RF messiness: neon “steals” energy and lights up when it shouldn’t, xenon sometimes needs a human hand to provide a better capacitive path, and the author is explicit about safety (measuring the plasma-ball output, and not sharing CAD files because most people can’t verify they’re not building a hazardous HV device).</p>
+<h3>2) Warcraft III Peon Voice Notifications for Claude Code (github.com)</h3>
+<ul>
+<li>**Link:** <a href="https://github.com/tonyyont/peon-ping">https://github.com/tonyyont/peon-ping</a></li>
+<li>**Domain:** github.com</li>
+</ul>
+<p>This is a small productivity/focus hack for terminal-based AI coding: “peon-ping” plays Warcraft III peon/peasant voice lines when Claude Code needs attention (task finished, permission prompt, errors, etc.), plus it can change terminal tab titles and trigger desktop notifications.</p>
+<p>The README is essentially the product spec: a one-command installer, support for macOS + WSL2, a simple JSON config for volume and sound categories, and optional “pack rotation” so sessions randomly pick a sound pack. Under the hood it’s implemented as Claude Code hooks for key lifecycle events (start/prompt/stop/notification) that map to sound categories.</p>
+<p>It’s goofy on purpose, but the underlying point is real: if you context-switch away from the terminal, you often miss “I’m done” / “I need permission” moments and lose time getting back into flow. This is an auditory + lightweight-notification solution.</p>
+<h3>3) AI agent opens a PR, writes a blogpost to shame the maintainer who closes it (github.com)</h3>
+<ul>
+<li>**Link:** <a href="https://github.com/matplotlib/matplotlib/pull/31132">https://github.com/matplotlib/matplotlib/pull/31132</a></li>
+<li>**Domain:** github.com</li>
+</ul>
+<p>GitHub’s PR UI was not fully readable without interactive access, but the PR’s patch was fetchable.</p>
+<p>From the patch, this PR proposes targeted performance edits in Matplotlib by replacing `np.column_stack(...)` with faster alternatives (`np.vstack(...).T` for all-1D arrays of equal length; `np.hstack([... , ones.reshape(-1, 1)])` for the common “append an alpha channel” pattern). The author notes that `column_stack` can be slower because it may interleave elements in memory, while `vstack().T` can perform contiguous copies and return a view.</p>
+<p>The patch is careful about “safe cases only” (e.g., places where arrays are known to be raveled to 1D and have matching length). It also includes a follow-up fix after a build issue: a reminder that `column_stack` has shape-convenience behavior that you must replicate when mixing 1D + 2D inputs.</p>
+<h3>4) Discord/Twitch/Snapchat age verification bypass (age-verifier.kibty.town)</h3>
+<ul>
+<li>**Link:** <a href="https://age-verifier.kibty.town/">https://age-verifier.kibty.town/</a></li>
+<li>**Domain:** age-verifier.kibty.town</li>
+</ul>
+<p>This page describes an attempted bypass of k-id-style age verification by forging “legitimate-looking” metadata instead of providing a real face video. The authors claim the provider doesn’t store/send raw face video; instead it sends derived metadata and timelines, which (they argue) makes it possible to synthesize plausible submissions.</p>
+<p>The write-up is a mini reverse-engineering walkthrough: missing fields like `encrypted_payload`, `auth_tag`, `timestamp`, and `iv` are described as an AES-GCM payload with an HKDF-derived key, and then there’s discussion of constraints that must line up (prediction arrays derived from “raws”, z-score filtering, device-name matching, and timing/state consistency).</p>
+<p>Important note: the page itself states the script “doesn’t work anymore” and has been temporarily disabled while they look into a fix.</p>
+<h3>5) The missing digit of Stela C (johncarlosbaez.wordpress.com)</h3>
+<ul>
+<li>**Link:** <a href="https://johncarlosbaez.wordpress.com/2026/02/12/stela-c/">https://johncarlosbaez.wordpress.com/2026/02/12/stela-c/</a></li>
+<li>**Domain:** johncarlosbaez.wordpress.com</li>
+</ul>
+<p>John Carlos Baez tells a great archaeology/history-of-math story about Stela C (an Olmec monument fragment) whose inscription contains a Mesoamerican Long Count date—but one crucial leading digit was missing from the discovered half. In 1939, archaeologists Marion and Matthew Stirling inferred the missing digit using an indirect argument; decades later, the other half of the stone was found and validated their guess.</p>
+<p>The piece uses the episode to explain how the Long Count works (base-20-ish with an 18-based place to approximate 360-day years), how correlation to Western calendars works via a constant offset (“Mayan correlation”), and why the Stirling inference was actually constrained: the stone also included a Tzolkʼin day designation (“6 Etz’nab”), and because a baktun is 144,000 days, changing the missing baktun digit shifts the Tzolkʼin number in a predictable modular way—so only one missing digit made the Tzolkʼin line up.</p>
+<p>It’s part math puzzle, part “how do we know what ancient dates *mean*?”, and part lesson in how auxiliary information can make reconstruction possible.</p>
+<hr />
+<h2>B) Reddit — Top topics (summarized)</h2>
+<p>Note: Reddit HTML/JSON endpoints are often blocked; summaries below are derived from each subreddit’s RSS/Atom feed content.</p>
+<h3>r/Biohackers — top 3</h3>
+<p>1) **Notice on Epstein Related Posts**</p>
+<ul>
+<li>Link: <a href="https://www.reddit.com/r/Biohackers/comments/1qtwb40/notice_on_epstein_related_posts/">https://www.reddit.com/r/Biohackers/comments/1qtwb40/notice_on_epstein_related_posts/</a></li>
+<li>Summary:</li>
+<li>Mod announcement: temporary pause on new posts about certain health influencers being in Epstein-related news, pending significant updates.</li>
+<li>Rationale: many posts were repeating the same content; mods want discussion consolidated.</li>
+<li>Existing threads remain available for engagement.</li>
+<li>Invitation for feedback from community.</li>
+<li>Why it matters:</li>
+<li>Signals what kinds of biohacking-adjacent “news cycles” will be throttled to keep signal-to-noise acceptable.</li>
+<li>A reminder to look for primary updates rather than repeated reposts.</li>
+</ul>
+<p>2) **January Community Update (PLEASE READ)**</p>
+<ul>
+<li>Link: <a href="https://www.reddit.com/r/Biohackers/comments/1qffedh/january_community_update_please_read/">https://www.reddit.com/r/Biohackers/comments/1qffedh/january_community_update_please_read/</a></li>
+<li>Summary:</li>
+<li>Community milestone (~700k members) and a visual refresh.</li>
+<li>Announcement of an AMA with Kayla Barnes (female biohacking/longevity) and encouragement to submit questions.</li>
+<li>Plans for weekly roundup posts to surface good discussions.</li>
+<li>Ongoing moderation push to reduce pseudoscience; request for ideas/tools to help validate claims (potential “AI evidence checker” concept).</li>
+<li>Encourages reporting misinformation and requesting sources.</li>
+<li>Why it matters:</li>
+<li>More structured moderation + AMAs can raise baseline quality in a high-volume health community.</li>
+<li>Evidence-checking workflows (even informal) shape what norms get rewarded.</li>
+</ul>
+<p>3) **Weight loss and recomp**</p>
+<ul>
+<li>Link: <a href="https://www.reddit.com/r/Biohackers/comments/1r2hvor/weight_loss_and_recomp/">https://www.reddit.com/r/Biohackers/comments/1r2hvor/weight_loss_and_recomp/</a></li>
+<li>Summary unavailable (insufficient content in RSS).</li>
+<li>Why it matters:</li>
+<li>N/A (insufficient detail in RSS to extract actionable takeaways).</li>
+</ul>
+<h3>r/blueprint_ — top 3</h3>
+<p>1) **Bryan's Updated 2026 Protocol**</p>
+<ul>
+<li>Link: <a href="https://www.reddit.com/r/blueprint_/comments/1qm3dk0/bryans_updated_2026_protocol/">https://www.reddit.com/r/blueprint_/comments/1qm3dk0/bryans_updated_2026_protocol/</a></li>
+<li>Summary:</li>
+<li>A repost/quote-style post framing “Don’t Die” as a gamified, shareable longevity protocol.</li>
+<li>Links out to the full protocol page on blueprint.bryanjohnson.com.</li>
+<li>Emphasizes measurement, experimentation, and making the protocol more understandable to newcomers.</li>
+<li>Tone: inspirational/marketing-ish, positioned as a community rally point.</li>
+<li>Why it matters:</li>
+<li>Updates to the canonical “protocol” change what people replicate and what products/tests become default.</li>
+<li>Useful as a reference point even if you’re skeptical—helps track what’s currently being promoted.</li>
+</ul>
+<p>2) **Blueprint just raised $60M to bring Bryan's longevity protocol to everyone**</p>
+<ul>
+<li>Link: <a href="https://www.reddit.com/r/blueprint_/comments/1oim0kr/blueprint_just_raised_60m_to_bring_bryans/">https://www.reddit.com/r/blueprint_/comments/1oim0kr/blueprint_just_raised_60m_to_bring_bryans/</a></li>
+<li>Summary:</li>
+<li>Claims a $60M funding round to expand Blueprint into a broader platform.</li>
+<li>Describes potential offerings: bloodwork, protocols, food delivery, prescriptions/GLP-1 access, at-home tests, supplements, AI companion.</li>
+<li>Mentions leadership changes and an investor list spanning tech/crypto/celebrity.</li>
+<li>Frames it as a potential mainstreaming moment for longevity products.</li>
+<li>Why it matters:</li>
+<li>If true, it’s a signal of commercialization/packaging of “longevity protocols” into consumer-health platforms.</li>
+<li>Raises questions about evidence standards, incentives, and how “protocols” shift when scaled.</li>
+</ul>
+<p>3) **Does longevity mix have noticeable effects?**</p>
+<ul>
+<li>Link: <a href="https://www.reddit.com/r/blueprint_/comments/1r20qsh/does_longevity_mix_have_noticeable_effects/">https://www.reddit.com/r/blueprint_/comments/1r20qsh/does_longevity_mix_have_noticeable_effects/</a></li>
+<li>Summary:</li>
+<li>User reports taking a supplement mix daily, unsure about acute effects.</li>
+<li>Asks whether benefits are expected to be long-term only.</li>
+<li>Typical theme: subjective effects vs biomarker changes.</li>
+<li>Prompts discussion of what outcomes are realistic to expect.</li>
+<li>Why it matters:</li>
+<li>Highlights the common failure mode: “I can’t feel it” ≠ “it’s doing nothing,” but also ≠ “it’s working.”</li>
+<li>Reinforces the need for a measurement plan (baseline, endpoints, time horizon).</li>
+</ul>
+<h3>r/productivity — top 3</h3>
+<p>1) **New rule: AI generated posts and comments are not allowed**</p>
+<ul>
+<li>Link: <a href="https://www.reddit.com/r/productivity/comments/1l74rhl/new_rule_ai_generated_posts_and_comments_are_not/">https://www.reddit.com/r/productivity/comments/1l74rhl/new_rule_ai_generated_posts_and_comments_are_not/</a></li>
+<li>Summary:</li>
+<li>Moderation policy: if content appears AI-generated, it will be removed and the user may be banned.</li>
+<li>Goal stated: keep the subreddit free of low-effort “AI slop.”</li>
+<li>Encourages reporting.</li>
+<li>Sets an explicit community norm.</li>
+<li>Why it matters:</li>
+<li>Productivity communities are especially vulnerable to generic, non-actionable content; this is an attempt to keep posts experiential and specific.</li>
+</ul>
+<p>2) **REMINDER: Advertising of any kind is NOT allowed on /r/productivity!**</p>
+<ul>
+<li>Link: <a href="https://www.reddit.com/r/productivity/comments/1q7t6ip/reminder_advertising_of_any_kind_is_not_allowed/">https://www.reddit.com/r/productivity/comments/1q7t6ip/reminder_advertising_of_any_kind_is_not_allowed/</a></li>
+<li>Summary:</li>
+<li>Reinforces anti-advertising rule (no solicitations, surveys, product validation, beta requests).</li>
+<li>Encourages reporting ads.</li>
+<li>Establishes boundaries on self-promotion.</li>
+<li>Keeps discussions user-focused.</li>
+<li>Why it matters:</li>
+<li>Reduced spam increases the chance that “tool talk” is genuine rather than marketing.</li>
+</ul>
+<p>3) **I don’t procrastinate, I avoid unclear work**</p>
+<ul>
+<li>Link: <a href="https://www.reddit.com/r/productivity/comments/1r2m699/i_dont_procrastinate_i_avoid_unclear_work/">https://www.reddit.com/r/productivity/comments/1r2m699/i_dont_procrastinate_i_avoid_unclear_work/</a></li>
+<li>Summary:</li>
+<li>Hypothesis: clarity, not motivation, is the bottleneck.</li>
+<li>Clear tasks get done; vague tasks trigger avoidance.</li>
+<li>Invites others to validate the pattern.</li>
+<li>Implies a remedy: define “next physical action.”</li>
+<li>Why it matters:</li>
+<li>Practical reframing: the fix is often scoping and definition (write the acceptance criteria) rather than “willpower.”</li>
+</ul>
+<h3>r/whoop — top 3</h3>
+<p>1) **[DISCUSSION] That “damn… WHOOP was right” moment**</p>
+<ul>
+<li>Link: <a href="https://www.reddit.com/r/whoop/comments/1qwyri4/discussion_that_damn_whoop_was_right_moment/">https://www.reddit.com/r/whoop/comments/1qwyri4/discussion_that_damn_whoop_was_right_moment/</a></li>
+<li>Summary:</li>
+<li>Prompt asking for stories where low recovery / poor sleep warnings were ignored and later regretted.</li>
+<li>Asks for unpolished examples (sleep, lifestyle choices, etc.).</li>
+<li>Community storytelling thread.</li>
+<li>Encourages accountability/learning from mistakes.</li>
+<li>Why it matters:</li>
+<li>Real user narratives can reveal which metrics are most predictive in practice.</li>
+<li>Useful for building “if X then Y” heuristics (e.g., recovery red → adjust intensity).</li>
+</ul>
+<p>2) **[CHALLENGE] WEEK 3 JANUARY JUMPSTART CHECK-IN: Still Showing Up?**</p>
+<ul>
+<li>Link: <a href="https://www.reddit.com/r/whoop/comments/1qh9sym/challenge_week_3_january_jumpstart_checkin_still/">https://www.reddit.com/r/whoop/comments/1qh9sym/challenge_week_3_january_jumpstart_checkin_still/</a></li>
+<li>Summary:</li>
+<li>Weekly habit check-in framing: standards vs drift.</li>
+<li>Prompts reflection on what held up under pressure.</li>
+<li>Community accountability mechanism.</li>
+<li>Incentive mentioned (band giveaway).</li>
+<li>Why it matters:</li>
+<li>Highlights the behavioral layer: devices measure, but habits change (or don’t) under inconvenience.</li>
+</ul>
+<p>3) **Whoop gifted me a free strap**</p>
+<ul>
+<li>Link: <a href="https://www.reddit.com/r/whoop/comments/1r2l2t4/whoop_gifted_me_a_free_strap/">https://www.reddit.com/r/whoop/comments/1r2l2t4/whoop_gifted_me_a_free_strap/</a></li>
+<li>Summary:</li>
+<li>User reports receiving a DM from official WHOOP account and being offered a free band.</li>
+<li>Presented as a reward for subreddit activity/comments.</li>
+<li>Mentions it may have been prompted by a hypothesis/speculation post.</li>
+<li>Essentially a community-engagement anecdote.</li>
+<li>Why it matters:</li>
+<li>Indicates the brand is actively watching the community and incentivizing participation.</li>
+</ul>
+<h3>r/slatestarcodex — top 3</h3>
+<p>1) **Monthly Discussion Thread**</p>
+<ul>
+<li>Link: <a href="https://www.reddit.com/r/slatestarcodex/comments/1qtftuw/monthly_discussion_thread/">https://www.reddit.com/r/slatestarcodex/comments/1qtftuw/monthly_discussion_thread/</a></li>
+<li>Summary:</li>
+<li>Open-thread format for smaller topics/questions.</li>
+<li>Explicit reminder to avoid culture-war-adjacent topics.</li>
+<li>Intended to mirror SSC/ACX “Open Threads.”</li>
+<li>Centralizes miscellaneous discussion.</li>
+<li>Why it matters:</li>
+<li>If you want breadth without fragmentation, these threads tend to surface diverse links and mini-essays.</li>
+</ul>
+<p>2) **Political Backflow From Europe**</p>
+<ul>
+<li>Link: <a href="https://www.reddit.com/r/slatestarcodex/comments/1r1ux6c/political_backflow_from_europe/">https://www.reddit.com/r/slatestarcodex/comments/1r1ux6c/political_backflow_from_europe/</a></li>
+<li>Summary unavailable (insufficient content in RSS).</li>
+<li>Why it matters:</li>
+<li>N/A (insufficient RSS detail).</li>
+</ul>
+<p>3) **What Happened With Bio Anchors?**</p>
+<ul>
+<li>Link: <a href="https://www.reddit.com/r/slatestarcodex/comments/1r2pu1w/what_happened_with_bio_anchors/">https://www.reddit.com/r/slatestarcodex/comments/1r2pu1w/what_happened_with_bio_anchors/</a></li>
+<li>Summary unavailable (insufficient content in RSS).</li>
+<li>Why it matters:</li>
+<li>N/A (insufficient RSS detail).</li>
+</ul>
+<hr />
+<h2>C) Anti-bubble picks (outside the usual tech/biohacking loop)</h2>
+<h3>1) Archaeology theory: the Saxe–Goldstein hypothesis (Wikipedia featured article preview)</h3>
+<ul>
+<li>Link: <a href="https://en.wikipedia.org/wiki/Saxe%E2%80%93Goldstein_hypothesis">https://en.wikipedia.org/wiki/Saxe%E2%80%93Goldstein_hypothesis</a></li>
+<li>Summary:</li>
+<li>A theory in funerary archaeology: formal burial areas (like cemeteries) correlate with social groups legitimizing control over restricted resources via ancestor/descent claims.</li>
+<li>Originated with Arthur Saxe (1970) and refined by Lynne Goldstein.</li>
+<li>Influential in processual archaeology for bringing hypothesis-testing framing.</li>
+<li>Later criticized as overgeneralizing complex funeral practices.</li>
+</ul>
+<h3>2) On this day (Feb 11): the Valletta Carnival tragedy of 1823</h3>
+<ul>
+<li>Link: <a href="https://en.wikipedia.org/wiki/Carnival_tragedy_of_1823">https://en.wikipedia.org/wiki/Carnival_tragedy_of_1823</a></li>
+<li>Summary:</li>
+<li>A deadly human crush killed ~110 boys at a convent in Valletta during the Maltese Carnival.</li>
+<li>A reminder that crowd dynamics failures aren’t new—and infrastructure + event design matter.</li>
+<li>Useful context if you think about safety engineering, public spaces, and “normal accidents.”</li>
+</ul>
+<h3>3) Aeon: “Compost modernity!” (solar punk cities &amp; tech that follows nature)</h3>
+<ul>
+<li>Link: <a href="https://aeon.co/essays/in-solarpunk-cities-of-the-future-tech-follows-natures-lead">https://aeon.co/essays/in-solarpunk-cities-of-the-future-tech-follows-natures-lead</a></li>
+<li>Summary:</li>
+<li>A solarpunk vision of the future: blending technology with ecological systems rather than fighting them.</li>
+<li>Emphasizes inclusion and aesthetics (a future that *looks* desirable, not just efficient).</li>
+<li>Frames “nature + tech” as a design constraint and a cultural stance.</li>
+</ul>
+<p>#### YouTube YouTube: not configured yet — add 3–5 channel IDs to enable daily anti-bubble videos.</p></div>
+
+    <div class="footer">
+      Generated automatically. For offline use: use your browser’s “Save page” / Reading List.
+    </div>
+  </main>
+
+  <script>
+  (function(){
+  var key = 'briefing_theme';
+  function setTheme(t){
+    document.documentElement.setAttribute('data-theme', t);
+    try { localStorage.setItem(key, t); } catch(e) {}
+  }
+  function getPreferred(){
+    try {
+      var v = localStorage.getItem(key);
+      if (v === 'dark' || v === 'light') return v;
+    } catch(e) {}
+    return 'dark';
+  }
+
+  document.addEventListener('DOMContentLoaded', function(){
+    setTheme(getPreferred());
+    var btn = document.getElementById('theme-toggle');
+    if (!btn) return;
+    btn.addEventListener('click', function(){
+      var cur = document.documentElement.getAttribute('data-theme') || 'dark';
+      setTheme(cur === 'dark' ? 'light' : 'dark');
+    });
+  });
+})();
+
+  </script>
+</body>
+</html>
