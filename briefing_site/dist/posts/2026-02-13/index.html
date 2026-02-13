@@ -1,0 +1,469 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Morning briefing — Friday, Feb 13, 2026 (ET)</title>
+  <meta name="description" content="Morning briefing" />
+  <style>
+  /* Max Read–inspired theme (approximation). No external assets. */
+
+:root {
+  --bg: #071d2b;
+  --bg2: #061725;
+  --text: #e9eef3;
+  --muted: rgba(233, 238, 243, 0.72);
+  --muted2: rgba(233, 238, 243, 0.56);
+  --link: #ff4fd8;
+  --accent: #ff3b7c;
+  --accent2: #b255ff;
+  --accent3: #ff4fd8;
+  --border: rgba(233, 238, 243, 0.12);
+
+  --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+
+  --maxw: 860px;
+}
+
+:root[data-theme="light"] {
+  --bg: #f6f7f9;
+  --bg2: #ffffff;
+  --text: #111827;
+  --muted: rgba(17, 24, 39, 0.72);
+  --muted2: rgba(17, 24, 39, 0.56);
+  --link: #7c3aed;
+  --accent: #ff3b7c;
+  --accent2: #7c3aed;
+  --accent3: #db2777;
+  --border: rgba(17, 24, 39, 0.12);
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
+  color: var(--text);
+  font-family: var(--sans);
+}
+
+a { color: var(--link); text-decoration: none; }
+a:hover {
+  text-decoration: none;
+  color: color-mix(in srgb, var(--link) 55%, var(--accent3));
+}
+
+::selection {
+  background: color-mix(in srgb, var(--accent3) 55%, transparent);
+  color: var(--text);
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  backdrop-filter: blur(10px);
+  background: color-mix(in srgb, var(--bg) 75%, transparent);
+  border-bottom: 1px solid var(--border);
+  z-index: 10;
+}
+
+.header-inner {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 14px 18px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.brand .logo {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: radial-gradient(circle at 30% 30%, #62d1ff 0%, #23a1ff 45%, #0b3a7a 100%);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.35);
+}
+
+.brand a { color: var(--text); }
+
+.controls {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.btn {
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text);
+  padding: 8px 10px;
+  border-radius: 10px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  border-color: color-mix(in srgb, var(--border) 35%, var(--accent2));
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 18%, transparent);
+}
+
+/* Primary accent button style */
+.btn.accent {
+  border: 0;
+  background: linear-gradient(135deg, var(--accent3) 0%, var(--accent2) 55%, var(--accent) 100%);
+  color: white;
+}
+
+.btn.accent:hover {
+  filter: brightness(1.05);
+  box-shadow: 0 10px 30px rgba(255, 59, 124, 0.18), 0 10px 30px rgba(178, 85, 255, 0.16);
+}
+
+.main {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 30px 18px 70px;
+}
+
+.post-title {
+  font-family: var(--mono);
+  font-weight: 800;
+  font-size: clamp(38px, 5.2vw, 64px);
+  line-height: 0.98;
+  letter-spacing: -0.02em;
+  margin: 18px 0 10px;
+}
+
+.post-meta {
+  font-family: var(--mono);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 12px;
+  color: var(--muted2);
+  margin-bottom: 24px;
+}
+
+.prose {
+  font-family: var(--mono);
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--text);
+}
+
+.prose p { margin: 0 0 16px; }
+.prose h2, .prose h3 {
+  font-family: var(--mono);
+  margin: 28px 0 10px;
+  line-height: 1.2;
+}
+
+.prose h2 { font-size: 22px; }
+.prose h3 { font-size: 19px; color: var(--muted); }
+
+.prose ul { padding-left: 22px; margin: 0 0 16px; }
+.prose li { margin: 8px 0; }
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--border);
+  margin: 28px 0;
+}
+
+.footer {
+  margin-top: 44px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+  color: var(--muted2);
+  font-family: var(--mono);
+  font-size: 12px;
+}
+
+.index-list {
+  display: grid;
+  gap: 14px;
+}
+
+.index-item {
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 14px 16px;
+  background: color-mix(in srgb, var(--bg2) 72%, transparent);
+}
+
+.index-item .t {
+  font-family: var(--mono);
+  font-size: 18px;
+  font-weight: 800;
+  margin: 0 0 6px;
+}
+
+.index-item .m {
+  font-family: var(--mono);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted2);
+}
+
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div><a href="../../index.html">Read Max-ish Briefing</a></div>
+      </div>
+      <div class="controls">
+        <a class="btn" href="../../archive.html">Archive</a>
+        <a class="btn" href="../../rss.xml">RSS</a>
+        <button class="btn accent" id="theme-toggle" type="button">Dark/Light</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="main">
+    <div class="post-title">Morning briefing — Friday, Feb 13, 2026 (ET)</div>
+<div class="post-meta">Feb 13, 2026 • Roundup</div>
+<div class="prose"><h2>A) Hacker News — Top 5</h2>
+<h3>1) MinIO repository is no longer maintained (github.com)</h3>
+<p>Link: <a href="https://github.com/minio/minio/commit/7aac2a2c5b7c882e68c1ce017d8256be2feea27f">https://github.com/minio/minio/commit/7aac2a2c5b7c882e68c1ce017d8256be2feea27f</a></p>
+<p>MinIO (the open-source object storage server) has updated its repository messaging to state explicitly that **this repository is no longer maintained**. The commit updates the README to a prominent “NOTE” callout and points readers toward MinIO’s AIStor offerings instead.</p>
+<p>Practically, this is a “heads up” for anyone depending on upstream changes, security fixes, or ongoing community maintenance: you should assume **no new commits will land here** and plan accordingly (fork, migrate, or switch to an alternative). The README also reiterates AGPLv3 obligations and clarifies that community support is best-effort.</p>
+<h3>2) Resizing windows on macOS Tahoe – the saga continues (noheger.at)</h3>
+<p>Link: <a href="https://noheger.at/blog/2026/02/12/resizing-windows-on-macos-tahoe-the-saga-continues/">https://noheger.at/blog/2026/02/12/resizing-windows-on-macos-tahoe-the-saga-continues/</a></p>
+<p>Apple briefly claimed a fix for a long-running macOS window-resize “hit area” issue in the macOS 26.3 release candidate, and the author set out to test what changed. They built a small app that scans pixel-by-pixel around the window’s bottom-right corner, repeatedly simulating clicks to map where resize events are actually detected.</p>
+<p>The RC improved things by making the resize regions follow the rounded-corner radius rather than remaining square. But it also made the “vertical-only/horizontal-only” resize band thinner (a small but noticeable usability regression). In the final release, the author reports the fix was **removed entirely** and the release notes were updated from “Resolved” back to “Known Issue.”</p>
+<h3>3) MMAcevedo aka Lena (by qntm) (qntm.org)</h3>
+<p>Link: <a href="https://qntm.org/mmacevedo">https://qntm.org/mmacevedo</a></p>
+<p>This is a dense speculative-fiction piece presented like an encyclopedia entry about the first “executable” snapshot of a human brain (“MMAcevedo”), captured at sufficient fidelity to run in simulation. The entry explores the technical scale (from near-exabyte raw size to far smaller compressed forms), and how a single canonical scan becomes a reference point for an entire field.</p>
+<p>The story leans into second-order consequences: consent and control over copies, economic incentives, “forks” and modified instances, and the ethical ambiguity of deletion, duplication, and repeated execution. It’s written as worldbuilding, but it uses the format to force uncomfortable questions about identity, rights, and exploitation in a world where minds can be copied.</p>
+<h3>4) GPT‑5.3‑Codex‑Spark (openai.com)</h3>
+<p>Link: <a href="https://openai.com/index/introducing-gpt-5-3-codex-spark/">https://openai.com/index/introducing-gpt-5-3-codex-spark/</a></p>
+<p>OpenAI announced a research preview of **GPT‑5.3‑Codex‑Spark**, a smaller model tuned for **real-time coding** with very low latency (the post cites &gt;1000 tokens/sec on specialized hardware). The pitch is that interactive editing and tight feedback loops benefit from a different optimization target than long-horizon agentic work.</p>
+<p>The post highlights infrastructure changes that reduce end-to-end latency across the stack (including persistent WebSockets and reduced per-token overhead), with an implication that these improvements will carry over to other models. Codex‑Spark launches as text-only with a 128k context window, and with separate rate limits during the preview.</p>
+<h3>5) Monosketch (monosketch.io)</h3>
+<p>Link: <a href="https://monosketch.io/">https://monosketch.io/</a></p>
+<p>Monosketch is a browser-based tool for creating diagrams and visual layouts using ASCII/box-drawing characters. The landing page emphasizes building with basic primitives (rectangles, lines, text boxes) and then applying styles to produce presentable, copy-paste-friendly results.</p>
+<p>The project is positioned as an open-source alternative for people who want lightweight visuals for docs, demos, and even presentations—especially where embedding images is awkward or where a monospaced, text-native artifact is useful (README files, terminals, code reviews, etc.).</p>
+<hr />
+<h2>B) Reddit — Top topics (summarized)</h2>
+<p>Constraint note: Reddit HTML/JSON can be blocked; summaries below are derived from the Atom RSS feeds (`/r/&lt;sub&gt;/.rss`). If the RSS entry content is too short, the summary is marked unavailable.</p>
+<h3>r/Biohackers (top 3)</h3>
+<p>1) **Help Vilon**</p>
+<ul>
+<li>Link: <a href="https://www.reddit.com/r/Biohackers/comments/1r3o7qd/help_vilon/">https://www.reddit.com/r/Biohackers/comments/1r3o7qd/help_vilon/</a></li>
+<li>Summary: Summary unavailable (insufficient content in RSS).</li>
+<li>Why it matters:</li>
+<li>Reflects ongoing demand for EU-accessible sourcing of niche compounds.</li>
+<li>A reminder that “where to buy” threads often lack verifiable quality/safety info.</li>
+</ul>
+<p>2) **Gh pushing: Ipamorelin … + CJC-1295 DAC … (views?)**</p>
+<ul>
+<li>Link: <a href="https://www.reddit.com/r/Biohackers/comments/1r3nozu/gh_pushing_ipamorelin_150mcg_before_sleep_and/">https://www.reddit.com/r/Biohackers/comments/1r3nozu/gh_pushing_ipamorelin_150mcg_before_sleep_and/</a></li>
+<li>Summary: Summary unavailable (insufficient content in RSS).</li>
+<li>Why it matters:</li>
+<li>Peptide-stacking protocols are common but often run ahead of strong evidence.</li>
+<li>Highlights the gap between “protocol culture” and clinical-risk realities.</li>
+</ul>
+<p>3) **IGF1-LR3 + CJC1295 NO DAC + Ipamorelin + Retatrutide + GHK**</p>
+<ul>
+<li>Link: <a href="https://www.reddit.com/r/Biohackers/comments/1r3n471/igf1lr3_cjc1295_no_dac_ipamorelin_retatrutide_ghk/">https://www.reddit.com/r/Biohackers/comments/1r3n471/igf1lr3_cjc1295_no_dac_ipamorelin_retatrutide_ghk/</a></li>
+<li>Summary: Summary unavailable (insufficient content in RSS).</li>
+<li>Why it matters:</li>
+<li>Multi-agent stacks increase confounding (you don’t know what did what).</li>
+<li>Signals how quickly GLP-1-adjacent experimentation is spreading into DIY stacks.</li>
+</ul>
+<h3>r/blueprint_ (top 3)</h3>
+<p>1) **Delivery Austria**</p>
+<ul>
+<li>Link: <a href="https://www.reddit.com/r/blueprint_/comments/1r3n8yw/delivery_austria/">https://www.reddit.com/r/blueprint_/comments/1r3n8yw/delivery_austria/</a></li>
+<li>Summary (from RSS content):</li>
+<li>User asks whether Blueprint will expand delivery to more European countries (specifically Austria).</li>
+<li>Implies current logistics/geography constraints.</li>
+<li>Suggests interest in “protocol in a box” convenience outside the US.</li>
+<li>Why it matters:</li>
+<li>Productization of longevity protocols increasingly hinges on distribution and compliance.</li>
+<li>Geographic expansion is a proxy for operational maturity (and regulatory navigation).</li>
+</ul>
+<p>2) **Creatine with a high fiber diet**</p>
+<ul>
+<li>Link: <a href="https://www.reddit.com/r/blueprint_/comments/1r3gnww/creatine_with_a_high_fiber_diet/">https://www.reddit.com/r/blueprint_/comments/1r3gnww/creatine_with_a_high_fiber_diet/</a></li>
+<li>Summary (from RSS content):</li>
+<li>User wants creatine for cognition benefits.</li>
+<li>They’re already targeting 20–25g fiber/day.</li>
+<li>They ask how much water they should drink.</li>
+<li>Why it matters:</li>
+<li>Captures a common “stacking basics” pattern: creatine + gut health + hydration.</li>
+<li>Practical constraints (hydration, GI tolerance) matter more than marginal supplement tweaks.</li>
+</ul>
+<p>3) **Iodine supp**</p>
+<ul>
+<li>Link: <a href="https://www.reddit.com/r/blueprint_/comments/1r39y7o/iodine_supp/">https://www.reddit.com/r/blueprint_/comments/1r39y7o/iodine_supp/</a></li>
+<li>Summary: Summary unavailable (insufficient content in RSS).</li>
+<li>Why it matters:</li>
+<li>Iodine is easy to under/overdo; specifics matter (dose, baseline intake, thyroid status).</li>
+<li>Highlights the tendency to mirror influencer stacks without individualized context.</li>
+</ul>
+<h3>r/productivity (top 3)</h3>
+<p>1) **I finally realized why I was showing up to work already feeling “fried”**</p>
+<ul>
+<li>Link: <a href="https://www.reddit.com/r/productivity/comments/1r3o929/i_finally_realized_why_i_was_showing_up_to_work/">https://www.reddit.com/r/productivity/comments/1r3o929/i_finally_realized_why_i_was_showing_up_to_work/</a></li>
+<li>Summary (from RSS content):</li>
+<li>The author chased “morning hacks” (delayed coffee, cold showers, early wakeups) to fix brain fog.</li>
+<li>The culprit they identify is the commute: 45 minutes of high-volume phone scrolling.</li>
+<li>They test a phone ban on the train and report feeling mentally quieter and more organized.</li>
+<li>They use the time to think/brain-dump priorities instead of consuming feeds.</li>
+<li>Why it matters:</li>
+<li>“Attention hygiene” earlier in the day can set the tone for the whole work block.</li>
+<li>Fixes that remove *input* often beat fixes that add more *rituals*.</li>
+</ul>
+<p>2) **What file organization tool do you use?**</p>
+<ul>
+<li>Link: <a href="https://www.reddit.com/r/productivity/comments/1r3k43y/what_file_organization_tool_do_you_use/">https://www.reddit.com/r/productivity/comments/1r3k43y/what_file_organization_tool_do_you_use/</a></li>
+<li>Summary: Summary unavailable (insufficient content in RSS).</li>
+<li>Why it matters:</li>
+<li>File organization is increasingly a search problem, not a folder problem.</li>
+<li>Tool choice can lock you into an ecosystem (and its failure modes).</li>
+</ul>
+<p>3) **Productivity feels easier when fewer things compete for attention**</p>
+<ul>
+<li>Link: <a href="https://www.reddit.com/r/productivity/comments/1r3hyb1/productivity_feels_easier_when_fewer_things/">https://www.reddit.com/r/productivity/comments/1r3hyb1/productivity_feels_easier_when_fewer_things/</a></li>
+<li>Summary: Summary unavailable (insufficient content in RSS).</li>
+<li>Why it matters:</li>
+<li>Reinforces a simple rule: reduce simultaneous demands before trying to “optimize discipline.”</li>
+<li>Encourages scope control (fewer active projects) over micro-hacks.</li>
+</ul>
+<h3>r/whoop (top 3)</h3>
+<p>1) **Happily surprised**</p>
+<ul>
+<li>Link: <a href="https://www.reddit.com/r/whoop/comments/1r3o4uy/happily_surprised/">https://www.reddit.com/r/whoop/comments/1r3o4uy/happily_surprised/</a></li>
+<li>Summary (from RSS content):</li>
+<li>User discovers WHOOP can ingest workout data from external apps.</li>
+<li>They like not having to manually log workouts.</li>
+<li>Indicates a smoother “capture → insight” loop.</li>
+<li>Why it matters:</li>
+<li>Lower friction increases adherence (data completeness without extra taps).</li>
+<li>Highlights the value of interoperability vs. walled-garden tracking.</li>
+</ul>
+<p>2) **Activities not showing up**</p>
+<ul>
+<li>Link: <a href="https://www.reddit.com/r/whoop/comments/1r3n0mg/activities_not_showing_up/">https://www.reddit.com/r/whoop/comments/1r3n0mg/activities_not_showing_up/</a></li>
+<li>Summary (from RSS content):</li>
+<li>User reports manually-started weightlifting activity not appearing.</li>
+<li>WHOOP Coach reportedly can’t see activities either.</li>
+<li>Suggests sync/indexing issues rather than user error.</li>
+<li>Why it matters:</li>
+<li>Reliability is part of the product: missing sessions break trend interpretation.</li>
+<li>“Silent failures” are especially costly for users building habits on feedback loops.</li>
+</ul>
+<p>3) **118kg → 103kg since getting a WHOOP (Aug 2025)**</p>
+<ul>
+<li>Link: <a href="https://www.reddit.com/r/whoop/comments/1r3mbr9/118kg_to_103kg_since_getting_a_whoop_in_august/">https://www.reddit.com/r/whoop/comments/1r3mbr9/118kg_to_103kg_since_getting_a_whoop_in_august/</a></li>
+<li>Summary (from RSS content):</li>
+<li>User reports significant weight loss over ~6 months.</li>
+<li>They attribute momentum to accountability + exercise consistency.</li>
+<li>They cite motivation from tracking (WHOOP Age, VO2 max) and strain goals.</li>
+<li>Why it matters:</li>
+<li>Illustrates the “measurement → motivation” pathway working when the feedback is consistent.</li>
+<li>Reinforces that wearables can be behavior-change tools more than “accuracy gadgets.”</li>
+</ul>
+<h3>r/slatestarcodex (top 3)</h3>
+<p>1) **Strawmen and Worldview Solipsism**</p>
+<ul>
+<li>Link: <a href="https://www.reddit.com/r/slatestarcodex/comments/1r360g8/strawmen_and_worldview_solipsism/">https://www.reddit.com/r/slatestarcodex/comments/1r360g8/strawmen_and_worldview_solipsism/</a></li>
+<li>Summary (from RSS content):</li>
+<li>Argues many debates fail due to mismatched conceptual frameworks.</li>
+<li>Steelmanning matters because it proves you understand the other side’s model.</li>
+<li>The “obvious” can be downstream of unshared assumptions.</li>
+<li>Why it matters:</li>
+<li>Useful lens for high-conflict discussions: check frameworks before evidence.</li>
+<li>A practical prompt for writing, negotiation, and persuasion.</li>
+</ul>
+<p>2) **An AI Agent Published a Hit Piece on Me**</p>
+<ul>
+<li>Link: <a href="https://www.reddit.com/r/slatestarcodex/comments/1r30v9w/an_ai_agent_published_a_hit_piece_on_me/">https://www.reddit.com/r/slatestarcodex/comments/1r30v9w/an_ai_agent_published_a_hit_piece_on_me/</a></li>
+<li>Summary: Summary unavailable (insufficient content in RSS).</li>
+<li>Why it matters:</li>
+<li>Raises questions about attribution, automated content, and reputational risk.</li>
+<li>Suggests new norms are needed for “agent-authored” discourse.</li>
+</ul>
+<p>3) **What Happened With Bio Anchors?**</p>
+<ul>
+<li>Link: <a href="https://www.reddit.com/r/slatestarcodex/comments/1r2pu1w/what_happened_with_bio_anchors/">https://www.reddit.com/r/slatestarcodex/comments/1r2pu1w/what_happened_with_bio_anchors/</a></li>
+<li>Summary: Summary unavailable (insufficient content in RSS).</li>
+<li>Why it matters:</li>
+<li>Signals continuing interest in conceptual tools for health/longevity narratives.</li>
+<li>Often these threads are valuable for “what are people confused about right now?”</li>
+</ul>
+<hr />
+<h2>C) Anti-bubble picks (outside the usual sources)</h2>
+<h3>1) Archaeology/social theory: the Saxe–Goldstein hypothesis (Wikipedia)</h3>
+<p>Link: <a href="https://en.wikipedia.org/wiki/Saxe%E2%80%93Goldstein_hypothesis">https://en.wikipedia.org/wiki/Saxe%E2%80%93Goldstein_hypothesis</a></p>
+<ul>
+<li>A classic archaeology hypothesis linking **formal burial places (cemeteries, tombs)** to the existence of “corporate groups” that legitimate claims over restricted resources via ancestor ties.</li>
+<li>Useful as a reminder that material practices (where the dead go) can function as “social technology” (how groups justify land, rights, or continuity).</li>
+<li>Also a small case study in how academic ideas rise, spread (processual archaeology), and later get criticized for oversimplification.</li>
+</ul>
+<h3>2) How institutions work (and why “guarding the guardians” can be solvable) (Aeon)</h3>
+<p>Link: <a href="https://aeon.co/essays/institutions-are-how-we-scale-up-cooperation-among-millions">https://aeon.co/essays/institutions-are-how-we-scale-up-cooperation-among-millions</a></p>
+<ul>
+<li>Frames institutions as **cooperation-amplifying technology**: they don’t remove the need for cooperation, they restructure it into a form that’s monitorable.</li>
+<li>Uses examples like communal forest management in Tokugawa-era Japan (visible monitors + reputational enforcement) to show how hard-to-monitor behavior can become easier to govern.</li>
+<li>A good mental model for modern systems too: shift impossible problems into simpler, observable ones.</li>
+</ul>
+<h3>3) Science + law: are teens “addicted” to social media? (Nature)</h3>
+<p>Link: <a href="https://www.nature.com/articles/d41586-026-00433-y">https://www.nature.com/articles/d41586-026-00433-y</a></p>
+<ul>
+<li>US courts are starting to treat “social media addiction” as something a jury may need to evaluate, even while researchers debate whether “addiction” is the right clinical term.</li>
+<li>Notes key tension: many studies show correlation with teen mental health trends, but **causation** is harder and evidence is mixed at population level.</li>
+<li>Highlights that “time spent” is a crude metric; different platform activities can plausibly have different effects.</li>
+</ul>
+<h3>YouTube</h3>
+<p>YouTube: not configured yet — add 3–5 channel IDs to enable daily anti-bubble videos.</p></div>
+
+    <div class="footer">
+      Generated automatically. For offline use: use your browser’s “Save page” / Reading List.
+    </div>
+  </main>
+
+  <script>
+  (function(){
+  var key = 'briefing_theme';
+  function setTheme(t){
+    document.documentElement.setAttribute('data-theme', t);
+    try { localStorage.setItem(key, t); } catch(e) {}
+  }
+  function getPreferred(){
+    try {
+      var v = localStorage.getItem(key);
+      if (v === 'dark' || v === 'light') return v;
+    } catch(e) {}
+    return 'dark';
+  }
+
+  document.addEventListener('DOMContentLoaded', function(){
+    setTheme(getPreferred());
+    var btn = document.getElementById('theme-toggle');
+    if (!btn) return;
+    btn.addEventListener('click', function(){
+      var cur = document.documentElement.getAttribute('data-theme') || 'dark';
+      setTheme(cur === 'dark' ? 'light' : 'dark');
+    });
+  });
+})();
+
+  </script>
+</body>
+</html>
