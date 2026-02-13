@@ -1,0 +1,31 @@
+{
+  "id": "gcal",
+  "name": "Google Calendar",
+  "description": "Google Calendar read/write tool (OAuth2 refresh token)",
+  "version": "0.1.0",
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["clientId", "clientSecret", "redirectUri", "refreshToken"],
+    "properties": {
+      "clientId": { "type": "string", "minLength": 1 },
+      "clientSecret": { "type": "string", "minLength": 1 },
+      "redirectUri": { "type": "string", "minLength": 1 },
+      "refreshToken": { "type": "string", "minLength": 1 },
+      "calendarId": { "type": "string", "default": "primary" },
+      "scopes": {
+        "type": "array",
+        "items": { "type": "string" },
+        "default": ["https://www.googleapis.com/auth/calendar"]
+      }
+    }
+  },
+  "uiHints": {
+    "clientId": { "label": "OAuth Client ID" },
+    "clientSecret": { "label": "OAuth Client Secret", "sensitive": true },
+    "redirectUri": { "label": "OAuth Redirect URI", "placeholder": "http://localhost:3000/oauth2callback" },
+    "refreshToken": { "label": "OAuth Refresh Token", "sensitive": true },
+    "calendarId": { "label": "Default Calendar ID", "placeholder": "primary" },
+    "scopes": { "label": "OAuth Scopes" }
+  }
+}

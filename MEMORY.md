@@ -18,3 +18,4 @@
 - Obsidian vault: "Brain" at /Users/andreasallmaier/Documents/Brain.
 - Idea capture: `inbox/Idea Inbox.md` (ideas sent in chat get appended here; daily notes can reference the capture).
 - Oura → Obsidian: daily import at 7:30 AM ET (anchor to America/New_York), writing key sleep metrics into the journal.
+- Google Calendar integration (planned): allow edits on any event when requested; deletes do not require an explicit confirmation (higher risk; be careful).

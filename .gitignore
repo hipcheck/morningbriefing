@@ -8,4 +8,5 @@
 /memory/
 
 # OpenClaw media/state (should not be in repo)
+/.openclaw/
 *.log
