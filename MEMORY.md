@@ -8,6 +8,7 @@
 - “Morning briefing” (default meaning): the scheduled daily briefing, published as a blog-style post (GitHub Pages) with a Slack link posted in <#C0ADV68FD2Q>. Default schedule: daily 7:50am ET.
 - Readwise personalization: use ALL highlights to learn interests and add an “anti-bubble” recommendations section to the morning briefing (no red lines).
 - Proactivity preference: regularly research solutions/improvements/new things to try and periodically suggest them (with a clear recommendation).
+- Suggestions cadence: ad-hoc by default (bring up strong ideas when they occur), no domain preference.
 
 ## Readwise-derived interest profile (for recommendations)
 - Format bias: highlights heavily skew to audio/longform (Snipd dominates), then Kindle + Reader.
