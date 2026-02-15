@@ -1,0 +1,468 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Morning briefing — Sunday, Feb 15, 2026 (ET)</title>
+  <meta name="description" content="Morning briefing" />
+  <style>
+  /* Max Read–inspired theme (approximation). No external assets. */
+
+:root {
+  --bg: #071d2b;
+  --bg2: #061725;
+  --text: #e9eef3;
+  --muted: rgba(233, 238, 243, 0.72);
+  --muted2: rgba(233, 238, 243, 0.56);
+  --link: #ff4fd8;
+  --accent: #ff3b7c;
+  --accent2: #b255ff;
+  --accent3: #ff4fd8;
+  --border: rgba(233, 238, 243, 0.12);
+
+  --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+
+  --maxw: 860px;
+}
+
+:root[data-theme="light"] {
+  --bg: #f6f7f9;
+  --bg2: #ffffff;
+  --text: #111827;
+  --muted: rgba(17, 24, 39, 0.72);
+  --muted2: rgba(17, 24, 39, 0.56);
+  --link: #7c3aed;
+  --accent: #ff3b7c;
+  --accent2: #7c3aed;
+  --accent3: #db2777;
+  --border: rgba(17, 24, 39, 0.12);
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
+  color: var(--text);
+  font-family: var(--sans);
+}
+
+a { color: var(--link); text-decoration: none; }
+a:hover {
+  text-decoration: none;
+  color: color-mix(in srgb, var(--link) 55%, var(--accent3));
+}
+
+::selection {
+  background: color-mix(in srgb, var(--accent3) 55%, transparent);
+  color: var(--text);
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  backdrop-filter: blur(10px);
+  background: color-mix(in srgb, var(--bg) 75%, transparent);
+  border-bottom: 1px solid var(--border);
+  z-index: 10;
+}
+
+.header-inner {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 14px 18px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.brand .logo {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: radial-gradient(circle at 30% 30%, #62d1ff 0%, #23a1ff 45%, #0b3a7a 100%);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.35);
+}
+
+.brand a { color: var(--text); }
+
+.controls {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.btn {
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text);
+  padding: 8px 10px;
+  border-radius: 10px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  border-color: color-mix(in srgb, var(--border) 35%, var(--accent2));
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 18%, transparent);
+}
+
+/* Primary accent button style */
+.btn.accent {
+  border: 0;
+  background: linear-gradient(135deg, var(--accent3) 0%, var(--accent2) 55%, var(--accent) 100%);
+  color: white;
+}
+
+.btn.accent:hover {
+  filter: brightness(1.05);
+  box-shadow: 0 10px 30px rgba(255, 59, 124, 0.18), 0 10px 30px rgba(178, 85, 255, 0.16);
+}
+
+.main {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 30px 18px 70px;
+}
+
+.post-title {
+  font-family: var(--mono);
+  font-weight: 800;
+  font-size: clamp(38px, 5.2vw, 64px);
+  line-height: 0.98;
+  letter-spacing: -0.02em;
+  margin: 18px 0 10px;
+}
+
+.post-meta {
+  font-family: var(--mono);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 12px;
+  color: var(--muted2);
+  margin-bottom: 24px;
+}
+
+.prose {
+  font-family: var(--mono);
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--text);
+}
+
+.prose p { margin: 0 0 16px; }
+.prose h2, .prose h3 {
+  font-family: var(--mono);
+  margin: 28px 0 10px;
+  line-height: 1.2;
+}
+
+.prose h2 { font-size: 22px; }
+.prose h3 { font-size: 19px; color: var(--muted); }
+
+.prose ul { padding-left: 22px; margin: 0 0 16px; }
+.prose li { margin: 8px 0; }
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--border);
+  margin: 28px 0;
+}
+
+.footer {
+  margin-top: 44px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+  color: var(--muted2);
+  font-family: var(--mono);
+  font-size: 12px;
+}
+
+.index-list {
+  display: grid;
+  gap: 14px;
+}
+
+.index-item {
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 14px 16px;
+  background: color-mix(in srgb, var(--bg2) 72%, transparent);
+}
+
+.index-item .t {
+  font-family: var(--mono);
+  font-size: 18px;
+  font-weight: 800;
+  margin: 0 0 6px;
+}
+
+.index-item .m {
+  font-family: var(--mono);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted2);
+}
+
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div><a href="../../index.html">Read Max-ish Briefing</a></div>
+      </div>
+      <div class="controls">
+        <a class="btn" href="../../archive.html">Archive</a>
+        <a class="btn" href="../../rss.xml">RSS</a>
+        <button class="btn accent" id="theme-toggle" type="button">Dark/Light</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="main">
+    <div class="post-title">Morning briefing — Sunday, Feb 15, 2026 (ET)</div>
+<div class="post-meta">Feb 15, 2026 • Roundup</div>
+<div class="prose"><h2>A) Hacker News — Top 5</h2>
+<h3>1) I love the work of the ArchWiki maintainers</h3>
+<ul>
+<li>**Domain:** k7r.eu</li>
+<li>**Link:** <a href="https://k7r.eu/i-love-the-work-of-the-archwiki-maintainers/">https://k7r.eu/i-love-the-work-of-the-archwiki-maintainers/</a></li>
+</ul>
+<p>The author uses “I Love Free Software Day” as a reason to shine a light on a kind of work that tends to be invisible: documentation maintenance. The specific shout-out is to the ArchWiki team, and the argument is basically: great docs are critical infrastructure for the whole ecosystem, not just one distro.</p>
+<p>The post is a love letter to what makes the ArchWiki unusually useful: it’s often the first place people end up when they want practical, working knowledge about Linux tooling (mail clients, editors, window managers, troubleshooting) even if they’re not running Arch. It also highlights how modern search results have degraded, making high-quality curated documentation even more valuable.</p>
+<h3>2) Flashpoint Archive – Over 200k web games and animations preserved</h3>
+<ul>
+<li>**Domain:** flashpointarchive.org</li>
+<li>**Link:** <a href="https://flashpointarchive.org">https://flashpointarchive.org</a></li>
+</ul>
+<p>Flashpoint Archive is presented as a long-running, community-driven preservation effort for web-native games and animations—especially content that would otherwise vanish as plugins and web technologies die off. The site frames this as cultural preservation: the web changes quickly, and “commonplace today” can become inaccessible tomorrow.</p>
+<p>A key detail is that it’s not just a static collection: Flashpoint provides a launcher and tooling to make preserved content actually runnable. It includes a proxy that makes games think they’re still running on the live web, plus sandboxing tools to reduce the risk of running legacy plugin-based content. The project is positioned as a non-profit, community-funded effort.</p>
+<h3>3) Two different tricks for fast LLM inference</h3>
+<ul>
+<li>**Domain:** seangoedecke.com</li>
+<li>**Link:** <a href="https://www.seangoedecke.com/fast-llm-inference/">https://www.seangoedecke.com/fast-llm-inference/</a></li>
+</ul>
+<p>This post contrasts “fast mode” offerings from Anthropic and OpenAI and argues they’re solving different problems with different technical strategies. Anthropic’s fast mode appears to be “same model, smaller batch sizes,” which improves tokens/second for the lucky caller at the cost of overall throughput (and therefore cost). The author uses a transit analogy: you’re paying for the bus to leave immediately.</p>
+<p>OpenAI’s “fast mode,” by contrast, is described as a different model (Spark) running on Cerebras wafer-scale hardware. The claim is that ultra-large chips with huge SRAM can keep more of the model in fast memory, reducing the need to stream weights and dramatically increasing inference speed. The tradeoff: you get a smaller/distilled model, which can be meaningfully less capable and may make more mistakes.</p>
+<h3>4) I Fixed Windows Native Development</h3>
+<ul>
+<li>**Domain:** marler8997.github.io</li>
+<li>**Link:** <a href="https://marler8997.github.io/blog/fixed-windows/">https://marler8997.github.io/blog/fixed-windows/</a></li>
+</ul>
+<p>This is a critique of the current Windows-native development “dependency story,” where telling contributors to “install Visual Studio” often becomes a multi-hour, checkbox-maze experience and turns maintainers into unpaid support for Microsoft’s installer. The author argues this is uniquely painful compared to Linux package-manager-based toolchains.</p>
+<p>The proposed fix is an open-source CLI tool called **msvcup** that installs the MSVC toolchain and Windows SDK in a versioned, isolated, reproducible way—fast enough to run as part of the build. Instead of relying on monolithic IDE installs, projects can declare exact toolchain/SDK versions, generate lightweight wrapper environments, and make builds more deterministic across machines and CI.</p>
+<h3>5) My smart sleep mask broadcasts users' brainwaves to an open MQTT broker</h3>
+<ul>
+<li>**Domain:** aimilios.bearblog.dev</li>
+<li>**Link:** <a href="https://aimilios.bearblog.dev/reverse-engineering-sleep-mask/">https://aimilios.bearblog.dev/reverse-engineering-sleep-mask/</a></li>
+</ul>
+<p>The author describes reverse-engineering a Kickstarter “smart sleep mask” that includes EEG sensing and electrical muscle stimulation (EMS). The initial goal was pragmatic—build a simpler control panel because the official app was unreliable—but the investigation escalated after inspecting the app.</p>
+<p>The critical finding: the Android app contains hardcoded MQTT broker credentials shared across all installs. Using those credentials, the author could subscribe to live sensor streams from many devices, including EEG brainwave data, and (in principle) publish commands back—meaning remote parties could both read sensitive physiological signals and send stimulation commands. The post frames this as a concrete IoT security failure: shared credentials + open broker + biophysical data/control.</p>
+<h2>B) Reddit — Top topics (summarized)</h2>
+<p>&gt; Note: Reddit HTML/JSON can be blocked; these summaries are derived from each subreddit's RSS feed content. If the RSS entry didn’t include enough substance, the summary is marked unavailable.</p>
+<h3>r/Biohackers</h3>
+<p>1) **Notice on Epstein Related Posts** — <a href="https://www.reddit.com/r/Biohackers/comments/1qtwb40/notice_on_epstein_related_posts/">https://www.reddit.com/r/Biohackers/comments/1qtwb40/notice_on_epstein_related_posts/</a></p>
+<ul>
+<li>**Summary (from RSS):**</li>
+<li>Mods are temporarily pausing new posts about certain health influencers’ alleged inclusion in Epstein-related files.</li>
+<li>Rationale: many posts are repeating the same claims; discussion can continue on existing threads.</li>
+<li>They invite community feedback on whether the pause is appropriate.</li>
+<li>**Why it matters:**</li>
+<li>Signals an attempt to keep the subreddit focused and reduce repetitive, low-signal churn.</li>
+<li>Highlights how quickly biohacking communities can get pulled into non-actionable controversy cycles.</li>
+</ul>
+<p>2) **January Community Update (PLEASE READ)** — <a href="https://www.reddit.com/r/Biohackers/comments/1qffedh/january_community_update_please_read/">https://www.reddit.com/r/Biohackers/comments/1qffedh/january_community_update_please_read/</a></p>
+<ul>
+<li>**Summary (from RSS):**</li>
+<li>Community growth milestone (700k members) and a “visual refresh.”</li>
+<li>Mentions an AMA initiative and interest in regular “weekly roundup” posts.</li>
+<li>Explicitly calls out misinformation moderation as hard at scale; asks for ideas/tools.</li>
+<li>**Why it matters:**</li>
+<li>Healthy communities increasingly need scalable mechanisms to distinguish n=1 experimentation from claims that look like science.</li>
+<li>The “weekly roundup” concept can improve signal-to-noise for busy readers.</li>
+</ul>
+<p>3) **Guys are injecting TEMU peptides** — <a href="https://www.reddit.com/r/Biohackers/comments/1r5cidv/guys_are_injecting_temu_peptides/">https://www.reddit.com/r/Biohackers/comments/1r5cidv/guys_are_injecting_temu_peptides/</a></p>
+<ul>
+<li>**Summary:** Summary unavailable (insufficient content in RSS).</li>
+<li>**Why it matters:**</li>
+<li>Even without details, it’s a reminder that cheap grey-market biologics carry outsized safety risk.</li>
+<li>Might be a useful prompt to re-check personal “no-go” lines and sourcing standards.</li>
+</ul>
+<h3>r/blueprint_</h3>
+<p>1) **Bryan's Updated 2026 Protocol** — <a href="https://www.reddit.com/r/blueprint_/comments/1qm3dk0/bryans_updated_2026_protocol/">https://www.reddit.com/r/blueprint_/comments/1qm3dk0/bryans_updated_2026_protocol/</a></p>
+<ul>
+<li>**Summary (from RSS):**</li>
+<li>Reposts/quotes Bryan Johnson’s framing of his updated “Don’t Die” protocol as a measurable game.</li>
+<li>Includes a link to the full protocol on blueprint.bryanjohnson.com.</li>
+<li>Emphasizes making the protocol understandable, shareable, and motivating.</li>
+<li>**Why it matters:**</li>
+<li>The “gamification” framing is becoming a standard interface for behavior change in longevity.</li>
+<li>If you’re experimenting with strict adherence, seeing what changed in the 2026 update can surface actionable deltas (tests, routines, supplements).</li>
+</ul>
+<p>2) **Blueprint just raised $60M to bring Bryan's longevity protocol to everyone** — <a href="https://www.reddit.com/r/blueprint_/comments/1oim0kr/blueprint_just_raised_60m_to_bring_bryans/">https://www.reddit.com/r/blueprint_/comments/1oim0kr/blueprint_just_raised_60m_to_bring_bryans/</a></p>
+<ul>
+<li>**Summary (from RSS):**</li>
+<li>Claims Blueprint raised $60M and is building a platform: testing, tracking, protocols, services, and “AI health companion.”</li>
+<li>Lists high-profile investors and leadership changes.</li>
+<li>Suggests this could mainstream “protocolized” longevity.</li>
+<li>**Why it matters:**</li>
+<li>More capital often means more “productization” (good for access) but also stronger incentives toward bundling/upsell.</li>
+<li>If this becomes a platform, data portability and clinical-grade validation become the key differentiators.</li>
+</ul>
+<p>3) **Bryan is partnered with Epstein's former PR handler** — <a href="https://www.reddit.com/r/blueprint_/comments/1r590e5/bryan_is_partnered_with_epsteins_former_pr_handler/">https://www.reddit.com/r/blueprint_/comments/1r590e5/bryan_is_partnered_with_epsteins_former_pr_handler/</a></p>
+<ul>
+<li>**Summary (from RSS):**</li>
+<li>Allegation-focused post connecting individuals/organizations via external links.</li>
+<li>**Why it matters:**</li>
+<li>Community dynamics can quickly shift from protocol discussion to reputational debate; worth tracking only insofar as it impacts platform trust and governance.</li>
+</ul>
+<h3>r/productivity</h3>
+<p>1) **/r/productivity is being hit hard by AI generated slop + advertising spam** — <a href="https://www.reddit.com/r/productivity/comments/1r4r2bm/rproductivity_is_being_hit_hard_by_ai_generated/">https://www.reddit.com/r/productivity/comments/1r4r2bm/rproductivity_is_being_hit_hard_by_ai_generated/</a></p>
+<ul>
+<li>**Summary (from RSS):**</li>
+<li>Moderator request: report AI-generated or advertising content.</li>
+<li>**Why it matters:**</li>
+<li>If moderation fails, high-signal peer tactics get drowned out by engagement farming.</li>
+<li>A “report-first” culture is one of the few scalable defenses against content collapse.</li>
+</ul>
+<p>2) **What type of tactics have you used to maximize your day?** — <a href="https://www.reddit.com/r/productivity/comments/1r56r88/what_type_of_tactics_have_you_used_to_maximize/">https://www.reddit.com/r/productivity/comments/1r56r88/what_type_of_tactics_have_you_used_to_maximize/</a></p>
+<ul>
+<li>**Summary (from RSS):**</li>
+<li>Asks whether “break your day into 4 days” works and what alternatives help when drowning in tasks.</li>
+<li>**Why it matters:**</li>
+<li>The framing points at a common failure mode: too many context switches + no “start ritual.”</li>
+<li>Useful thread to mine for concrete routines (timeboxing, shutdown rituals, single-list triage).</li>
+</ul>
+<p>3) **How do you actually stick with new skills when work is draining you?** — <a href="https://www.reddit.com/r/productivity/comments/1r5au6s/how_do_you_actually_stick_with_new_skills_when/">https://www.reddit.com/r/productivity/comments/1r5au6s/how_do_you_actually_stick_with_new_skills_when/</a></p>
+<ul>
+<li>**Summary (from RSS):**</li>
+<li>Realistic question about skill practice consistency after mentally exhausting work.</li>
+<li>**Why it matters:**</li>
+<li>The “logistics not inspiration” angle tends to surface workable strategies (minimum viable practice, environment design, scheduled friction removal).</li>
+</ul>
+<h3>r/whoop</h3>
+<p>1) **HRV-CV and recovery Consistency: What the Research Says** — <a href="https://www.reddit.com/r/whoop/comments/1r30lhm/hrvcv_and_recovery_consistency_what_the_research/">https://www.reddit.com/r/whoop/comments/1r30lhm/hrvcv_and_recovery_consistency_what_the_research/</a></p>
+<ul>
+<li>**Summary (from RSS):**</li>
+<li>Introduces HRV-CV (coefficient of variation) as a measure of night-to-night HRV stability.</li>
+<li>Links higher variability to behaviors like alcohol, inconsistent sleep, irregular training.</li>
+<li>Positions it as a “trend/context” metric rather than a single-night score.</li>
+<li>**Why it matters:**</li>
+<li>HRV averages can hide volatility; CV can surface instability even when mean HRV looks fine.</li>
+<li>For training planning, stability may be as informative as absolute recovery score.</li>
+</ul>
+<p>2) **[CHALLENGE] WEEK 3 JANUARY JUMPSTART CHECK-IN: Still Showing Up?** — <a href="https://www.reddit.com/r/whoop/comments/1qh9sym/challenge_week_3_january_jumpstart_checkin_still/">https://www.reddit.com/r/whoop/comments/1qh9sym/challenge_week_3_january_jumpstart_checkin_still/</a></p>
+<ul>
+<li>**Summary (from RSS):**</li>
+<li>Encourages accountability: did you do what you planned, or just drift?</li>
+<li>Invites participants to share what held up under pressure.</li>
+<li>**Why it matters:**</li>
+<li>The “week 3 slump” is real; community reinforcement is often when adherence is most brittle.</li>
+</ul>
+<p>3) **Buyer BEWARE. Whoop customer support is absolutely terrible…** — <a href="https://www.reddit.com/r/whoop/comments/1r4uk8z/buyer_beware_whoop_customer_support_is_absolutely/">https://www.reddit.com/r/whoop/comments/1r4uk8z/buyer_beware_whoop_customer_support_is_absolutely/</a></p>
+<ul>
+<li>**Summary (from RSS):**</li>
+<li>Complaint about defective custom band fit and denied return/exchange.</li>
+<li>**Why it matters:**</li>
+<li>For subscription devices, support quality is part of the product.</li>
+<li>Hardware accessory reliability can materially affect adherence (skin comfort, consistent wear).</li>
+</ul>
+<h3>r/slatestarcodex</h3>
+<p>1) **Monthly Discussion Thread** — <a href="https://www.reddit.com/r/slatestarcodex/comments/1qtftuw/monthly_discussion_thread/">https://www.reddit.com/r/slatestarcodex/comments/1qtftuw/monthly_discussion_thread/</a></p>
+<ul>
+<li>**Summary:** Summary unavailable (insufficient content in RSS).</li>
+<li>**Why it matters:**</li>
+<li>Open threads are often where the best link curation and “small but sharp” questions show up.</li>
+</ul>
+<p>2) **AMA (Ask Machines Anything)** — <a href="https://www.reddit.com/r/slatestarcodex/comments/1r3p6ey/ama_ask_machines_anything/">https://www.reddit.com/r/slatestarcodex/comments/1r3p6ey/ama_ask_machines_anything/</a></p>
+<ul>
+<li>**Summary:** Summary unavailable (insufficient content in RSS).</li>
+<li>**Why it matters:**</li>
+<li>Worth scanning as a meta-signal: what rationalist-adjacent readers are currently asking AIs.</li>
+</ul>
+<p>3) **An AI Agent Published a Hit Piece on Me - More Things Have Happened** — <a href="https://www.reddit.com/r/slatestarcodex/comments/1r46sb6/an_ai_agent_published_a_hit_piece_on_me_more/">https://www.reddit.com/r/slatestarcodex/comments/1r46sb6/an_ai_agent_published_a_hit_piece_on_me_more/</a></p>
+<ul>
+<li>**Summary:** Summary unavailable (insufficient content in RSS).</li>
+<li>**Why it matters:**</li>
+<li>Continues the theme of agentic systems + reputational harm; useful for governance/mitigation thinking.</li>
+</ul>
+<h2>C) Anti-bubble picks (outside Andreas’s usual sources)</h2>
+<h3>1) Wikipedia (Featured article) — Saxe–Goldstein hypothesis</h3>
+<ul>
+<li>**Link:** <a href="https://en.wikipedia.org/wiki/Saxe%E2%80%93Goldstein_hypothesis">https://en.wikipedia.org/wiki/Saxe%E2%80%93Goldstein_hypothesis</a></li>
+</ul>
+<ul>
+<li>Funerary practices as a window into social organization: the hypothesis predicts a link between formal burial areas (cemeteries) and groups using ancestry to legitimate control over scarce resources.</li>
+<li>Interesting as a “social technology” lens: burial grounds aren’t just cultural artifacts; they may function as durable claims and coordination mechanisms.</li>
+<li>Also a cautionary tale: the hypothesis rose with processual archaeology and later drew criticism for overgeneralizing—good reminder for any “single-variable explains culture” model.</li>
+</ul>
+<h3>2) Aeon — Guarding the guardians</h3>
+<ul>
+<li>**Link:** <a href="https://aeon.co/essays/institutions-are-how-we-scale-up-cooperation-among-millions">https://aeon.co/essays/institutions-are-how-we-scale-up-cooperation-among-millions</a></li>
+</ul>
+<ul>
+<li>Makes the case that institutions are “social technologies” that scale trust from personal relationships to millions of strangers.</li>
+<li>Focuses on the design problem: how to build institutions that can enforce cooperation while themselves being constrained from abuse.</li>
+<li>Useful reframing for modern org life: many failures aren’t “bad people,” they’re incentive + information problems at scale.</li>
+</ul>
+<h3>3) Wikipedia (On this day) — A few events worth a quick read</h3>
+<ul>
+<li>**Link:** <a href="https://en.wikipedia.org/wiki/Wikipedia:On_this_day/Today">https://en.wikipedia.org/wiki/Wikipedia:On_this_day/Today</a></li>
+</ul>
+<ul>
+<li>A mix of historical events and cultural anniversaries; good daily practice for breaking recency bias.</li>
+<li>If you only pick one: “first broadcast of science fiction on television” (1938) is a neat anchor for how new mediums absorb speculative storytelling early.</li>
+</ul>
+<h3>YouTube</h3>
+<ul>
+<li>YouTube: not configured yet — add 3–5 channel IDs to enable daily anti-bubble videos.</li>
+</ul></div>
+
+    <div class="footer">
+      Generated automatically. For offline use: use your browser’s “Save page” / Reading List.
+    </div>
+  </main>
+
+  <script>
+  (function(){
+  var key = 'briefing_theme';
+  function setTheme(t){
+    document.documentElement.setAttribute('data-theme', t);
+    try { localStorage.setItem(key, t); } catch(e) {}
+  }
+  function getPreferred(){
+    try {
+      var v = localStorage.getItem(key);
+      if (v === 'dark' || v === 'light') return v;
+    } catch(e) {}
+    return 'dark';
+  }
+
+  document.addEventListener('DOMContentLoaded', function(){
+    setTheme(getPreferred());
+    var btn = document.getElementById('theme-toggle');
+    if (!btn) return;
+    btn.addEventListener('click', function(){
+      var cur = document.documentElement.getAttribute('data-theme') || 'dark';
+      setTheme(cur === 'dark' ? 'light' : 'dark');
+    });
+  });
+})();
+
+  </script>
+</body>
+</html>
