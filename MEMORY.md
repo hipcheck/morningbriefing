@@ -9,6 +9,7 @@
 - Readwise personalization: use ALL highlights to learn interests and add an “anti-bubble” recommendations section to the morning briefing (no red lines).
 - Proactivity preference: regularly research solutions/improvements/new things to try and periodically suggest them (with a clear recommendation).
 - Suggestions cadence: ad-hoc by default (bring up strong ideas when they occur), no domain preference.
+- Obsidian daily notes: for stream-of-consciousness + “crystallized thoughts” entries, proactively add recommendations (YouTube/articles/blogs/studies/things to try) under `[[clawdbot]]`.
 
 ## Readwise-derived interest profile (for recommendations)
 - Format bias: highlights heavily skew to audio/longform (Snipd dominates), then Kindle + Reader.
