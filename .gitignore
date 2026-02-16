@@ -10,3 +10,7 @@
 # OpenClaw media/state (should not be in repo)
 /.openclaw/
 *.log
+
+# Python
+__pycache__/
+*.pyc
