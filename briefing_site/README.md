@@ -5,7 +5,7 @@ Static blog-style rendering for the daily "Morning briefing".
 ## Goals
 - One post per day
 - Index + archive + RSS
-- Max Read–inspired styling (dark-first, big mono headline)
+- Clean dark-first styling (big mono headline)
 - Offline-friendly: each post is rendered as self-contained HTML (inline CSS + no external assets)
 
 ## Build
