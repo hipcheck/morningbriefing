@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Morning briefing — Tuesday, Feb 17, 2026 (ET)</title>
+  <meta name="description" content="Morning briefing" />
+  <style>
+  /* AA Morning Briefing theme. No external assets. */
+
+:root {
+  --bg: #071d2b;
+  --bg2: #061725;
+  --text: #e9eef3;
+  --muted: rgba(233, 238, 243, 0.72);
+  --muted2: rgba(233, 238, 243, 0.56);
+  --link: #ff4fd8;
+  --accent: #ff3b7c;
+  --accent2: #b255ff;
+  --accent3: #ff4fd8;
+  --border: rgba(233, 238, 243, 0.12);
+
+  --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+
+  --maxw: 860px;
+}
+
+:root[data-theme="light"] {
+  --bg: #f6f7f9;
+  --bg2: #ffffff;
+  --text: #111827;
+  --muted: rgba(17, 24, 39, 0.72);
+  --muted2: rgba(17, 24, 39, 0.56);
+  --link: #7c3aed;
+  --accent: #ff3b7c;
+  --accent2: #7c3aed;
+  --accent3: #db2777;
+  --border: rgba(17, 24, 39, 0.12);
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
+  color: var(--text);
+  font-family: var(--sans);
+}
+
+a { color: var(--link); text-decoration: none; }
+a:hover {
+  text-decoration: none;
+  color: color-mix(in srgb, var(--link) 55%, var(--accent3));
+}
+
+::selection {
+  background: color-mix(in srgb, var(--accent3) 55%, transparent);
+  color: var(--text);
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  backdrop-filter: blur(10px);
+  background: color-mix(in srgb, var(--bg) 75%, transparent);
+  border-bottom: 1px solid var(--border);
+  z-index: 10;
+}
+
+.header-inner {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 14px 18px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.brand .logo {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: radial-gradient(circle at 30% 30%, #62d1ff 0%, #23a1ff 45%, #0b3a7a 100%);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.35);
+}
+
+.brand a { color: var(--text); }
+
+.controls {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.btn {
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text);
+  padding: 8px 10px;
+  border-radius: 10px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  border-color: color-mix(in srgb, var(--border) 35%, var(--accent2));
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 18%, transparent);
+}
+
+/* Primary accent button style */
+.btn.accent {
+  border: 0;
+  background: linear-gradient(135deg, var(--accent3) 0%, var(--accent2) 55%, var(--accent) 100%);
+  color: white;
+}
+
+.btn.accent:hover {
+  filter: brightness(1.05);
+  box-shadow: 0 10px 30px rgba(255, 59, 124, 0.18), 0 10px 30px rgba(178, 85, 255, 0.16);
+}
+
+.main {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 30px 18px 70px;
+}
+
+.post-title {
+  font-family: var(--mono);
+  font-weight: 800;
+  font-size: clamp(38px, 5.2vw, 64px);
+  line-height: 0.98;
+  letter-spacing: -0.02em;
+  margin: 18px 0 10px;
+}
+
+.post-meta {
+  font-family: var(--mono);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 12px;
+  color: var(--muted2);
+  margin-bottom: 24px;
+}
+
+.prose {
+  font-family: var(--mono);
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--text);
+}
+
+.prose p { margin: 0 0 16px; }
+.prose h2, .prose h3 {
+  font-family: var(--mono);
+  margin: 28px 0 10px;
+  line-height: 1.2;
+}
+
+.prose h2 { font-size: 22px; }
+.prose h3 { font-size: 19px; color: var(--muted); }
+
+.prose ul { padding-left: 22px; margin: 0 0 16px; }
+.prose li { margin: 8px 0; }
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--border);
+  margin: 28px 0;
+}
+
+.footer {
+  margin-top: 44px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+  color: var(--muted2);
+  font-family: var(--mono);
+  font-size: 12px;
+}
+
+.index-list {
+  display: grid;
+  gap: 14px;
+}
+
+.index-item {
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 14px 16px;
+  background: color-mix(in srgb, var(--bg2) 72%, transparent);
+}
+
+.index-item .t {
+  font-family: var(--mono);
+  font-size: 18px;
+  font-weight: 800;
+  margin: 0 0 6px;
+}
+
+.index-item .m {
+  font-family: var(--mono);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted2);
+}
+
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div><a href="../../index.html">AA Morning Briefing</a></div>
+      </div>
+      <div class="controls">
+        <a class="btn" href="../../archive.html">Archive</a>
+        <a class="btn" href="../../rss.xml">RSS</a>
+        <button class="btn accent" id="theme-toggle" type="button">Dark/Light</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="main">
+    <div class="post-title">Morning briefing — Tuesday, Feb 17, 2026 (ET)</div>
+<div class="post-meta">Feb 17, 2026 • Roundup</div>
+<div class="prose"><h2>A) Hacker News — Top 5</h2>
+<h3>1) GrapheneOS – Break Free from Google and Apple</h3>
+<p>Domain: blog.tomaszdunia.pl Link: <a href="https://blog.tomaszdunia.pl/grapheneos-eng/">https://blog.tomaszdunia.pl/grapheneos-eng/</a> HN discussion: <a href="https://news.ycombinator.com/item?id=47045612">https://news.ycombinator.com/item?id=47045612</a></p>
+<p>A first-person, practical write-up on switching away from the Apple ecosystem and going "de-Googled" via GrapheneOS (a hardened Android variant). It walks through device choice (Pixel-only reality), bootloader unlock/flash/relock flow, and a realistic "day 2" setup: separate user profiles, permission discipline, and app sourcing (e.g., Aurora Store / Obtainium) to reduce Google dependence without completely breaking modern life.</p>
+<h3>2) Is Show HN Dead? No, but It's Drowning</h3>
+<p>Domain: arthurcnops.blog Link: <a href="https://www.arthurcnops.blog/death-of-show-hn/">https://www.arthurcnops.blog/death-of-show-hn/</a> HN discussion: <a href="https://news.ycombinator.com/item?id=47045804">https://news.ycombinator.com/item?id=47045804</a></p>
+<p>A data-driven look at how Show HN has changed under the new reality of vastly increased project volume (and "vibecoded" churn). The argument: Show HN isn't dead, but attention per post is collapsing, posts get pushed off page 1 faster, and discussion per submission is down — meaning interesting projects are increasingly likely to disappear without feedback.</p>
+<h3>3) Four Column ASCII (2017)</h3>
+<p>Domain: garbagecollected.org Link: <a href="https://garbagecollected.org/2017/01/31/four-column-ascii/">https://garbagecollected.org/2017/01/31/four-column-ascii/</a> HN discussion: <a href="https://news.ycombinator.com/item?id=13539552">https://news.ycombinator.com/item?id=13539552</a></p>
+<p>A delightful explanation of why so many terminal control key combos map to the characters they do (e.g., why Ctrl+[ is ESC). The core trick is viewing ASCII in 4 columns of 32: Ctrl effectively clears the high bits, turning printable characters into their corresponding control codes and making the bit-level structure of ASCII feel obvious.</p>
+<h3>4) 14-year-old wins prize for origami that can hold 10,000× its own weight</h3>
+<p>Domain: sciencealert.com Link: <a href="https://www.sciencealert.com/14-year-old-wins-prize-for-origami-that-can-hold-10000-times-its-own-weight">https://www.sciencealert.com/14-year-old-wins-prize-for-origami-that-can-hold-10000-times-its-own-weight</a></p>
+<p>A profile of a middle-school research project that’s more engineering than “science fair”: systematic stress-testing of Miura-ori fold variations (paper types + parallelogram geometry) to optimize strength-to-weight. The motivating application is deployable emergency shelters — aiming for structures that are compact, fast to deploy, and surprisingly strong.</p>
+<h3>5) Rise of the Triforce</h3>
+<p>Domain: dolphin-emu.org Link: <a href="https://dolphin-emu.org/blog/2026/02/16/rise-of-the-triforce/">https://dolphin-emu.org/blog/2026/02/16/rise-of-the-triforce/</a> HN discussion: <a href="https://news.ycombinator.com/item?id=47040524">https://news.ycombinator.com/item?id=47040524</a></p>
+<p>A deep dive into the Triforce arcade platform (a Sega + Nintendo + Namco collaboration built around GameCube hardware), with historical context on the arcade industry’s post-5th-gen shift toward console-derived boards. It also highlights emulator work: how Triforce boot flow, boards, I/O, and media differ from retail GameCube/Wii, and what it takes for Dolphin to emulate that ecosystem accurately.</p>
+<h2>B) Reddit — Top topics (summarized)</h2>
+<p>&gt; Note: Reddit HTML/JSON can be blocked; these summaries are derived from each subreddit's RSS feed content. If the RSS entry didn’t include enough substance, the summary is marked unavailable.</p>
+<h3>r/Biohackers</h3>
+<p>1) **Notice on Epstein Related Posts** — <a href="https://www.reddit.com/r/Biohackers/comments/1qtwb40/notice_on_epstein_related_posts/">https://www.reddit.com/r/Biohackers/comments/1qtwb40/notice_on_epstein_related_posts/</a></p>
+<ul>
+<li>**Summary (from RSS):** Mods are temporarily pausing new posts about certain health influencers being in Epstein-related files pending significant updates, to reduce repetitive churn.</li>
+<li>**Why it matters:** A moderation pattern you’ll likely see more of: “topic quarantine” to keep n=1 health experimentation communities from getting swallowed by outrage cycles.</li>
+</ul>
+<p>2) **January Community Update (PLEASE READ)** — <a href="https://www.reddit.com/r/Biohackers/comments/1qffedh/january_community_update_please_read/">https://www.reddit.com/r/Biohackers/comments/1qffedh/january_community_update_please_read/</a></p>
+<ul>
+<li>**Summary (from RSS):** Growth update + community initiatives (AMAs, possible weekly roundups), plus a call for better misinformation moderation.</li>
+<li>**Why it matters:** When communities cross a size threshold, the constraint shifts from "ideas" to governance (signal/noise, incentives, moderation tooling).</li>
+</ul>
+<p>3) **What was the Closest Thing You Found to "the Vitamin"** — <a href="https://www.reddit.com/r/Biohackers/comments/1r5e9t9/what_was_the_closest_thing_you_found_to_the_vitamin/">https://www.reddit.com/r/Biohackers/comments/1r5e9t9/what_was_the_closest_thing_you_found_to_the_vitamin/</a></p>
+<ul>
+<li>**Summary:** Summary unavailable (insufficient content in RSS).</li>
+<li>**Why it matters:** These threads often surface "one change that moved the needle" anecdotes worth cross-checking against actual biomarkers and safety.</li>
+</ul>
+<h3>r/blueprint_</h3>
+<p>1) **Bryan's Updated 2026 Protocol** — <a href="https://www.reddit.com/r/blueprint_/comments/1qm3dk0/bryans_updated_2026_protocol/">https://www.reddit.com/r/blueprint_/comments/1qm3dk0/bryans_updated_2026_protocol/</a></p>
+<ul>
+<li>**Summary (from RSS):** Reposts/quotes the framing of Blueprint as a measurable "Don't Die" protocol, with a link to the updated protocol site.</li>
+<li>**Why it matters:** Useful for spotting protocol deltas (tests/routines/supplements) and for noticing how gamified health products shape adherence.</li>
+</ul>
+<p>2) **Blueprint just raised $60M to bring Bryan's longevity protocol to everyone** — <a href="https://www.reddit.com/r/blueprint_/comments/1oim0kr/blueprint_just_raised_60m_to_bring_bryans/">https://www.reddit.com/r/blueprint_/comments/1oim0kr/blueprint_just_raised_60m_to_bring_bryans/</a></p>
+<ul>
+<li>**Summary (from RSS):** Claims a $60M raise to productize the protocol (testing/tracking/services/"AI companion"), with investor/leadership notes.</li>
+<li>**Why it matters:** Platformization increases access, but raises stakes around validation, incentives, and especially data portability.</li>
+</ul>
+<p>3) **Does anyone know the type of ice packs Bryan uses on his sack in the sauna?** — <a href="https://www.reddit.com/r/blueprint_/comments/1r5eun4/does_anyone_know_the_type_of_ice_packs_bryan_uses/">https://www.reddit.com/r/blueprint_/comments/1r5eun4/does_anyone_know_the_type_of_ice_packs_bryan_uses/</a></p>
+<ul>
+<li>**Summary (from RSS):** Practical question about specific cold packs used during sauna routines.</li>
+<li>**Why it matters:** A reminder that "protocol" quickly becomes logistics; small gear choices can become adherence bottlenecks.</li>
+</ul>
+<h3>r/productivity</h3>
+<p>1) **/r/productivity is being hit hard by AI generated slop + advertising spam. Please hit REPORT on this content!** — <a href="https://www.reddit.com/r/productivity/comments/1r4r2bm/rproductivity_is_being_hit_hard_by_ai_generated/">https://www.reddit.com/r/productivity/comments/1r4r2bm/rproductivity_is_being_hit_hard_by_ai_generated/</a></p>
+<ul>
+<li>**Summary (from RSS):** Mod request to actively report AI-generated and advertising content.</li>
+<li>**Why it matters:** If moderation fails, tactic-sharing communities collapse into engagement farming; community-wide reporting is one of the few scalable defenses.</li>
+</ul>
+<p>2) **Things to do in the morning other than brain rot** — <a href="https://www.reddit.com/r/productivity/comments/1r5e6h0/things_to_do_in_the_morning_other_than_brain_rot/">https://www.reddit.com/r/productivity/comments/1r5e6h0/things_to_do_in_the_morning_other_than_brain_rot/</a></p>
+<ul>
+<li>**Summary (from RSS):** Prompt for low-stimulation morning routines (when you’re trying not to immediately reach for your phone).</li>
+<li>**Why it matters:** Morning inputs set attentional tone; this is a good thread to mine for “default replacements” (walk, journaling, planning ritual).</li>
+</ul>
+<p>3) **I simplified my productivity system to the point where I can’t procrastinate anymore** — <a href="https://www.reddit.com/r/productivity/comments/1r5ds8c/i_simplified_my_productivity_system_to_the_point/">https://www.reddit.com/r/productivity/comments/1r5ds8c/i_simplified_my_productivity_system_to_the_point/</a></p>
+<ul>
+<li>**Summary (from RSS):** A "remove almost everything" system: one main task/day + a short list, to prevent meta-work.</li>
+<li>**Why it matters:** A useful counterweight to tooling obsession; simplification is often the highest-ROI productivity intervention.</li>
+</ul>
+<h3>r/whoop</h3>
+<p>1) **Whoop X Chase Sapphire Reserve Redemption Steps** — <a href="https://www.reddit.com/r/whoop/comments/1r5e3z5/whoop_x_chase_sapphire_reserve_redemption_steps/">https://www.reddit.com/r/whoop/comments/1r5e3z5/whoop_x_chase_sapphire_reserve_redemption_steps/</a></p>
+<ul>
+<li>**Summary (from RSS):** A step-by-step guide to claiming the Chase Sapphire Reserve Whoop statement credit.</li>
+<li>**Why it matters:** Good operational info if you’re optimizing device costs; also a reminder to treat perks like a checklist, not a mystery.</li>
+</ul>
+<p>2) **HRV-CV and recovery Consistency: What the Research Says** — <a href="https://www.reddit.com/r/whoop/comments/1r30lhm/hrvcv_and_recovery_consistency_what_the_research/">https://www.reddit.com/r/whoop/comments/1r30lhm/hrvcv_and_recovery_consistency_what_the_research/</a></p>
+<ul>
+<li>**Summary (from RSS):** Introduces HRV-CV (coefficient of variation) as a stability metric and relates higher variability to behaviors like alcohol/inconsistent sleep.</li>
+<li>**Why it matters:** Mean HRV can look “fine” while volatility signals instability; CV can be a better training-planning input than single-night recovery.</li>
+</ul>
+<p>3) **Only thing I regret wearing is my whoop** — <a href="https://www.reddit.com/r/whoop/comments/1r5d4dz/only_thing_i_regret_wearing_is_my_whoop/">https://www.reddit.com/r/whoop/comments/1r5d4dz/only_thing_i_regret_wearing_is_my_whoop/</a></p>
+<ul>
+<li>**Summary (from RSS):** Light/relatable regret about wearing Whoop during wedding-dress shopping.</li>
+<li>**Why it matters:** Wearables create "context friction"; if comfort/aesthetics aren’t solved, adherence breaks in real-life moments.</li>
+</ul>
+<h3>r/slatestarcodex</h3>
+<p>1) **Monthly Discussion Thread** — <a href="https://www.reddit.com/r/slatestarcodex/comments/1qtftuw/monthly_discussion_thread/">https://www.reddit.com/r/slatestarcodex/comments/1qtftuw/monthly_discussion_thread/</a></p>
+<ul>
+<li>**Summary:** Summary unavailable (insufficient content in RSS).</li>
+<li>**Why it matters:** Open threads are often where link curation and “small but sharp” questions show up.</li>
+</ul>
+<p>2) **AMA (Ask Machines Anything)** — <a href="https://www.reddit.com/r/slatestarcodex/comments/1r3p6ey/ama_ask_machines_anything/">https://www.reddit.com/r/slatestarcodex/comments/1r3p6ey/ama_ask_machines_anything/</a></p>
+<ul>
+<li>**Summary:** Summary unavailable (insufficient content in RSS).</li>
+<li>**Why it matters:** Meta-signal for what rationalist-adjacent readers are currently asking AIs (and worrying about).</li>
+</ul>
+<p>3) **the lottery of career success: or why you may want to bribe OpenAI** — <a href="https://www.reddit.com/r/slatestarcodex/comments/1r5c5w4/the_lottery_of_career_success_or_why_you_may_want/">https://www.reddit.com/r/slatestarcodex/comments/1r5c5w4/the_lottery_of_career_success_or_why_you_may_want/</a></p>
+<ul>
+<li>**Summary (from RSS):** A provocative post about career success as a high-variance lottery and the weirdness of paying for status-signaling “slots.”</li>
+<li>**Why it matters:** Even if you disagree, it’s a useful prompt to examine what you’re actually optimizing (learning, income, prestige, autonomy).</li>
+</ul>
+<h2>C) Anti-bubble picks (outside Andreas’s usual sources)</h2>
+<h3>1) The Public Domain Review — Cybernetic Attention: All Watched over by Machines We Learned to Watch</h3>
+<p>Link: <a href="https://publicdomainreview.org/essay/cybernetic-attention/">https://publicdomainreview.org/essay/cybernetic-attention/</a></p>
+<p>A pre-history of the “attention economy” told through mid-20th-century pursuit tests designed to measure focus under pressure (often for aviation/military contexts). It’s a nice corrective to the modern assumption that attention measurement is a smartphone-era invention: the slicing/dicing of human focus has a long lineage in lab instrumentation.</p>
+<h3>2) The Public Domain Review — Roma Lister, Aradia, and the Speculative Origins of a Witchcraft Revival</h3>
+<p>Link: <a href="https://publicdomainreview.org/essay/roma-lister-aradia/">https://publicdomainreview.org/essay/roma-lister-aradia/</a></p>
+<p>A cultural-history rabbit hole: Aradia (1899) as a catalyst text for modern witchcraft/pagan revivals, and the conjecture that a particular writer/medium (Roma Lister) may have been more central to the book’s formation than commonly acknowledged. Good for getting out of a “tech-only” reading groove into the messy ecology of texts, myths, and movements.</p>
+<h3>3) Biological Reviews (via PubMed Central) — Historical ecology: past, present and future</h3>
+<p>Link: <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5424069/">https://pmc.ncbi.nlm.nih.gov/articles/PMC5424069/</a></p>
+<p>A broad review of “historical ecology” as an umbrella for studying human–nature interactions across time, spanning ecology, geography, anthropology, and history. The payoff: it helps you see why ecological baselines are often illusions (landscapes have long, layered human histories) and why interdisciplinary methods are necessary if you care about real-world conservation and restoration.</p>
+<h3>YouTube</h3>
+<ul>
+<li>**FoundMyFitness** (2026-02-16) — <a href="<a href="https://www.youtube.com/watch?v=nSry4JJP3H4">https://www.youtube.com/watch?v=nSry4JJP3H4</a>">Stop Taking Your Supplements at the Wrong Time (Fix It NOW)</a></li>
+<li>**ARTEde** (2026-02-16) — <a href="<a href="https://www.youtube.com/watch?v=DR3_kXuEIKI">https://www.youtube.com/watch?v=DR3_kXuEIKI</a>">Oliver Stone, Regisseur der Kontroversen | Doku HD Reupload | ARTE</a></li>
+<li>**Tom Scott** (2026-02-16) — <a href="<a href="https://www.youtube.com/watch?v=zGJh0B77R7A">https://www.youtube.com/watch?v=zGJh0B77R7A</a>">Mercury before barium, lithium, and zinc – why?</a></li>
+<li>**SmarterEveryDay** (2026-02-13) — <a href="<a href="https://www.youtube.com/watch?v=Q9JcpSJwEK0">https://www.youtube.com/watch?v=Q9JcpSJwEK0</a>">BIG NEWS From Dr. Fuqua</a></li>
+<li>**Kurzgesagt** (2026-02-13) — <a href="<a href="https://www.youtube.com/watch?v=bIwX4QuL90k">https://www.youtube.com/watch?v=bIwX4QuL90k</a>">The Final Days of Louis XIV</a></li>
+</ul></div>
+
+    <div class="footer">
+      Generated automatically. For offline use: use your browser’s “Save page” / Reading List.
+    </div>
+  </main>
+
+  <script>
+  (function(){
+  var key = 'briefing_theme';
+  function setTheme(t){
+    document.documentElement.setAttribute('data-theme', t);
+    try { localStorage.setItem(key, t); } catch(e) {}
+  }
+  function getPreferred(){
+    try {
+      var v = localStorage.getItem(key);
+      if (v === 'dark' || v === 'light') return v;
+    } catch(e) {}
+    return 'dark';
+  }
+
+  document.addEventListener('DOMContentLoaded', function(){
+    setTheme(getPreferred());
+    var btn = document.getElementById('theme-toggle');
+    if (!btn) return;
+    btn.addEventListener('click', function(){
+      var cur = document.documentElement.getAttribute('data-theme') || 'dark';
+      setTheme(cur === 'dark' ? 'light' : 'dark');
+    });
+  });
+})();
+
+  </script>
+</body>
+</html>

@@ -2,49 +2,55 @@
 <rss version="2.0">
 <channel>
   <title>Morning Briefing</title>
-  <link>https://example.github.io/morning-briefing/</link>
+  <link>https://hipcheck.github.io/morningbriefing/</link>
   <description>Daily morning briefing</description>
   <language>en</language>
 <item>
+  <title>Morning briefing — Tuesday, Feb 17, 2026 (ET)</title>
+  <link>https://hipcheck.github.io/morningbriefing/posts/2026-02-17/</link>
+  <guid>https://hipcheck.github.io/morningbriefing/posts/2026-02-17/</guid>
+  <pubDate>Tue, 17 Feb 2026 12:00:00 +0000</pubDate>
+</item>
+<item>
   <title>Morning briefing — Sunday, Feb 15, 2026 (ET)</title>
-  <link>https://example.github.io/morning-briefing/posts/2026-02-15/</link>
-  <guid>https://example.github.io/morning-briefing/posts/2026-02-15/</guid>
+  <link>https://hipcheck.github.io/morningbriefing/posts/2026-02-15/</link>
+  <guid>https://hipcheck.github.io/morningbriefing/posts/2026-02-15/</guid>
   <pubDate>Sun, 15 Feb 2026 12:00:00 +0000</pubDate>
 </item>
 <item>
   <title>Morning briefing — Saturday, Feb 14, 2026 (ET)</title>
-  <link>https://example.github.io/morning-briefing/posts/2026-02-14/</link>
-  <guid>https://example.github.io/morning-briefing/posts/2026-02-14/</guid>
+  <link>https://hipcheck.github.io/morningbriefing/posts/2026-02-14/</link>
+  <guid>https://hipcheck.github.io/morningbriefing/posts/2026-02-14/</guid>
   <pubDate>Sat, 14 Feb 2026 12:00:00 +0000</pubDate>
 </item>
 <item>
   <title>Morning briefing — Friday, Feb 13, 2026 (ET)</title>
-  <link>https://example.github.io/morning-briefing/posts/2026-02-13/</link>
-  <guid>https://example.github.io/morning-briefing/posts/2026-02-13/</guid>
+  <link>https://hipcheck.github.io/morningbriefing/posts/2026-02-13/</link>
+  <guid>https://hipcheck.github.io/morningbriefing/posts/2026-02-13/</guid>
   <pubDate>Fri, 13 Feb 2026 12:00:00 +0000</pubDate>
 </item>
 <item>
   <title>Morning briefing — Thursday, Feb 12, 2026 (ET)</title>
-  <link>https://example.github.io/morning-briefing/posts/2026-02-12/</link>
-  <guid>https://example.github.io/morning-briefing/posts/2026-02-12/</guid>
+  <link>https://hipcheck.github.io/morningbriefing/posts/2026-02-12/</link>
+  <guid>https://hipcheck.github.io/morningbriefing/posts/2026-02-12/</guid>
   <pubDate>Thu, 12 Feb 2026 12:00:00 +0000</pubDate>
 </item>
 <item>
   <title>Morning briefing — Wednesday, Feb 11, 2026 (ET)</title>
-  <link>https://example.github.io/morning-briefing/posts/2026-02-11/</link>
-  <guid>https://example.github.io/morning-briefing/posts/2026-02-11/</guid>
+  <link>https://hipcheck.github.io/morningbriefing/posts/2026-02-11/</link>
+  <guid>https://hipcheck.github.io/morningbriefing/posts/2026-02-11/</guid>
   <pubDate>Wed, 11 Feb 2026 12:00:00 +0000</pubDate>
 </item>
 <item>
   <title>Morning briefing — Tue, Feb 10, 2026 (ET)</title>
-  <link>https://example.github.io/morning-briefing/posts/2026-02-10/</link>
-  <guid>https://example.github.io/morning-briefing/posts/2026-02-10/</guid>
+  <link>https://hipcheck.github.io/morningbriefing/posts/2026-02-10/</link>
+  <guid>https://hipcheck.github.io/morningbriefing/posts/2026-02-10/</guid>
   <pubDate>Tue, 10 Feb 2026 12:00:00 +0000</pubDate>
 </item>
 <item>
   <title>Morning briefing — Mon, Feb 9, 2026 (ET)</title>
-  <link>https://example.github.io/morning-briefing/posts/2026-02-09/</link>
-  <guid>https://example.github.io/morning-briefing/posts/2026-02-09/</guid>
+  <link>https://hipcheck.github.io/morningbriefing/posts/2026-02-09/</link>
+  <guid>https://hipcheck.github.io/morningbriefing/posts/2026-02-09/</guid>
   <pubDate>Mon, 09 Feb 2026 12:00:00 +0000</pubDate>
 </item>
 </channel>

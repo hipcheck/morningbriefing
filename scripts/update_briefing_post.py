@@ -371,7 +371,10 @@ def main(argv: List[str]) -> int:
     if hn_sec:
         s, e = hn_sec
         for m in LINK_LINE_RE.finditer(md[s:e]):
-            u = m.group(1).strip()
+            u = _first_url_match(m)
+            if not u:
+                continue
+            u = u.strip()
             discuss = hn_discussion_from_algolia(u)
             if discuss:
                 hn_url_to_discuss[u] = discuss
