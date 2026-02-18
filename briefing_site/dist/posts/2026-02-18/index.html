@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Morning briefing — 2026-02-18</title>
+  <meta name="description" content="Morning briefing" />
+  <style>
+  /* AA Morning Briefing theme. No external assets. */
+
+:root {
+  --bg: #071d2b;
+  --bg2: #061725;
+  --text: #e9eef3;
+  --muted: rgba(233, 238, 243, 0.72);
+  --muted2: rgba(233, 238, 243, 0.56);
+  --link: #ff4fd8;
+  --accent: #ff3b7c;
+  --accent2: #b255ff;
+  --accent3: #ff4fd8;
+  --border: rgba(233, 238, 243, 0.12);
+
+  --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+
+  --maxw: 860px;
+}
+
+:root[data-theme="light"] {
+  --bg: #f6f7f9;
+  --bg2: #ffffff;
+  --text: #111827;
+  --muted: rgba(17, 24, 39, 0.72);
+  --muted2: rgba(17, 24, 39, 0.56);
+  --link: #7c3aed;
+  --accent: #ff3b7c;
+  --accent2: #7c3aed;
+  --accent3: #db2777;
+  --border: rgba(17, 24, 39, 0.12);
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
+  color: var(--text);
+  font-family: var(--sans);
+}
+
+a { color: var(--link); text-decoration: none; }
+a:hover {
+  text-decoration: none;
+  color: color-mix(in srgb, var(--link) 55%, var(--accent3));
+}
+
+::selection {
+  background: color-mix(in srgb, var(--accent3) 55%, transparent);
+  color: var(--text);
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  backdrop-filter: blur(10px);
+  background: color-mix(in srgb, var(--bg) 75%, transparent);
+  border-bottom: 1px solid var(--border);
+  z-index: 10;
+}
+
+.header-inner {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 14px 18px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.brand .logo {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: radial-gradient(circle at 30% 30%, #62d1ff 0%, #23a1ff 45%, #0b3a7a 100%);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.35);
+}
+
+.brand a { color: var(--text); }
+
+.controls {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.btn {
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text);
+  padding: 8px 10px;
+  border-radius: 10px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  border-color: color-mix(in srgb, var(--border) 35%, var(--accent2));
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 18%, transparent);
+}
+
+/* Primary accent button style */
+.btn.accent {
+  border: 0;
+  background: linear-gradient(135deg, var(--accent3) 0%, var(--accent2) 55%, var(--accent) 100%);
+  color: white;
+}
+
+.btn.accent:hover {
+  filter: brightness(1.05);
+  box-shadow: 0 10px 30px rgba(255, 59, 124, 0.18), 0 10px 30px rgba(178, 85, 255, 0.16);
+}
+
+.main {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 30px 18px 70px;
+}
+
+.post-title {
+  font-family: var(--mono);
+  font-weight: 800;
+  font-size: clamp(38px, 5.2vw, 64px);
+  line-height: 0.98;
+  letter-spacing: -0.02em;
+  margin: 18px 0 10px;
+}
+
+.post-meta {
+  font-family: var(--mono);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 12px;
+  color: var(--muted2);
+  margin-bottom: 24px;
+}
+
+.prose {
+  font-family: var(--mono);
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--text);
+}
+
+.prose p { margin: 0 0 16px; }
+.prose h2, .prose h3 {
+  font-family: var(--mono);
+  margin: 28px 0 10px;
+  line-height: 1.2;
+}
+
+.prose h2 { font-size: 22px; }
+.prose h3 { font-size: 19px; color: var(--muted); }
+
+.prose ul { padding-left: 22px; margin: 0 0 16px; }
+.prose li { margin: 8px 0; }
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--border);
+  margin: 28px 0;
+}
+
+.footer {
+  margin-top: 44px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+  color: var(--muted2);
+  font-family: var(--mono);
+  font-size: 12px;
+}
+
+.index-list {
+  display: grid;
+  gap: 14px;
+}
+
+.index-item {
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 14px 16px;
+  background: color-mix(in srgb, var(--bg2) 72%, transparent);
+}
+
+.index-item .t {
+  font-family: var(--mono);
+  font-size: 18px;
+  font-weight: 800;
+  margin: 0 0 6px;
+}
+
+.index-item .m {
+  font-family: var(--mono);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted2);
+}
+
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div><a href="../../index.html">AA Morning Briefing</a></div>
+      </div>
+      <div class="controls">
+        <a class="btn" href="../../archive.html">Archive</a>
+        <a class="btn" href="../../rss.xml">RSS</a>
+        <button class="btn accent" id="theme-toggle" type="button">Dark/Light</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="main">
+    <div class="post-title">Morning briefing — 2026-02-18</div>
+<div class="post-meta">Feb 18, 2026 • Roundup</div>
+<div class="prose"><h2>Morning Briefing — 2026-02-18</h2>
+<p>_Generated automatically. Times and ordering reflect what was trending at generation time._</p>
+<h2>A) Hacker News — Top 5</h2>
+<p>1. <a href="<a href="https://nvie.com/posts/15-years-later/">https://nvie.com/posts/15-years-later/</a>">15 years later, Microsoft morged my diagram</a> — <a href="<a href="https://news.ycombinator.com/item?id=47057829">https://news.ycombinator.com/item?id=47057829</a>">discussion</a> 2. <a href="<a href="https://www.sceneandheardnu.com/content/halt-and-catch-fire">https://www.sceneandheardnu.com/content/halt-and-catch-fire</a>">Halt and Catch Fire: TV's Best Drama You've Probably Never Heard Of (2021)</a> — <a href="<a href="https://news.ycombinator.com/item?id=47056314">https://news.ycombinator.com/item?id=47056314</a>">discussion</a> 3. <a href="<a href="https://gist.github.com/jake-stewart/0a8ea46159a7da2c808e5be2177e1783">https://gist.github.com/jake-stewart/0a8ea46159a7da2c808e5be2177e1783</a>">Terminals should generate the 256-color palette</a> — <a href="<a href="https://news.ycombinator.com/item?id=47057824">https://news.ycombinator.com/item?id=47057824</a>">discussion</a> 4. <a href="<a href="https://www.anthropic.com/news/claude-sonnet-4-6">https://www.anthropic.com/news/claude-sonnet-4-6</a>">Claude Sonnet 4.6</a> — <a href="<a href="https://news.ycombinator.com/item?id=47050488">https://news.ycombinator.com/item?id=47050488</a>">discussion</a> 5. <a href="<a href="https://github.com/taleshape-com/shaper">https://github.com/taleshape-com/shaper</a>">A DuckDB-based metabase alternative</a> — <a href="<a href="https://news.ycombinator.com/item?id=47057879">https://news.ycombinator.com/item?id=47057879</a>">discussion</a></p>
+<h2>B) Reddit — Top topics (summarized)</h2>
+<p>Pulled from r/popular; themes below (with representative threads):</p>
+<ul>
+<li>**Tech/Internet:**</li>
+<li>YouTube went down. 8:00pm.</li>
+<li>It took about 17 years for us to finish a Costco sized container of red pepper flakes</li>
+<li>“We simply don’t have any left”: Germany has run out of air defense missiles for Ukraine, foreign minister says</li>
+<li>**Life/Everyday:**</li>
+<li>Little moments that brighten the day</li>
+<li>For anyone who grew up poor, what was your idea of a luxury?</li>
+<li>**Politics/World:**</li>
+<li>New Yorkers are furious as melting snowbanks expose streets littered with poop.</li>
+<li>RFK Jr ridiculed as he promotes strange fitness initiative topless with Kid Rock</li>
+<li>**Humor/Images:**</li>
+<li>Oops</li>
+<li>It’s huge !</li>
+<li>Close up of curling brush melting ice</li>
+</ul>
+<p>Direct links (top sample):</p>
+<ul>
+<li><a href="<a href="https://www.reddit.com/r/youtube/comments/1r7onh1/youtube_went_down_800pm/">https://www.reddit.com/r/youtube/comments/1r7onh1/youtube_went_down_800pm/</a>">YouTube went down. 8:00pm.</a></li>
+<li><a href="<a href="https://www.reddit.com/r/MadeMeSmile/comments/1r7sl5m/little_moments_that_brighten_the_day/">https://www.reddit.com/r/MadeMeSmile/comments/1r7sl5m/little_moments_that_brighten_the_day/</a>">Little moments that brighten the day</a></li>
+<li><a href="<a href="https://www.reddit.com/r/mildlyinteresting/comments/1r7tk3n/it_took_about_17_years_for_us_to_finish_a_costco/">https://www.reddit.com/r/mildlyinteresting/comments/1r7tk3n/it_took_about_17_years_for_us_to_finish_a_costco/</a>">It took about 17 years for us to finish a Costco sized container of red pepper flakes</a></li>
+<li><a href="<a href="https://www.reddit.com/r/AskReddit/comments/1r7o5dm/for_anyone_who_grew_up_poor_what_was_your_idea_of/">https://www.reddit.com/r/AskReddit/comments/1r7o5dm/for_anyone_who_grew_up_poor_what_was_your_idea_of/</a>">For anyone who grew up poor, what was your idea of a a luxury?</a></li>
+<li><a href="<a href="https://www.reddit.com/r/worldnews/comments/1r7huaj/we_simply_dont_have_any_left_germany_has_run_out/">https://www.reddit.com/r/worldnews/comments/1r7huaj/we_simply_dont_have_any_left_germany_has_run_out/</a>">“We simply don’t have any left”: Germany has run out of air defense missiles for Ukraine, foreign minister says</a></li>
+</ul>
+<h2>C) Anti-bubble picks (outside the usual sources)</h2>
+<p>A few deliberately non-tech-core reads/watches to widen the aperture.</p>
+<h3>Quanta Magazine</h3>
+<ul>
+<li><a href="<a href="https://www.quantamagazine.org/a-new-complexity-theory-for-the-quantum-age-20260217/">https://www.quantamagazine.org/a-new-complexity-theory-for-the-quantum-age-20260217/</a>">A New Complexity Theory for the Quantum Age</a></li>
+<li><a href="<a href="https://www.quantamagazine.org/are-the-mysteries-of-quantum-mechanics-beginning-to-dissolve-20260213/">https://www.quantamagazine.org/are-the-mysteries-of-quantum-mechanics-beginning-to-dissolve-20260213/</a>">Are the Mysteries of Quantum Mechanics Beginning To Dissolve?</a></li>
+<li><a href="<a href="https://www.quantamagazine.org/physicists-make-electrons-flow-like-water-20260211/">https://www.quantamagazine.org/physicists-make-electrons-flow-like-water-20260211/</a>">Physicists Make Electrons Flow Like Water</a></li>
+</ul>
+<h3>YouTube</h3>
+<ul>
+<li>**ARTEde** (2026-02-17) — <a href="<a href="https://www.youtube.com/watch?v=5opQa9LiOq4">https://www.youtube.com/watch?v=5opQa9LiOq4</a>">Lang Lang in der Carnegie Hall | Doku HD | ARTE</a></li>
+<li>**Tom Scott** (2026-02-17) — <a href="<a href="https://www.youtube.com/watch?v=CClGuz5JtDk">https://www.youtube.com/watch?v=CClGuz5JtDk</a>">An innovative way to enjoy opera</a></li>
+<li>**FoundMyFitness** (2026-02-16) — <a href="<a href="https://www.youtube.com/watch?v=nSry4JJP3H4">https://www.youtube.com/watch?v=nSry4JJP3H4</a>">Stop Taking Your Supplements at the Wrong Time (Fix It NOW)</a></li>
+<li>**SmarterEveryDay** (2026-02-13) — <a href="<a href="https://www.youtube.com/watch?v=Q9JcpSJwEK0">https://www.youtube.com/watch?v=Q9JcpSJwEK0</a>">BIG NEWS From Dr. Fuqua</a></li>
+<li>**Kurzgesagt** (2026-02-13) — <a href="<a href="https://www.youtube.com/watch?v=bIwX4QuL90k">https://www.youtube.com/watch?v=bIwX4QuL90k</a>">The Final Days of Louis XIV</a></li>
+</ul></div>
+
+    <div class="footer">
+      Generated automatically. For offline use: use your browser’s “Save page” / Reading List.
+    </div>
+  </main>
+
+  <script>
+  (function(){
+  var key = 'briefing_theme';
+  function setTheme(t){
+    document.documentElement.setAttribute('data-theme', t);
+    try { localStorage.setItem(key, t); } catch(e) {}
+  }
+  function getPreferred(){
+    try {
+      var v = localStorage.getItem(key);
+      if (v === 'dark' || v === 'light') return v;
+    } catch(e) {}
+    return 'dark';
+  }
+
+  document.addEventListener('DOMContentLoaded', function(){
+    setTheme(getPreferred());
+    var btn = document.getElementById('theme-toggle');
+    if (!btn) return;
+    btn.addEventListener('click', function(){
+      var cur = document.documentElement.getAttribute('data-theme') || 'dark';
+      setTheme(cur === 'dark' ? 'light' : 'dark');
+    });
+  });
+})();
+
+  </script>
+</body>
+</html>
