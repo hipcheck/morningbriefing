@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Morning briefing — 2026-02-19</title>
+  <meta name="description" content="Morning briefing" />
+  <style>
+  /* AA Morning Briefing theme. No external assets. */
+
+:root {
+  --bg: #071d2b;
+  --bg2: #061725;
+  --text: #e9eef3;
+  --muted: rgba(233, 238, 243, 0.72);
+  --muted2: rgba(233, 238, 243, 0.56);
+  --link: #ff4fd8;
+  --accent: #ff3b7c;
+  --accent2: #b255ff;
+  --accent3: #ff4fd8;
+  --border: rgba(233, 238, 243, 0.12);
+
+  --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+
+  --maxw: 860px;
+}
+
+:root[data-theme="light"] {
+  --bg: #f6f7f9;
+  --bg2: #ffffff;
+  --text: #111827;
+  --muted: rgba(17, 24, 39, 0.72);
+  --muted2: rgba(17, 24, 39, 0.56);
+  --link: #7c3aed;
+  --accent: #ff3b7c;
+  --accent2: #7c3aed;
+  --accent3: #db2777;
+  --border: rgba(17, 24, 39, 0.12);
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
+  color: var(--text);
+  font-family: var(--sans);
+}
+
+a { color: var(--link); text-decoration: none; }
+a:hover {
+  text-decoration: none;
+  color: color-mix(in srgb, var(--link) 55%, var(--accent3));
+}
+
+::selection {
+  background: color-mix(in srgb, var(--accent3) 55%, transparent);
+  color: var(--text);
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  backdrop-filter: blur(10px);
+  background: color-mix(in srgb, var(--bg) 75%, transparent);
+  border-bottom: 1px solid var(--border);
+  z-index: 10;
+}
+
+.header-inner {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 14px 18px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.brand .logo {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: radial-gradient(circle at 30% 30%, #62d1ff 0%, #23a1ff 45%, #0b3a7a 100%);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.35);
+}
+
+.brand a { color: var(--text); }
+
+.controls {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.btn {
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text);
+  padding: 8px 10px;
+  border-radius: 10px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  border-color: color-mix(in srgb, var(--border) 35%, var(--accent2));
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 18%, transparent);
+}
+
+/* Primary accent button style */
+.btn.accent {
+  border: 0;
+  background: linear-gradient(135deg, var(--accent3) 0%, var(--accent2) 55%, var(--accent) 100%);
+  color: white;
+}
+
+.btn.accent:hover {
+  filter: brightness(1.05);
+  box-shadow: 0 10px 30px rgba(255, 59, 124, 0.18), 0 10px 30px rgba(178, 85, 255, 0.16);
+}
+
+.main {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 30px 18px 70px;
+}
+
+.post-title {
+  font-family: var(--mono);
+  font-weight: 800;
+  font-size: clamp(38px, 5.2vw, 64px);
+  line-height: 0.98;
+  letter-spacing: -0.02em;
+  margin: 18px 0 10px;
+}
+
+.post-meta {
+  font-family: var(--mono);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 12px;
+  color: var(--muted2);
+  margin-bottom: 24px;
+}
+
+.prose {
+  font-family: var(--mono);
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--text);
+}
+
+.prose p { margin: 0 0 16px; }
+.prose h2, .prose h3 {
+  font-family: var(--mono);
+  margin: 28px 0 10px;
+  line-height: 1.2;
+}
+
+.prose h2 { font-size: 22px; }
+.prose h3 { font-size: 19px; color: var(--muted); }
+
+.prose ul { padding-left: 22px; margin: 0 0 16px; }
+.prose li { margin: 8px 0; }
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--border);
+  margin: 28px 0;
+}
+
+.footer {
+  margin-top: 44px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+  color: var(--muted2);
+  font-family: var(--mono);
+  font-size: 12px;
+}
+
+.index-list {
+  display: grid;
+  gap: 14px;
+}
+
+.index-item {
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 14px 16px;
+  background: color-mix(in srgb, var(--bg2) 72%, transparent);
+}
+
+.index-item .t {
+  font-family: var(--mono);
+  font-size: 18px;
+  font-weight: 800;
+  margin: 0 0 6px;
+}
+
+.index-item .m {
+  font-family: var(--mono);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted2);
+}
+
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div><a href="../../index.html">AA Morning Briefing</a></div>
+      </div>
+      <div class="controls">
+        <a class="btn" href="../../archive.html">Archive</a>
+        <a class="btn" href="../../rss.xml">RSS</a>
+        <button class="btn accent" id="theme-toggle" type="button">Dark/Light</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="main">
+    <div class="post-title">Morning briefing — 2026-02-19</div>
+<div class="post-meta">Feb 19, 2026 • Roundup</div>
+<div class="prose"><h2>Morning Briefing — 2026-02-19</h2>
+<p>_Generated automatically. Times and ordering reflect what was trending at generation time._</p>
+<h2>A) Hacker News — Top 5</h2>
+<p>1. <a href="<a href="https://pudding.cool/2026/02/womens-sizing/">https://pudding.cool/2026/02/womens-sizing/</a>">Sizing chaos</a> — <a href="<a href="https://news.ycombinator.com/item?id=47066552">https://news.ycombinator.com/item?id=47066552</a>">discussion</a> 2. <a href="<a href="https://old.reddit.com/r/MacOS/comments/1r8900z/macos_which_officially_supports_27_year_old/">https://old.reddit.com/r/MacOS/comments/1r8900z/macos_which_officially_supports_27_year_old/</a>">27-year-old Apple iBooks can connect to Wi-Fi and download official updates</a> — <a href="<a href="https://news.ycombinator.com/item?id=47066241">https://news.ycombinator.com/item?id=47066241</a>">discussion</a> 3. [Martial arts robots at 2026 Spring Festival Gala \[video\]](<a href="https://www.youtube.com/watch?v=mUmlv814aJo">https://www.youtube.com/watch?v=mUmlv814aJo</a>) — <a href="<a href="https://news.ycombinator.com/item?id=47067496">https://news.ycombinator.com/item?id=47067496</a>">discussion</a> 4. <a href="<a href="https://nicolasdickenmann.com/blog/the-great-fp64-divide.html">https://nicolasdickenmann.com/blog/the-great-fp64-divide.html</a>">15 years of FP64 segmentation, and why the Blackwell Ultra breaks the pattern</a> — <a href="<a href="https://news.ycombinator.com/item?id=47068890">https://news.ycombinator.com/item?id=47068890</a>">discussion</a> 5. <a href="<a href="https://code.claude.com/docs/en/legal-and-compliance">https://code.claude.com/docs/en/legal-and-compliance</a>">Anthropic officially bans using subscription auth for third party use</a> — <a href="<a href="https://news.ycombinator.com/item?id=47069299">https://news.ycombinator.com/item?id=47069299</a>">discussion</a></p>
+<h2>B) Reddit — Top topics (summarized)</h2>
+<p>Pulled from r/popular; themes below (with representative threads):</p>
+<ul>
+<li>**Work/tech &amp; surveillance:** discussion about workplaces using tech to audit/measure employee productivity.</li>
+<li>**Culture + politics:** a prompt about “the most attractive politician in your country” and how people read public image/charisma.</li>
+<li>**Entertainment &amp; emotion:** a big AskReddit thread on movies people won’t rewatch because they were too heartbreaking.</li>
+<li>**Personal safety / awareness:** a Lithuanian public-safety guide about identifying a kidnapped victim sparked broad discussion.</li>
+<li>**Home theater / media settings:** debate about the “soap opera effect” (motion smoothing) and why many TVs ship with it enabled.</li>
+</ul>
+<p>Direct links (top sample):</p>
+<ul>
+<li><a href="<a href="https://www.reddit.com/r/AskTheWorld/comments/1r8ffki/who_is_the_most_attractive_politician_in_your/">https://www.reddit.com/r/AskTheWorld/comments/1r8ffki/who_is_the_most_attractive_politician_in_your/</a>">Who is the most attractive politician in your country?</a></li>
+<li><a href="<a href="https://www.reddit.com/r/interesting/comments/1r828q8/coffee_shop_uses_technology_to_audit_employee/">https://www.reddit.com/r/interesting/comments/1r828q8/coffee_shop_uses_technology_to_audit_employee/</a>">Coffee shop uses technology to audit employee productivity</a></li>
+<li><a href="<a href="https://www.reddit.com/r/AskReddit/comments/1r8lfs0/what_movie_will_you_never_watch_again_because_it/">https://www.reddit.com/r/AskReddit/comments/1r8lfs0/what_movie_will_you_never_watch_again_because_it/</a>">What movie will you never watch again because it was too heartbreaking?</a></li>
+<li><a href="<a href="https://www.reddit.com/r/Damnthatsinteresting/comments/1r8ocbz/lithuanian_psaguide_on_how_to_identify_a/">https://www.reddit.com/r/Damnthatsinteresting/comments/1r8ocbz/lithuanian_psaguide_on_how_to_identify_a/</a>">Lithuanian PSA/Guide on how to identify a kidnapped victim</a></li>
+<li><a href="<a href="https://www.reddit.com/r/mildlyinfuriating/comments/1r85ano/why_doesnt_anyone_care_about_the_soap_opera/">https://www.reddit.com/r/mildlyinfuriating/comments/1r85ano/why_doesnt_anyone_care_about_the_soap_opera/</a>">Why doesn’t anyone care about the “soap opera” effect on their TV</a></li>
+</ul>
+<h2>C) Anti-bubble picks (outside the usual sources)</h2>
+<p>A few deliberately off-path reads/watches to widen the aperture.</p>
+<h3>arXiv (new submissions)</h3>
+<ul>
+<li><a href="<a href="https://arxiv.org/abs/2602.15831">https://arxiv.org/abs/2602.15831</a>">A2H: Agent-to-Human Protocol for AI Agent</a></li>
+<li><a href="<a href="https://arxiv.org/abs/2602.15842">https://arxiv.org/abs/2602.15842</a>">Memes-as-Replies: Can Models Select Humorous Manga Panel Responses?</a></li>
+</ul>
+<h3>Standards / infrastructure</h3>
+<ul>
+<li><a href="<a href="https://letsencrypt.org/2026/02/18/dns-persist-01/">https://letsencrypt.org/2026/02/18/dns-persist-01/</a>">DNS-Persist-01: A New Model for DNS-Based Challenge Validation (Let’s Encrypt)</a></li>
+</ul>
+<h3>YouTube</h3>
+<ul>
+<li>**ARTEde** (2026-02-18) — <a href="<a href="https://www.youtube.com/watch?v=yup9z1yVSc0">https://www.youtube.com/watch?v=yup9z1yVSc0</a>">Fanny Ardant : Die Geburt einer Leidenschaft | Doku HD Reupload |ARTE</a></li>
+<li>**FoundMyFitness** (2026-02-18) — <a href="<a href="https://www.youtube.com/watch?v=11R-62utuHY">https://www.youtube.com/watch?v=11R-62utuHY</a>">This Exercise Protocol Reversed 20 Years of Heart Aging in Sedentary Adults</a></li>
+<li>**Tom Scott** (2026-02-17) — <a href="<a href="https://www.youtube.com/watch?v=CClGuz5JtDk">https://www.youtube.com/watch?v=CClGuz5JtDk</a>">An innovative way to enjoy opera</a></li>
+<li>**SmarterEveryDay** (2026-02-13) — <a href="<a href="https://www.youtube.com/watch?v=Q9JcpSJwEK0">https://www.youtube.com/watch?v=Q9JcpSJwEK0</a>">BIG NEWS From Dr. Fuqua</a></li>
+<li>**Kurzgesagt** (2026-02-13) — <a href="<a href="https://www.youtube.com/watch?v=bIwX4QuL90k">https://www.youtube.com/watch?v=bIwX4QuL90k</a>">The Final Days of Louis XIV</a></li>
+</ul></div>
+
+    <div class="footer">
+      Generated automatically. For offline use: use your browser’s “Save page” / Reading List.
+    </div>
+  </main>
+
+  <script>
+  (function(){
+  var key = 'briefing_theme';
+  function setTheme(t){
+    document.documentElement.setAttribute('data-theme', t);
+    try { localStorage.setItem(key, t); } catch(e) {}
+  }
+  function getPreferred(){
+    try {
+      var v = localStorage.getItem(key);
+      if (v === 'dark' || v === 'light') return v;
+    } catch(e) {}
+    return 'dark';
+  }
+
+  document.addEventListener('DOMContentLoaded', function(){
+    setTheme(getPreferred());
+    var btn = document.getElementById('theme-toggle');
+    if (!btn) return;
+    btn.addEventListener('click', function(){
+      var cur = document.documentElement.getAttribute('data-theme') || 'dark';
+      setTheme(cur === 'dark' ? 'light' : 'dark');
+    });
+  });
+})();
+
+  </script>
+</body>
+</html>
